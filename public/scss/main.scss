@@ -1,0 +1,12 @@
+@import "compass";
+@import "bootstrap";
+
+@font-face{
+	font-family: "Frut";
+	src:url("../assets/fonts/FrutigerLTStd-Roman.otf");
+	src:url("../assets/fonts/FrutigerLTStd-Roman.otf?#iefix") format("embedded-opentype");
+}
+
+html, body{
+	font-family: "Frut";
+}
