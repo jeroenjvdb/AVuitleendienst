@@ -3748,13 +3748,22 @@ tbody.collapse.in {
     display: none !important;
   }
 }
-@font-face {
-  font-family: "Frut";
-  src: url("../assets/fonts/FrutigerLTStd-Roman.otf");
-  src: url("../assets/fonts/FrutigerLTStd-Roman.otf?#iefix") format("embedded-opentype");
+/* line 8, ../scss/main.scss */
+html, body {
+  font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
 }
 
-/* line 10, ../scss/main.scss */
-html, body {
-  font-family: "Frut";
+/* line 12, ../scss/main.scss */
+.highlight {
+  color: #c1d82f;
+}
+
+/* line 16, ../scss/main.scss */
+.title {
+  color: #c1d82f;
+}
+
+/* line 20, ../scss/main.scss */
+.success {
+  color: #27318b;
 }

@@ -1,12 +1,22 @@
 @import "compass";
 @import "bootstrap";
 
-@font-face{
-	font-family: "Frut";
-	src:url("../assets/fonts/FrutigerLTStd-Roman.otf");
-	src:url("../assets/fonts/FrutigerLTStd-Roman.otf?#iefix") format("embedded-opentype");
-}
+$primary-green: #c1d82f;
+$primary-blue: #27318b;
+
 
 html, body{
-	font-family: "Frut";
+	font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
+}
+
+.highlight{
+	color: $primary-green;
+}
+
+.title{
+	color: $primary-green;
+}
+
+.success{
+	color: $primary-blue;
 }
