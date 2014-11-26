@@ -29,6 +29,25 @@ class CreateAccessoriesTable extends Migration {
 						->onDelete("restrict");
 			$table->timestamps();
 		});
+
+		DB::table('accessories')->insert(array(
+	        array('fk_mastermaterial' => '1',
+	        	  'fk_slavematerial' => '7'),
+			array('fk_mastermaterial' => '1',
+	        	  'fk_slavematerial' => '8'),
+			array('fk_mastermaterial' => '2',
+	        	  'fk_slavematerial' => '7'),
+			array('fk_mastermaterial' => '2',
+	        	  'fk_slavematerial' => '8'),
+			array('fk_mastermaterial' => '3',
+	        	  'fk_slavematerial' => '5'),
+			array('fk_mastermaterial' => '3',
+	        	  'fk_slavematerial' => '6'),
+			array('fk_mastermaterial' => '4',
+	        	  'fk_slavematerial' => '5'),
+			array('fk_mastermaterial' => '4',
+	        	  'fk_slavematerial' => '6'),
+	    	));
 	}
 
 	/**

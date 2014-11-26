@@ -18,6 +18,13 @@ class CreateCategoriesTable extends Migration {
 			$table->string('name')->unique();
 			$table->timestamps();
 		});
+
+		DB::table('categories')->insert(array(
+	        array('name'=>'microfoons'),
+			array('name'=>"camera's"),
+			array('name'=>'statieven'),
+			array('name'=>'kabelset'),
+	    	));
 	}
 
 	/**

@@ -13,5 +13,7 @@
 
 Route::get('/', function()
 {
+	return Hash::make('password');
 	return View::make('hello');
+
 });
