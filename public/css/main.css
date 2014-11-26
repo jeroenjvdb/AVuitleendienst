@@ -3767,3 +3767,8 @@ html, body {
 .success {
   color: #27318b;
 }
+
+/* line 24, ../scss/main.scss */
+h1 {
+  color: #c1d82f;
+}
