@@ -10,8 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
+Route::resource('sessions','sessioncontroller');
+Route::get('logout','sessioncontroller@destroy');
+Route::resource('users','usercontroller');
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
+
 });
