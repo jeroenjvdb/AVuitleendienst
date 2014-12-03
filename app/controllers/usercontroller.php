@@ -9,26 +9,13 @@ class usercontroller extends \BaseController {
 	 */
 	public function index()
 	{
-		switch (Auth::user()->type) {
-			case 'student':
-					return View::make('student.index');
-				break;
-
-			case 'teacher':
-					return View::make('teacher.index');
-				break;
-
-			case 'monitor':
-					return View::make('monitor.index');
-				break;
-
-			case 'admin':
-					return View::make('admin.index');
-				break;
-			
-			default:
-				# code...
-				break;
+		if(Auth::check())
+		{
+			return View::make('users.index');
+		}
+		else
+		{
+			return Redirect::to('/');
 		}
 		
 	}

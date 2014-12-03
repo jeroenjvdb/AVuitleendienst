@@ -6,6 +6,6 @@
 </head>
 <body>
 	{{link_to('logout','logout')}}
-	<h1>Monitor</h1>
+	<h1>{{Auth::user()->type}}</h1>
 </body>
 </html>
