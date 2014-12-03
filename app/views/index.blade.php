@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
+@extends("global.base")
+
+@section("page-title")
+	Welkom
+@stop
+
+@section("content")
 	<h1>Inloggen</h1>
-	 @if(Session::has('err'))
-    <div>{{ Session::get('err') }}</div>
+	@if(Session::has('err'))
+		<div>{{ Session::get('err') }}</div>
     @endif
 	{{Form::open(['route' => 'sessions.store'])}}
 
@@ -20,5 +20,4 @@
 	{{Form::submit('Inloggen')}}
 
 	{{Form::close()}}
-</body>
-</html>
+@stop

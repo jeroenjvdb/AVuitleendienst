@@ -1,1 +1,0 @@
-{{linkt_to('logout')}}

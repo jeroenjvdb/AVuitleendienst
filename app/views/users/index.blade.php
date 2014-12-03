@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	{{link_to('logout','logout')}}
-	<h1>{{Auth::user()->type}}</h1>
-</body>
-</html>
+@extends("global.base")
+
+@section("page-title")
+	Overzicht
+@stop
+
+@section("nav")
+	@include("global.nav")
+@stop
+
+@section("content")
+	<h2>Welkom, {{Auth::user()->firstname}}</h2>
+@stop
