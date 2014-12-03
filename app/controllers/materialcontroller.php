@@ -7,9 +7,25 @@ class materialcontroller extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct(User $user, Material $material,Categorie $categorie)
+	{
+		$this->user = $user;
+		$this->material = $material;
+		$this->categorie = $categorie;
+
+	}
+
 	public function index()
 	{
-		//
+		if(Auth::check())
+		{
+			$categories = $this->categorie->getCategoriesWhitMaterials();
+			return View::make('users.index',['categories' => $categories]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -43,7 +59,15 @@ class materialcontroller extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return $id;
+		if(Auth::check())
+		{
+			$material = $this->material->getMaterialById($id);
+			return View::make('materials.detail',['material' => $material]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 

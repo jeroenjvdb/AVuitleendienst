@@ -12,4 +12,9 @@ class Material extends Eloquent {
     {
         return $this->belongsToMany('Categorie','materialcategories','fk_materialsid','fk_categoriesid');
     }
+
+    public function getMaterialById($id)
+    {
+    	return Material::where('id','=',$id)->first();
+    }
 }
