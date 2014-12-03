@@ -13,6 +13,7 @@
 Route::resource('sessions','sessioncontroller');
 Route::get('logout','sessioncontroller@destroy');
 Route::resource('users','usercontroller');
+Route::resource('materials','materialcontroller');
 Route::get('/', function()
 {
 	return View::make('index');
