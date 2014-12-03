@@ -5,6 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
+	{{link_to('logout','logout')}}
 	<h1>Admin</h1>
 </body>
 </html>

@@ -11,6 +11,7 @@
 |
 */
 Route::resource('sessions','sessioncontroller');
+Route::get('logout','sessioncontroller@destroy');
 Route::resource('users','usercontroller');
 Route::get('/', function()
 {
