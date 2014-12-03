@@ -3772,3 +3772,22 @@ html, body {
 h1 {
   color: #c1d82f;
 }
+
+/* line 28, ../scss/main.scss */
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #c1d82f;
+  color: #27318b;
+}
+
+/* line 33, ../scss/main.scss */
+.navbar {
+  background-color: #27318b;
+  height: 175px;
+  width: 100%;
+}
+
+/* line 39, ../scss/main.scss */
+.nav {
+  margin: 0px auto;
+  width: 700px;
+}

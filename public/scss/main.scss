@@ -24,3 +24,19 @@ html, body{
 h1{
 	color: $primary-green;
 }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #c1d82f;
+    color: #27318b;
+}
+
+.navbar{
+	background-color:#27318b;
+	height:175px;
+	width:100%;
+}
+
+.nav{
+	margin:0px auto;
+	width:700px;
+}
