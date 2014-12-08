@@ -28,7 +28,7 @@
 		<a href="#">Logboek</a>
 	</li>
 	<li role="presentation">
-		<a href="#">Beheer</a>
+		<a href="/beheer">Beheer</a>
 	</li>
 	
 	@endif

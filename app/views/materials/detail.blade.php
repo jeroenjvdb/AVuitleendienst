@@ -12,4 +12,14 @@
 	<h2>{{{$material->name}}}</h2>
 	<img src="/images/{{$material->image}}" alt="">
 	<p>{{{$material->details}}}</p>
+
+	@forelse($material->accessories as $accessorie)
+		<div>
+			<h3> {{{$accessorie->name}}}</h3>
+			<img src="/images/{{$accessorie->image}}" alt="">
+			<p>{{{$accessorie->details}}}</p>	
+		</div>
+	@empty
+		<p>er zijn geen accesores voor dit object.</p>
+	@endforelse
 @stop
