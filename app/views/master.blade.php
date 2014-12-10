@@ -11,6 +11,7 @@ return (Route::current()->uri() == $route) ? $class : '';
 		@yield('title')
 	</title>
 	{{HTML::style("css/main.css")}}
+  {{HTML::script("js/main.js")}}
 </head>
 <body>
 

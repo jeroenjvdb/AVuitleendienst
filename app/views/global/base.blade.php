@@ -3,7 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title> @yield("page-title") - KdG Uitleendienst </title>
+	
+	{{HTML::script("js/jquery-2.1.1.min.js")}}
+	{{HTML::script("js/bootstrap.min.js")}}
+	{{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
+	{{HTML::script("js/main.js")}}
 	{{ HTML::style('css/main.css') }}
+	
 </head>
 <body>
 	<div class="navbar">
