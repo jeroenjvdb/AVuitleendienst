@@ -19,7 +19,7 @@
 	  </button>
 	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 	  	@forelse($categories as $categorie)
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{{$categorie->name}}}</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="{{{$categorie->id}}}" class="category">{{{$categorie->name}}}</a></li>
 			@empty
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geen categorieën</a></li>
 		@endforelse
@@ -27,12 +27,22 @@
 	</div>
 
 	@forelse($categories as $categorie)
-		<div class="{{{$categorie->name}}}"></div>
+		<div class="categoryfull {{{$categorie->id}}}">
+			@forelse($categorie->materials as $material)
+			<div class="well well-sm">
+				<img src="/images/{{$material->image}}" alt="">
+				{{link_to('materials/'.$material->id,$material->name)}}
+			</div>
+			
+			@empty
+			<p>geen materiaal</p>
+			@endforelse
+		</div>
 	@empty
 		<div class="nocategory"></div>
 	@endforelse
 
-	<div>
+	<!-- <div>
 		@forelse($categories as $categorie)
 		<h3>{{{$categorie->name}}}</h3>
 			@forelse($categorie->materials as $material)
@@ -44,5 +54,5 @@
 		@empty
 		<p>geen categorien</p>
 		@endforelse
-	</div>
+	</div> -->
 @stop
