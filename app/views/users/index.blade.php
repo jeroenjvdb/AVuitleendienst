@@ -16,10 +16,10 @@
 			@forelse($categorie->materials as $material)
 			{{link_to('materials/'.$material->id,$material->name)}}
 			@empty
-			<p>no materials</p>
+			<p>geen materiaal</p>
 			@endforelse
 		@empty
-		<p>no categories</p>
+		<p>geen categorien</p>
 		@endforelse
 	</div>
 @stop

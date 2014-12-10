@@ -14,6 +14,9 @@ Route::resource('sessions','sessioncontroller');
 Route::get('logout','sessioncontroller@destroy');
 Route::resource('users','usercontroller');
 Route::resource('materials','materialcontroller');
+Route::resource('categories','categoriecontroller');
+Route::get('/beheer', 'HomeCOntroller@beheer');
+
 Route::get('/', function()
 {
 	return View::make('index');

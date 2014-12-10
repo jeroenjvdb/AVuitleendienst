@@ -1,5 +1,5 @@
 <?php
-
+use Intervention\Image\ImageManager;
 class materialcontroller extends \BaseController {
 
 	/**
@@ -7,9 +7,26 @@ class materialcontroller extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct(User $user, Material $material,Categorie $categorie,Accessorie $accessorie)
+	{
+		$this->user = $user;
+		$this->material = $material;
+		$this->categorie = $categorie;
+		$this->accessorie = $accessorie;
+
+	}
+
 	public function index()
 	{
-		//
+		if(Auth::check())
+		{
+			$categories = $this->categorie->getCategoriesWhitMaterials();
+			return View::make('users.index',['categories' => $categories]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -20,7 +37,16 @@ class materialcontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		if(Auth::check())
+		{
+			$categories = Categorie::getAllCategories();
+			$accessories = Accessorie::getAllAccessories();
+			return View::make('users.admin.addMaterial',['categories' => $categories,'accessories' => $accessories]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -31,7 +57,35 @@ class materialcontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Auth::check())
+		{	
+			if( $this->material->fill(Input::all())->isValid())
+			{
+				$filename = 'nofile.png';
+				if(Input::hasFile('image'))
+				{
+				
+					$filename = substr_replace(Input::file('image')->getClientOriginalName() ,"",-4).Input::get('name').'.png';
+					$image = Image::make(Input::file('image')->getRealPath())->heighten(500);
+					$image->crop(500,500);
+					$destenation = 'images/'.$filename;
+					$image->save($destenation);		
+				}
+				$this->material->status = 'ok';
+				$this->material->image = $filename;
+				$this->material->save();
+				$this->categorie->saveMaterialToCategorie(Input::get('categorie'),$this->material->id);
+				$this->accessorie->saveAccessories(Input::get('accessories'),$this->material->id);
+				return Redirect::to('/materials/create')->with('message', 'u hebt succesvol '.Input::get('name').' toegevoegd aan de lijst van materiaal');
+			}
+			else
+			{
+				return Redirect::back()->withInput()->withErrors($this->material->errors);
+			}
+		}
+		else{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -43,7 +97,15 @@ class materialcontroller extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return $id;
+		if(Auth::check())
+		{
+			$material = $this->material->getMaterialById($id);
+			return View::make('materials.detail',['material' => $material]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 

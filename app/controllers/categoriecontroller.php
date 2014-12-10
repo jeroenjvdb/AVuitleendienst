@@ -7,6 +7,14 @@ class categoriecontroller extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
+	public function __construct(Categorie $categorie)
+	{
+
+		$this->categorie = $categorie;
+
+	}
+
 	public function index()
 	{
 		//
@@ -20,7 +28,14 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		if(Auth::check())
+		{
+			return View::make('users.admin.addCategorie');
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -31,7 +46,21 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Auth::check())
+		{	
+			if( $this->categorie->fill(Input::all())->isValid())
+			{
+				$this->categorie->save();
+				return Redirect::to('/categories/create')->with('message', 'u hebt succesvol '.Input::get('name').' toegevoegd aan de lijst van categorien');
+			}
+			else
+			{
+				return Redirect::back()->withInput()->withErrors($this->categorie->errors);
+			}
+		}
+		else{
+			return Redirect::to('/');
+		}
 	}
 
 
