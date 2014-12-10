@@ -27,6 +27,7 @@ class HomeController extends BaseController {
 	public function beheerMateriaal(){
 		if(Auth::check())
 		{
+			$materials= Material::get();
 			return View::make('users.admin.beheerMateriaal');
 		}
 		else

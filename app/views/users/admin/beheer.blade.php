@@ -11,7 +11,7 @@
 @section("content")
 	<h2>Beheer</h2>
 	<div>
-		<a href="/beheer/materiaal">Beheer studenten</a>
-		<a href="/beheer/gebruikers">Beheer materiaal</a>
+		<a href="/beheer/materiaal">Beheer materiaal</a>
+		<a href="/beheer/gebruikers">Beheer studenten</a>
 	</div>
 @stop

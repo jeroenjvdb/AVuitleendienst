@@ -9,6 +9,7 @@
 @stop
 
 @section("content")
+	<span><a href="/beheer">Beheer</a>>Materiaal</span>
 	<h2>Beheer Materiaal</h2>
 	<div>
 		<a href="/materials/create">Materiaal toevoegen</a>

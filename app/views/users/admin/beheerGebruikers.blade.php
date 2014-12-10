@@ -9,6 +9,7 @@
 @stop
 
 @section("content")
+	<span><a href="/beheer">Beheer</a>>Gebruikers</span>
 	<h2>Beheer Gebruikers</h2>
 	<div>
 		
