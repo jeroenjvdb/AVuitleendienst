@@ -3792,183 +3792,125 @@ h1 {
   width: 700px;
 }
 
-/* line 45, ../scss/main.scss */
-#login {
-  position: absolute;
-  top: 0px;
-  width: 310px;
-  /* padding: 18px 6% 60px 6%; */
-  /* 	padding: 18px 5% 4% 10px; */
-  padding: 15px 32px 2px 20px;
-  margin: 50px 0 35px 0;
-  background-image: url(../img/subtle_dots.png);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.11);
-  -moz-box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.11);
-  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.11);
+/*LOGIN PAGINA*/
+/* line 47, ../scss/main.scss */
+.loginbox {
+  background-color: #fff!important;
+  border-radius: 0!important;
+  border: none!important;
 }
 
-/* line 63, ../scss/main.scss */
-#wrapper {
-  width: 400px;
-  margin: 10px auto;
-  position: relative;
-  background-color: red;
+/* line 53, ../scss/main.scss */
+.loginbox.loginboxinner {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
-/* line 70, ../scss/main.scss */
-#wrapper a {
-  text-decoration: none;
-}
-
-/* line 74, ../scss/main.scss */
-#wrapper h1 {
-  font-size: 48px;
-  color: #74BC2F;
-  padding: 2px 0 10px 0;
-  font-weight: bold;
+/* line 58, ../scss/main.scss */
+.loginbox.loginboxinner legend {
+  font-size: 26px;
   text-align: center;
-  padding-bottom: 10px;
-  /*was 30*/
-  margin: 0px;
+  font-weight: 300;
+  padding-top: 2px;
 }
 
-/* line 84, ../scss/main.scss */
-#wrapper input, #wrapper textarea {
-  width: 90%;
-  margin-top: 4px;
-  padding: 10px 5px 10px 32px;
-  border: 1px solid #b2b2b2;
-  -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-  -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
-/* line 105, ../scss/main.scss */
-#wrapper textarea {
-  resize: none;
-  height: 77px;
-}
-
-/* line 110, ../scss/main.scss */
-#wrapper input:active, #wrapper input:focus {
-  border: 1px solid #74BC2F;
-  background: rgba(238, 236, 240, 0.2);
-}
-
-/* line 115, ../scss/main.scss */
-#wrapper p.button input {
-  width: 100%;
-  cursor: pointer;
-  /*handje*/
-  padding: 8px 5px;
-  color: #fff;
-  font-size: 18px;
-  border: 1px solid #1c6c7a;
-  margin-bottom: 10px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  /*nice shadows*/
-  -webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px #fefefe, 0px 5px 3px 3px #d2d2d2;
-  -moz-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px #fefefe, 0px 5px 3px 3px #d2d2d2;
-  box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px #fefefe, 0px 5px 3px 3px #d2d2d2;
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-}
-
-/* line 138, ../scss/main.scss */
-#wrapper p.button input:active,
-#wrapper p.button input:focus {
-  background: #74BC2F;
-  position: relative;
-  top: 1px;
-}
-
-/* line 144, ../scss/main.scss */
-.inloggen {
-  background: #74BC2F;
-}
-
-/* line 148, ../scss/main.scss */
-.inloggen:hover {
-  background: #578C23;
-}
-
-/* line 154, ../scss/main.scss */
-p.login.button,
-p.signin.button {
-  text-align: right;
-  margin: 5px 0;
-}
-
-/* line 159, ../scss/main.scss */
-p.change_link {
-  position: absolute;
-  color: #7f7c7c;
-  left: 0px;
-  height: 20px;
-  /*was 20, but adding wtf is mealdeal*/
-  width: 340px;
-  padding: 17px 30px 20px 30px;
+/* line 64, ../scss/main.scss */
+.loginbox.loginboxinner label {
+  font-weight: 300;
   font-size: 16px;
-  text-align: center;
-  -webkit-border-radius: 0 0  5px 5px;
-  -moz-border-radius: 0 0  5px 5px;
-  border-radius: 0 0  5px 5px;
-  background: #ededed;
-  border-top: 1px solid #dbe5e8;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-  -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
 }
 
-/* line 179, ../scss/main.scss */
-#wrapper p.change_link a {
-  display: inline-block;
-  font-weight: bold;
-  background: #f7f8f1;
-  padding: 2px 6px;
-  color: #fe8f2d;
-  margin-left: 10px;
-  text-decoration: none;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #cbd5d6;
-  -webkit-transition: all 0.4s linear;
-  -moz-transition: all 0.4s  linear;
-  -o-transition: all 0.4s linear;
-  -ms-transition: all 0.4s  linear;
-  transition: all 0.4s  linear;
+/* line 69, ../scss/main.scss */
+.loginbox.loginboxinner input {
+  box-shadow: none;
+  border-color: #ddd;
+  border-radius: 0;
 }
 
-/* line 197, ../scss/main.scss */
-#wrapper p.change_link a:hover {
-  color: #a74e00;
-  border: 1px solid #ff7800;
+/* line 75, ../scss/main.scss */
+.loginbox.welcome-text {
+  font-size: 21px;
 }
 
-/* line 202, ../scss/main.scss */
-#wrapper p.change_link a:active {
+/* line 79, ../scss/main.scss */
+.loginbox .btn {
+  background-color: #C1D82F;
+  border: #C1D82F;
+  color: #27318B;
+}
+
+/* line 85, ../scss/main.scss */
+.loginbox .btnreg {
+  box-shadow: none;
+  border-color: #ddd;
+  border-radius: 0;
+}
+
+/* line 91, ../scss/main.scss */
+.loginbox form {
+  padding: 17px;
+}
+
+/* line 95, ../scss/main.scss */
+.loginbox .centerbuttons {
+  width: 154px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+/* line 102, ../scss/main.scss */
+.loginbox .btn:hover {
+  background-color: #27318B;
+  color: #ffffff;
+}
+
+/*BOX SHADOWWWWWWWW*/
+/* line 110, ../scss/main.scss */
+.loginboxshadow {
   position: relative;
-  top: 1px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+/* line 117, ../scss/main.scss */
+.loginboxshadow:before, .loginboxshadow:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  top: 50%;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  -moz-border-radius: 100px/10px;
+  border-radius: 100px/10px;
+}
+
+/* line 132, ../scss/main.scss */
+.loginboxshadow:after {
+  right: 10px;
+  left: auto;
+  -webkit-transform: skew(8deg) rotate(3deg);
+  -moz-transform: skew(8deg) rotate(3deg);
+  -ms-transform: skew(8deg) rotate(3deg);
+  -o-transform: skew(8deg) rotate(3deg);
+  transform: skew(8deg) rotate(3deg);
+}
+
+@media (max-width: 340px) {
+  /* line 143, ../scss/main.scss */
+  .loginbox.loginboxinner {
+    width: 250px;
+  }
+}
+@media (max-width: 500px) {
+  /* line 149, ../scss/main.scss */
+  .loginbox.loginboxinner {
+    margin-top: 50px;
+  }
 }

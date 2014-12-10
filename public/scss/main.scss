@@ -42,164 +42,111 @@ h1{
 }
 
 
-#login{
-	position: absolute;
-	top: 0px;
-	width: 310px;
-	/* padding: 18px 6% 60px 6%; */
-/* 	padding: 18px 5% 4% 10px; */
-	padding: 15px 32px 2px 20px;
-	margin: 50px 0 35px 0;
-	background-image:url(../img/subtle_dots.png);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.11);
-	-moz-box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.11);
-	box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.11);
+/*LOGIN PAGINA*/
+
+.loginbox{
+    background-color:#fff!important;
+    border-radius:0!important;
+    border:none!important;
 }
 
-
-#wrapper{
-	width: 400px;
-	margin: 10px auto;	
-	position: relative;
-	background-color:red;
+.loginbox.loginboxinner {
+    width:300px;
+    margin:0 auto;
+    margin-top:100px;
+}
+.loginbox.loginboxinner legend {
+  font-size:26px;
+  text-align:center;
+  font-weight:300;
+  padding-top: 2px;
+}
+.loginbox.loginboxinner label {
+  font-weight:300;
+  font-size:16px;
+  
+}
+.loginbox.loginboxinner input{
+  box-shadow:none;
+  border-color:#ddd;
+  border-radius:0;
 }
 
-#wrapper a{
-	text-decoration: none;
+.loginbox.welcome-text{
+    font-size:21px;
 }
 
-#wrapper h1{
-	font-size: 48px;
-	color:#74BC2F;
-	padding: 2px 0 10px 0;
-	font-weight: bold;
-	text-align: center;
-	padding-bottom: 10px; /*was 30*/
-	margin:0px;
+.loginbox .btn{
+  background-color:#C1D82F;
+  border:#C1D82F;
+  color:#27318B;
 }
 
-#wrapper input,#wrapper textarea{
-	width: 90%;
-	margin-top: 4px;
-	padding: 10px 5px 10px 32px;	
-	border: 1px solid rgb(178, 178, 178);
-	-webkit-appearance: textfield;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing : content-box;
-	box-sizing : content-box;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-	-moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-	box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-	-webkit-transition: all 0.2s linear;
-	-moz-transition: all 0.2s linear;
-	-o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
+.loginbox .btnreg{	
+  box-shadow:none;
+  border-color:#ddd;
+  border-radius:0;
 }
 
-#wrapper textarea{
-    resize: none;
-    height:77px;
+.loginbox form{
+	padding:17px;
 }
 
-#wrapper input:active, #wrapper input:focus{
-	border: 1px solid #74BC2F;
-	background: rgba(238, 236, 240, 0.2);	
-} 
-
-#wrapper p.button input{
-	width: 100%;
-	cursor: pointer; /*handje*/	
-	padding: 8px 5px;
-	color: #fff;
-	font-size: 18px;	
-	border: 1px solid rgb(28, 108, 122);	
-	margin-bottom: 10px;	
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;	
-	/*nice shadows*/
-	-webkit-box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
-	-moz-box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
-	box-shadow:0px 1px 6px 4px rgba(0, 0, 0, 0.07) inset, 0px 0px 0px 3px rgb(254, 254, 254), 0px 5px 3px 3px rgb(210, 210, 210);
-	-webkit-transition: all 0.2s linear;
-	-moz-transition: all 0.2s linear;
-	-o-transition: all 0.2s linear;
-	transition: all 0.2s linear;
+.loginbox .centerbuttons{
+	width:154px;
+	margin:0 auto;
+	margin-bottom:10px;
+	padding-top:10px;
 }
 
-#wrapper p.button input:active,
-#wrapper p.button input:focus{
-	background:#74BC2F;
-	position: relative;
-	top: 1px;
+.loginbox .btn:hover{
+	background-color:#27318B;
+	color:#ffffff;
 }
 
-.inloggen{
-	background:#74BC2F;
+/*BOX SHADOWWWWWWWW*/
+
+.loginboxshadow
+{
+  	position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.loginboxshadow:before, .loginboxshadow:after
+{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.loginboxshadow:after
+{
+	right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
 }
 
-.inloggen:hover{
-	background:#578C23;
+@media(max-width: 340px){
+	.loginbox.loginboxinner{
+		width:250px;
+	}	
 }
 
-
-p.login.button,
-p.signin.button{
-	text-align: right;
-	margin: 5px 0;
-}
-
-p.change_link{
-	position: absolute;
-	color: rgb(127, 124, 124);
-	left: 0px;
-	height: 20px; /*was 20, but adding wtf is mealdeal*/
-	width: 340px;
-	padding: 17px 30px 20px 30px;
-	font-size: 16px	;
-	text-align: center;
-	-webkit-border-radius: 0 0  5px 5px;
-	-moz-border-radius: 0 0  5px 5px;
-	border-radius: 0 0  5px 5px;
-	background:#ededed;
-	border-top: 1px solid rgb(219, 229, 232);
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-	-ms-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-	-o-box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
-}
-#wrapper p.change_link a {
-	display: inline-block;
-	font-weight: bold;
-	background: rgb(247, 248, 241);
-	padding: 2px 6px;
-	color:#fe8f2d;
-	margin-left: 10px;
-	text-decoration: none;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid rgb(203, 213, 214);
-	-webkit-transition: all 0.4s linear;
-	-moz-transition: all 0.4s  linear;
-	-o-transition: all 0.4s linear;
-	-ms-transition: all 0.4s  linear;
-	transition: all 0.4s  linear;
-}
-#wrapper p.change_link a:hover {
-	color:#a74e00;
-	
-	border: 1px solid #ff7800;
-}
-#wrapper p.change_link a:active{
-	position: relative;
-	top: 1px;
+@media(max-width: 500px){
+  .loginbox.loginboxinner{
+    margin-top:50px;
+  } 
 }
