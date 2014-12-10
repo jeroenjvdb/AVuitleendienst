@@ -13,6 +13,28 @@ class HomeController extends BaseController {
 		}
 	}
 
+	public function beheerGebruikers(){
+		if(Auth::check())
+		{
+			return View::make('users.admin.beheerGebruikers');
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
+	}
+
+	public function beheerMateriaal(){
+		if(Auth::check())
+		{
+			return View::make('users.admin.beheerMateriaal');
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
+	}
+
 }
 
 

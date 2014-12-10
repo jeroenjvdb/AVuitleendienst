@@ -9,9 +9,9 @@
 @stop
 
 @section("content")
-	<h2>Beheer</h2>
+	<h2>Beheer Materiaal</h2>
 	<div>
-		<a href="/beheer/materiaal">Beheer studenten</a>
-		<a href="/beheer/gebruikers">Beheer materiaal</a>
+		<a href="/materials/create">Materiaal toevoegen</a>
+		<a href="/categories/create">Categorie toevoegen</a>
 	</div>
 @stop

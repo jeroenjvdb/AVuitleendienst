@@ -14,11 +14,13 @@
 	<p>{{{$material->details}}}</p>
 
 	@forelse($material->accessories as $accessorie)
+	<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}">
 		<div>
 			<h3> {{{$accessorie->name}}}</h3>
 			<img src="/images/{{$accessorie->image}}" alt="">
 			<p>{{{$accessorie->details}}}</p>	
 		</div>
+	</a>	
 	@empty
 		<p>er zijn geen accesores voor dit object.</p>
 	@endforelse
