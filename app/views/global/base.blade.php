@@ -9,6 +9,7 @@
 	{{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
 	{{HTML::script("js/main.js")}}
 	{{ HTML::style('css/main.css') }}
+	{{ HTML::style("css/bootstrap.min.css")}}
 	
 </head>
 <body>
