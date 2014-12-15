@@ -42,13 +42,19 @@
 
 		<h2>Selecteer de bijhorende Accessiores</h2>
 
-		@foreach($accessories as $accessore)
+		@forelse($accesoriesCategorie as $accesorieCategorie)
+		<h3>{{{$accesorieCategorie->name}}}</h3>
+			@forelse($accesorieCategorie->materials as $material)
 			<div>
-				{{Form::checkbox('accessories[]', $accessore->id,in_array($accessore->id, $accessoriesOfMaterial))}}
-				<p>{{$accessore->name}}</p>
-				<img src="/images/{{$accessore->image}}" alt="">
-			</div>	
-		@endforeach
+				{{Form::checkbox('accessories[]', $material->id,in_array($material->id, $accessoriesOfMaterial));}}
+				<p>{{$material->name}}</p>
+				<img src="/images/{{$material->image}}" alt="">
+			@empty
+			<p>geen materiaal</p>
+			@endforelse
+		@empty
+		<p>geen categorien</p>
+		@endforelse
 		
 		{{Form::submit('verzend')}}
 		{{Form::close()}}

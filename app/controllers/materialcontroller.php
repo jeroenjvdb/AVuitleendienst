@@ -40,8 +40,8 @@ class materialcontroller extends \BaseController {
 		if(Auth::check())
 		{
 			$categories = Categorie::getAllCategories();
-			$accessories = Accessorie::getAllAccessories();
-			return View::make('users.admin.addMaterial',['categories' => $categories,'accessories' => $accessories]);
+			$accesoriesCategorie = $this->categorie->getCategoriesWhitMaterials(); // alle accessories an de hand van categorie
+			return View::make('users.admin.addMaterial',['categories' => $categories,'accesoriesCategorie' => $accesoriesCategorie]);
 		}
 		else
 		{
@@ -120,10 +120,10 @@ class materialcontroller extends \BaseController {
 		if(Auth::check())
 		{
 			$categories = Categorie::getAllCategories();
-			$accessories = Accessorie::getAllAccessories();
+			$accesoriesCategorie = $this->categorie->getCategoriesWhitMaterials();
 			$material = Material::find($id);
 			$accessoriesOfMaterial = $this->material->getMaterialAccessoriesArray($id);
-			return View::make('users.admin.materialEdit',['material' => $material,'categories' => $categories,'accessories' => $accessories,'accessoriesOfMaterial' => $accessoriesOfMaterial]);
+			return View::make('users.admin.materialEdit',['material' => $material,'categories' => $categories,'accesoriesCategorie' => $accesoriesCategorie,'accessoriesOfMaterial' => $accessoriesOfMaterial]);
 		}
 		else
 		{
