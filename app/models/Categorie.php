@@ -45,4 +45,12 @@ class Categorie extends Eloquent {
 				'fk_categoriesid' => $categorieId
 			));
 	}
+
+	public function updateMaterialCategorie($categorieId,$materialId)
+	{
+		DB::table('materialcategories')->where('fk_materialsid','=',$materialId)->update(array(
+				'fk_categoriesid' => $categorieId
+			));
+
+	}
 }

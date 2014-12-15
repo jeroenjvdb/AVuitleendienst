@@ -8,6 +8,9 @@ class Material extends Eloquent {
         'image' => 'image|max:1000|mimes:jpg,jpeg,bmp,png,gif',
         'barcode' => 'unique:materials,barcode',
     ];
+    public static $materialEditRules=[
+        'image' => 'image|max:1000|mimes:jpg,jpeg,bmp,png,gif',
+    ];
 
 	public function messages()
     {
@@ -27,13 +30,41 @@ class Material extends Eloquent {
     	return Material::with('accessories')->where('id','=',$id)->first();
     }
 
-    public function isValid()
+    public function isValid($action)
     {
-        $validation =Validator::make($this->attributes,static::$materialRules);
+        if($action == 'edit')
+        {
+            $validation =Validator::make($this->attributes,static::$materialEditRules);
+        }
+        else if($action == 'add')
+        {
+         $validation =Validator::make($this->attributes,static::$materialRules);   
+        }
         
         if($validation->passes()) return true;
         
         $this->errors =$validation->messages();
         return false;
+    }
+    //accesoires voor bepaal materiaal opvragen en in array terugeven 
+    public function getMaterialAccessoriesArray($id)
+    {
+        $results = Material::find($id);
+        $allAccessories = array();
+        foreach($results->accessories as $result)
+        {
+            $allAccessories[] = $result->id;
+        }
+        return $allAccessories;
+    }
+
+    public function deleteMaterial($id)
+    {
+        DB::table('materialcategories')->where('fk_materialsid','=',$id)
+                                        ->delete();
+        Accessorie::where('fk_mastermaterial' , '=', $id)
+                    ->orwhere('fk_slavematerial' , '=', $id) 
+                    ->delete();
+        Material::where('id','=',$id)->delete(); 
     }
 }
