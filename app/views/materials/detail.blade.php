@@ -40,11 +40,6 @@
 		@empty
 			<p>Geen accessoires voor dit item.</p>
 		@endforelse
-<<<<<<< HEAD
-	@endforeach
-
-	{{$cal->generate()}}
-=======
 		</div>
 
 		<h2>Andere suggesties</h2>
@@ -69,6 +64,6 @@
 				@endforelse
 			@endforeach
 		</div>
+		{{$cal->generate()}}
 	</div>
->>>>>>> 765c42290abfc64741cd13e5e5cfd1df0628fb96
 @stop
