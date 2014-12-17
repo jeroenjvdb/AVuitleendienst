@@ -100,7 +100,37 @@ class materialcontroller extends \BaseController {
 		if(Auth::check())
 		{
 			$material = $this->material->getMaterialById($id);
-			return View::make('materials.detail',['material' => $material]);
+			$events = array(
+		        "2014-12-17 10:30:00" => array(
+		            "Event 1",
+		        ),
+		        "2014-12-14 14:12:23" => array(
+		            "Event 3",
+		        ),
+		        "2014-12-15 08:00:00" => array(
+		            "Event 4",
+		        ),
+		    );
+		    $cal = Calendar::make();
+		    $cal->setDate(date ("Y-m-d H:i:s")); //Set starting date
+		    $cal->setBasePath('/materials/'.$id.'/cal'); // Base path for navigation URLs
+		    $cal->showNav(true); // Show or hide navigation
+		    $cal->setView("week"); //'day' or 'week' or null
+		    $cal->setStartEndHours(8,20); // Set the hour range for day and week view
+		    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
+		    $cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
+		    $cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
+		    $cal->setNextIcon('Volgende Week'); //Can also be html: <i class='fa fa-chevron-right'></i>
+		    $cal->setPrevIcon('Vorige Week'); // Same as above
+		    $cal->setDayLabels(array('Zon', 'Man', 'Din', 'Woe', 'Don', 'Vrij', 'Zat')); //Label names for week days
+		    $cal->setMonthLabels(array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')); //Month names
+		    $cal->setDateWrap(array('<div>','</div>')); //Set cell inner content wrapper
+		    $cal->setTableClass('table'); //Set the table's class name
+		    $cal->setHeadClass('table-header'); //Set top header's class name
+		    $cal->setNextClass('btn'); // Set next btn class name
+		    $cal->setPrevClass('btn'); // Set Prev btn class name
+		    $cal->setEvents($events);
+			return View::make('materials.detail',['material' => $material,'cal' => $cal]);
 		}
 		else
 		{
@@ -195,6 +225,42 @@ class materialcontroller extends \BaseController {
 		{
 			return Redirect::to('/');
 		}
+	}
+
+	public function calNext($id)
+	{
+		$material = $this->material->getMaterialById($id);
+			$events = array(
+		        "2014-12-17 10:30:00" => array(
+		            "Event 1",
+		        ),
+		        "2014-12-14 14:12:23" => array(
+		            "Event 3",
+		        ),
+		        "2014-12-15 08:00:00" => array(
+		            "Event 4",
+		        ),
+		    );
+		    $cal = Calendar::make();
+		    $cal->setDate($_GET["cdate"]); //Set starting date
+		    $cal->setBasePath('/materials/'.$id.'/cal'); // Base path for navigation URLs
+		    $cal->showNav(true); // Show or hide navigation
+		    $cal->setView("week"); //'day' or 'week' or null
+		    $cal->setStartEndHours(8,20); // Set the hour range for day and week view
+		    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
+		    $cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
+		    $cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
+		    $cal->setNextIcon('Volgende Week'); //Can also be html: <i class='fa fa-chevron-right'></i>
+		    $cal->setPrevIcon('Vorige Week'); // Same as above
+		    $cal->setDayLabels(array('Zon', 'Man', 'Din', 'Woe', 'Don', 'Vrij', 'Zat')); //Label names for week days
+		    $cal->setMonthLabels(array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')); //Month names
+		    $cal->setDateWrap(array('<div>','</div>')); //Set cell inner content wrapper
+		    $cal->setTableClass('table'); //Set the table's class name
+		    $cal->setHeadClass('table-header'); //Set top header's class name
+		    $cal->setNextClass('btn'); // Set next btn class name
+		    $cal->setPrevClass('btn'); // Set Prev btn class name
+		    $cal->setEvents($events);
+			return View::make('materials.detail',['material' => $material,'cal' => $cal]);
 	}
 
 

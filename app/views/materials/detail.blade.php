@@ -37,4 +37,6 @@
 		<p>Geen gerelateerde producten gevonden</p>
 		@endforelse
 	@endforeach
+
+	{{$cal->generate()}}
 @stop

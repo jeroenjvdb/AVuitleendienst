@@ -18,6 +18,7 @@ Route::resource('categories','categoriecontroller');
 Route::get('/beheer', 'HomeController@beheer');
 Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
+Route::get('/materials/{id}/cal', 'materialcontroller@calNext');
 
 Route::get('/', function()
 {

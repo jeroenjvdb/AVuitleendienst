@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"intervention/image": "~2.0"
+		"intervention/image": "~2.0",
+		"makzumi/calendar": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
