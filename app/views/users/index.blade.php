@@ -29,8 +29,8 @@
 	@forelse($categories as $categorie)
 		<div class="categoryfull {{{$categorie->id}}}">
 			@forelse($categorie->materials as $material)
-			<div class="well well-sm col-sm-6">
-				<img src="/images/{{$material->image}}" alt="" class="indeximage">
+			<div class="well well-sm">
+				<img src="/images/{{$material->image}}" alt="">
 				{{link_to('materials/'.$material->id,$material->name)}}
 			</div>
 			
