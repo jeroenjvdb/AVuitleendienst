@@ -29,10 +29,10 @@
 	@forelse($categories as $categorie)
 		<div class="categoryfull {{{$categorie->id}}} row">
 			@forelse($categorie->materials as $material)
-			<div class="col-md-6 col-sm-12">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="thumbnail">
 					<a href="{{$app['url']->to('/')}}/materials/{{$material->id}}">
-						<p>{{{$material->name}}}</p>
+						<h3>{{{$material->name}}}</h3>
 						<img src="/images/{{$material->image}}" alt="">
 					</a>
 					
@@ -45,7 +45,9 @@
 			@endforelse
 		</div>
 	@empty
-		<div class="nocategory"></div>
+		<div class="nocategory">
+			<p>There's no category here; Helloooo? ooo? oo?</p>
+		</div>
 	@endforelse
 
 	<!-- <div>
