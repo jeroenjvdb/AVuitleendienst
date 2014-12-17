@@ -35,6 +35,7 @@ h1{
   height:115px;
   width:100%;
   border-radius: 0px !important;
+}
 
 .nav{
   margin-left:10px;
@@ -42,7 +43,7 @@ h1{
   width:100%;
 }
 
-.nav-bars{
+.nav-bars,.nav-bars-x{
   display:none;
     float: right;
     margin-right: 45px;
@@ -50,7 +51,7 @@ h1{
 }
 
 .nav-bars-menu{
-  display:block;
+  display:none;
   background-color:#27318B;
   height:600px;
   width:110px;
@@ -60,6 +61,10 @@ h1{
 }
 
 .logosmall{
+  display:none;
+}
+
+.nav-bars-x{
   display:none;
 }
 
@@ -169,6 +174,21 @@ h1{
   }
   .nav-bars{
     display:block;
+  }
+  .nav-pills{
+    position:absolute;
+    top:80px;
+    right:7px;
+    float:right;
+    width:170px;
+  }
+  .nav-pills > li {
+      float: none !important;
+      background-color:white;
+      border-radius:4px;
+  }
+  .nav-pills > li > a {
+      text-align:right;
   }
 }
 

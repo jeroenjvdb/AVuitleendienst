@@ -41,4 +41,7 @@
 <div class="nav-bars">
 {{ HTML::image('assets/images/bars.png', 'alt-text') }}
 </div>
+<div class="nav-bars-x">
+{{ HTML::image('assets/images/barsx.png', 'alt-text') }}
+</div>
 <div class="nav-bars-menu"></div>
