@@ -3782,32 +3782,34 @@ h1 {
 /* line 33, ../scss/main.scss */
 .navbar {
   background-color: #27318b;
-  height: 175px;
+  height: 115px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* line 40, ../scss/main.scss */
+.nav {
+  margin-left: 10px;
+  margin-top: 40px;
   width: 100%;
 }
 
-/* line 39, ../scss/main.scss */
-.nav {
-  margin: 0px auto;
-  width: 700px;
-}
-
 /*LOGIN PAGINA*/
-/* line 47, ../scss/main.scss */
+/* line 50, ../scss/main.scss */
 .loginbox {
   background-color: #fff!important;
   border-radius: 0!important;
   border: none!important;
 }
 
-/* line 53, ../scss/main.scss */
+/* line 56, ../scss/main.scss */
 .loginbox.loginboxinner {
   width: 300px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-/* line 58, ../scss/main.scss */
+/* line 61, ../scss/main.scss */
 .loginbox.loginboxinner legend {
   font-size: 26px;
   text-align: center;
@@ -3815,44 +3817,44 @@ h1 {
   padding-top: 2px;
 }
 
-/* line 64, ../scss/main.scss */
+/* line 67, ../scss/main.scss */
 .loginbox.loginboxinner label {
   font-weight: 300;
   font-size: 16px;
 }
 
-/* line 69, ../scss/main.scss */
+/* line 72, ../scss/main.scss */
 .loginbox.loginboxinner input {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 75, ../scss/main.scss */
+/* line 78, ../scss/main.scss */
 .loginbox.welcome-text {
   font-size: 21px;
 }
 
-/* line 79, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 .loginbox .btn {
   background-color: #C1D82F;
   border: #C1D82F;
   color: #27318B;
 }
 
-/* line 85, ../scss/main.scss */
+/* line 88, ../scss/main.scss */
 .loginbox .btnreg {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 91, ../scss/main.scss */
+/* line 94, ../scss/main.scss */
 .loginbox form {
   padding: 17px;
 }
 
-/* line 95, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 .loginbox .centerbuttons {
   width: 154px;
   margin: 0 auto;
@@ -3860,14 +3862,14 @@ h1 {
   padding-top: 10px;
 }
 
-/* line 102, ../scss/main.scss */
+/* line 105, ../scss/main.scss */
 .loginbox .btn:hover {
   background-color: #27318B;
   color: #ffffff;
 }
 
 /*BOX SHADOWWWWWWWW*/
-/* line 110, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .loginboxshadow {
   position: relative;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -3875,7 +3877,7 @@ h1 {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-/* line 117, ../scss/main.scss */
+/* line 121, ../scss/main.scss */
 .loginboxshadow:before, .loginboxshadow:after {
   content: "";
   position: absolute;
@@ -3891,7 +3893,7 @@ h1 {
   border-radius: 100px/10px;
 }
 
-/* line 132, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .loginboxshadow:after {
   right: 10px;
   left: auto;
@@ -3903,13 +3905,13 @@ h1 {
 }
 
 @media (max-width: 340px) {
-  /* line 143, ../scss/main.scss */
+  /* line 147, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }
 }
 @media (max-width: 500px) {
-  /* line 149, ../scss/main.scss */
+  /* line 153, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
