@@ -22,7 +22,14 @@
 	</div>
 	<div>
 		@forelse($categories as $categorie)
-		<h3>{{{$categorie->name}}} <a href="#">Edit</a> <a href="#">Delete</a></h3>
+		<h3>{{{$categorie->name}}} 
+			{{ Form::open(['route' => ['categories.edit', $categorie->id], 'method' => 'GET']) }}
+				    <button type="submit" >Edit</button>
+			{{ Form::close() }}
+			{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete']) }}
+			    <button type="submit" >Delete</button>
+			{{ Form::close() }}
+		</h3>
 			@forelse($categorie->materials as $material)
 			<div>{{link_to('materials/'.$material->id,$material->name)}}
 				{{ Form::open(['route' => ['materials.edit', $material->id], 'method' => 'GET']) }}

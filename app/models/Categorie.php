@@ -53,4 +53,11 @@ class Categorie extends Eloquent {
 			));
 
 	}
+
+	public function isCategoryEmpty($id)
+	{
+		$results = DB::table('materialcategories')->where('fk_categoriesid','=',$id)->get();
+
+		return empty($results);
+	}
 }

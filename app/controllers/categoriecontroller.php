@@ -84,7 +84,8 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+
+		return View::make('users.admin.editCategorie',['categorie' => Categorie::find($id)]);
 	}
 
 
@@ -96,7 +97,16 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$this->categorie = Categorie::find($id);
+		if( $this->categorie->fill(Input::all())->isValid())
+		{
+			$this->categorie->save();
+			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.Input::get('name').' gewijzigt');
+		}
+		else
+		{
+			return Redirect::back()->withInput()->withErrors($this->categorie->errors);
+		}
 	}
 
 
@@ -108,7 +118,17 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$this->categorie = Categorie::find($id);
+		if($this->categorie->isCategoryEmpty($id))
+		{
+			$this->categorie->delete(); 
+			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt de categorie '.$this->categorie->name.' met succes verwijderd');	
+		}
+		else
+		{
+			return Redirect::to('/beheer/materiaal')->with('message', 'u moet eerst alle materiaal uit '.$this->categorie->name.' verwijderen voor u deze categorie kan verwijderen');
+		}
+		
 	}
 
 
