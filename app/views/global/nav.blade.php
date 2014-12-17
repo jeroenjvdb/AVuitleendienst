@@ -4,7 +4,7 @@
 		return (Route::current()->uri() == $route) ? $class : '';
 	}
 ?>
-<ul class="nav nav-pills" multilinks-noscroll="true">
+<ul class="nav nav-pills loginboxshadow" multilinks-noscroll="true">
 	<li class="active" role="presentation" multilinks-noscroll="true">
 		<a href="#" multilinks-noscroll="true">Reserveren</a>
 	</li>

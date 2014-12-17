@@ -3951,39 +3951,40 @@ h1 {
     right: 7px;
     float: right;
     width: 170px;
+    z-index: 9999;
   }
 
-  /* line 185, ../scss/main.scss */
+  /* line 186, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 190, ../scss/main.scss */
+  /* line 191, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
 @media (max-width: 530px) {
-  /* line 196, ../scss/main.scss */
+  /* line 197, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 199, ../scss/main.scss */
+  /* line 200, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 205, ../scss/main.scss */
+  /* line 206, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 211, ../scss/main.scss */
+  /* line 212, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }
