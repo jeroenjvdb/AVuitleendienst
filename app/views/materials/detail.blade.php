@@ -9,34 +9,66 @@
 @stop
 
 @section("content")
-	<h2>{{{$material->name}}}</h2>
-	<img src="/images/{{$material->image}}" alt="">
-	<p>{{{$material->details}}}</p>
-	
-	<h2>accessoires</h2>
-	@forelse($material->accessories as $accessorie)
-	<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}">
-		<div>
-			<h3> {{{$accessorie->name}}}</h3>
-			<img src="/images/{{$accessorie->image}}" alt="">
-			<p>{{{$accessorie->details}}}</p>	
+
+	<h1>{{{$material->name}}}</h1>
+	<button class="btn btn-info">Beschikbaarheid</button>
+	<button class="btn btn-primary">Reserveren</button>
+	<div class="row">
+		<div class="row">
+			<div class="col-lg-6 col-sm-12">
+				<img src="/images/{{$material->image}}" alt="">
+			</div>
+			<div class="col-lg-6 col-sm-12">
+				<p>{{{$material->details}}}</p>
+			</div>
 		</div>
-	</a>	
-	@empty
-		<p>er zijn geen accesores voor dit object.</p>
-	@endforelse
-	<h2>Andere sugesties</h2>
-	@foreach($material->categories as $categorie)
-		@forelse($categorie->materials as $catMaterial)
-			@if($material->id != $catMaterial->id)
-			<h3> {{{$catMaterial->name}}}</h3>
-			<img src="/images/{{$catMaterial->image}}" alt="">
-			<p>{{{$catMaterial->details}}}</p>
-			@endif
+		
+		<h2 class="indexacctitle">Accessoires</h2>
+		<div class="row">
+		@forelse($material->accessories as $accessorie)
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}">
+						<img src="/images/{{$accessorie->image}}" alt="">
+						<div class="caption">
+							<h3>{{{$accessorie->name}}}</h3>
+							<p>{{{$accessorie->details}}}</p>
+						</div>
+					</a>
+				</div>
+			</div>
 		@empty
-		<p>Geen gerelateerde producten gevonden</p>
+			<p>Geen accessoires voor dit item.</p>
 		@endforelse
+<<<<<<< HEAD
 	@endforeach
 
 	{{$cal->generate()}}
+=======
+		</div>
+
+		<h2>Andere suggesties</h2>
+		<div class="row">
+			@foreach($material->categories as $categorie)
+				@forelse($categorie->materials as $catMaterial)
+					@if($material->id != $catMaterial->id)
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}">
+								<img src="/images/{{$catMaterial->image}}" alt="">
+								<div class="caption">
+									<h3> {{{$catMaterial->name}}}</h3>
+									<p>{{{$catMaterial->details}}}</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					@endif
+				@empty
+				<p>Geen gerelateerde items gevonden.</p>
+				@endforelse
+			@endforeach
+		</div>
+	</div>
+>>>>>>> 765c42290abfc64741cd13e5e5cfd1df0628fb96
 @stop

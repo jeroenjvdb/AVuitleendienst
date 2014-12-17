@@ -27,12 +27,18 @@
 	</div>
 
 	@forelse($categories as $categorie)
-		<div class="categoryfull {{{$categorie->id}}}">
+		<div class="categoryfull {{{$categorie->id}}} row">
 			@forelse($categorie->materials as $material)
-			<div class="well well-sm">
-				<img src="/images/{{$material->image}}" alt="">
-				{{link_to('materials/'.$material->id,$material->name)}}
+			<div class="col-md-6 col-sm-12">
+				<div class="thumbnail">
+					<a href="{{$app['url']->to('/')}}/materials/{{$material->id}}">
+						<p>{{{$material->name}}}</p>
+						<img src="/images/{{$material->image}}" alt="">
+					</a>
+					
+				</div>
 			</div>
+			
 			
 			@empty
 			<p>geen materiaal</p>

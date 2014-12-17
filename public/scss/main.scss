@@ -6,23 +6,23 @@ $primary-blue: #27318b;
 
 
 html, body{
-	font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
+  font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
 }
 
 .highlight{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .title{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .success{
-	color: $primary-blue;
+  color: $primary-blue;
 }
 
 h1{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -31,16 +31,42 @@ h1{
 }
 
 .navbar{
-	background-color:#27318b;
-	height:175px;
-	width:100%;
+  background-color:#27318b;
+  height:115px;
+  width:100%;
+  border-radius: 0px !important;
 }
 
 .nav{
-	margin:0px auto;
-	width:700px;
+  margin-left:10px;
+  margin-top:40px;
+  width:100%;
 }
 
+.nav-bars,.nav-bars-x{
+  display:none;
+    float: right;
+    margin-right: 45px;
+    margin-top: 47px;
+}
+
+.nav-bars-menu{
+  display:none;
+  background-color:#27318B;
+  height:600px;
+  width:110px;
+  float:right;
+  margin-top:114px;
+  margin-right:-70px;
+}
+
+.logosmall{
+  display:none;
+}
+
+.nav-bars-x{
+  display:none;
+}
 
 /*LOGIN PAGINA*/
 
@@ -82,40 +108,41 @@ h1{
   color:#27318B;
 }
 
-.loginbox .btnreg{	
+.loginbox .btnreg{  
   box-shadow:none;
   border-color:#ddd;
   border-radius:0;
 }
 
 .loginbox form{
-	padding:17px;
+  padding:17px;
 }
 
 .loginbox .centerbuttons{
-	width:154px;
-	margin:0 auto;
-	margin-bottom:10px;
-	padding-top:10px;
+  width:154px;
+  margin:0 auto;
+  margin-bottom:10px;
+  padding-top:10px;
 }
 
 .loginbox .btn:hover{
-	background-color:#27318B;
-	color:#ffffff;
+  background-color:#27318B;
+  color:#ffffff;
 }
+
 
 /*BOX SHADOWWWWWWWW*/
 
 .loginboxshadow
 {
-  	position:relative;
+    position:relative;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 .loginboxshadow:before, .loginboxshadow:after
 {
-	content:"";
+  content:"";
     position:absolute;
     z-index:-1;
     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
@@ -130,7 +157,7 @@ h1{
 }
 .loginboxshadow:after
 {
-	right:10px;
+  right:10px;
     left:auto;
     -webkit-transform:skew(8deg) rotate(3deg);
        -moz-transform:skew(8deg) rotate(3deg);
@@ -139,14 +166,50 @@ h1{
             transform:skew(8deg) rotate(3deg);
 }
 
-@media(max-width: 340px){
-	.loginbox.loginboxinner{
-		width:250px;
-	}	
+
+
+@media(max-width: 1270px){
+  .nav-pills{
+    display:none;
+  }
+  .nav-bars{
+    display:block;
+  }
+  .nav-pills{
+    position:absolute;
+    top:80px;
+    right:7px;
+    float:right;
+    width:170px;
+    z-index:9999;
+  }
+  .nav-pills > li {
+      float: none !important;
+      background-color:white;
+      border-radius:4px;
+  }
+  .nav-pills > li > a {
+      text-align:right;
+  }
+}
+
+@media(max-width: 530px){
+  .logosmall{
+    display:block;
+  }
+  .logo{
+    display:none;
+  }
 }
 
 @media(max-width: 500px){
   .loginbox.loginboxinner{
     margin-top:50px;
+  } 
+}
+
+@media(max-width: 340px){
+  .loginbox.loginboxinner{
+    width:250px;
   } 
 }
