@@ -12,7 +12,10 @@
 
 	<h1>{{{$material->name}}}</h1>
 	<button class="btn btn-info">Beschikbaarheid</button>
-	<button class="btn btn-primary">Reserveren</button>
+	{{Form::open(['route' => 'reservations.create' , 'method' => 'GET'])}}
+		{{Form::hidden('id',$material->id)}}
+		{{Form::submit('Reserveren',['class' => 'btn btn-primary'])}}
+	{{Form::close()}}
 	<div class="row">
 		<div class="row">
 			<div class="col-lg-6 col-sm-12">

@@ -20,7 +20,7 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return Input::all();
 	}
 
 
