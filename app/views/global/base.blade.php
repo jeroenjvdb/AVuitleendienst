@@ -14,7 +14,8 @@
 </head>
 <body>
 	<div class="navbar">
-		<a class="navbar-brand" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
+		<a class="navbar-brand logo" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
+		<a class="navbar-brand logosmall" href="/">{{ HTML::image('assets/images/logosmall.png', 'alt-text') }}</a>
 		@yield("nav")
 	</div>	
 	<div class="container">

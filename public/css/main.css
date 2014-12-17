@@ -3784,32 +3784,56 @@ h1 {
   background-color: #27318b;
   height: 115px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 0px !important;
 }
 
-/* line 40, ../scss/main.scss */
+/* line 41, ../scss/main.scss */
 .nav {
   margin-left: 10px;
   margin-top: 40px;
   width: 100%;
 }
 
+/* line 47, ../scss/main.scss */
+.nav-bars {
+  display: none;
+  float: right;
+  margin-right: 45px;
+  margin-top: 47px;
+}
+
+/* line 54, ../scss/main.scss */
+.nav-bars-menu {
+  display: block;
+  background-color: #27318B;
+  height: 600px;
+  width: 110px;
+  float: right;
+  margin-top: 114px;
+  margin-right: -70px;
+}
+
+/* line 64, ../scss/main.scss */
+.logosmall {
+  display: none;
+}
+
 /*LOGIN PAGINA*/
-/* line 50, ../scss/main.scss */
+/* line 70, ../scss/main.scss */
 .loginbox {
   background-color: #fff!important;
   border-radius: 0!important;
   border: none!important;
 }
 
-/* line 56, ../scss/main.scss */
+/* line 76, ../scss/main.scss */
 .loginbox.loginboxinner {
   width: 300px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-/* line 61, ../scss/main.scss */
+/* line 81, ../scss/main.scss */
 .loginbox.loginboxinner legend {
   font-size: 26px;
   text-align: center;
@@ -3817,44 +3841,44 @@ h1 {
   padding-top: 2px;
 }
 
-/* line 67, ../scss/main.scss */
+/* line 87, ../scss/main.scss */
 .loginbox.loginboxinner label {
   font-weight: 300;
   font-size: 16px;
 }
 
-/* line 72, ../scss/main.scss */
+/* line 92, ../scss/main.scss */
 .loginbox.loginboxinner input {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 78, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 .loginbox.welcome-text {
   font-size: 21px;
 }
 
-/* line 82, ../scss/main.scss */
+/* line 102, ../scss/main.scss */
 .loginbox .btn {
   background-color: #C1D82F;
   border: #C1D82F;
   color: #27318B;
 }
 
-/* line 88, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 .loginbox .btnreg {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 94, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .loginbox form {
   padding: 17px;
 }
 
-/* line 98, ../scss/main.scss */
+/* line 118, ../scss/main.scss */
 .loginbox .centerbuttons {
   width: 154px;
   margin: 0 auto;
@@ -3862,14 +3886,14 @@ h1 {
   padding-top: 10px;
 }
 
-/* line 105, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .loginbox .btn:hover {
   background-color: #27318B;
   color: #ffffff;
 }
 
 /*BOX SHADOWWWWWWWW*/
-/* line 114, ../scss/main.scss */
+/* line 134, ../scss/main.scss */
 .loginboxshadow {
   position: relative;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -3877,7 +3901,7 @@ h1 {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-/* line 121, ../scss/main.scss */
+/* line 141, ../scss/main.scss */
 .loginboxshadow:before, .loginboxshadow:after {
   content: "";
   position: absolute;
@@ -3893,7 +3917,7 @@ h1 {
   border-radius: 100px/10px;
 }
 
-/* line 136, ../scss/main.scss */
+/* line 156, ../scss/main.scss */
 .loginboxshadow:after {
   right: 10px;
   left: auto;
@@ -3904,15 +3928,37 @@ h1 {
   transform: skew(8deg) rotate(3deg);
 }
 
-@media (max-width: 340px) {
-  /* line 147, ../scss/main.scss */
-  .loginbox.loginboxinner {
-    width: 250px;
+@media (max-width: 1270px) {
+  /* line 169, ../scss/main.scss */
+  .nav-pills {
+    display: none;
+  }
+
+  /* line 172, ../scss/main.scss */
+  .nav-bars {
+    display: block;
+  }
+}
+@media (max-width: 530px) {
+  /* line 178, ../scss/main.scss */
+  .logosmall {
+    display: block;
+  }
+
+  /* line 181, ../scss/main.scss */
+  .logo {
+    display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 153, ../scss/main.scss */
+  /* line 187, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
+  }
+}
+@media (max-width: 340px) {
+  /* line 193, ../scss/main.scss */
+  .loginbox.loginboxinner {
+    width: 250px;
   }
 }

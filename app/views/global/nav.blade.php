@@ -37,3 +37,8 @@
 		<a href="/logout">Afmelden</a>
 	</li>
 </ul>
+
+<div class="nav-bars">
+{{ HTML::image('assets/images/bars.png', 'alt-text') }}
+</div>
+<div class="nav-bars-menu"></div>

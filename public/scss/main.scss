@@ -34,7 +34,8 @@ h1{
   background-color:#27318b;
   height:115px;
   width:100%;
-  border-radius: 4px;
+  border-radius: 0px !important;
+
 }
 
 .nav{
@@ -43,7 +44,26 @@ h1{
 	width:100%;
 }
 
+.nav-bars{
+  display:none;
+    float: right;
+    margin-right: 45px;
+    margin-top: 47px;
+}
 
+.nav-bars-menu{
+  display:block;
+  background-color:#27318B;
+  height:600px;
+  width:110px;
+  float:right;
+  margin-top:114px;
+  margin-right:-70px;
+}
+
+.logosmall{
+  display:none;
+}
 
 /*LOGIN PAGINA*/
 
@@ -143,14 +163,34 @@ h1{
             transform:skew(8deg) rotate(3deg);
 }
 
-@media(max-width: 340px){
-	.loginbox.loginboxinner{
-		width:250px;
-	}	
+
+
+@media(max-width: 1270px){
+  .nav-pills{
+    display:none;
+  }
+  .nav-bars{
+    display:block;
+  }
+}
+
+@media(max-width: 530px){
+  .logosmall{
+    display:block;
+  }
+  .logo{
+    display:none;
+  }
 }
 
 @media(max-width: 500px){
   .loginbox.loginboxinner{
     margin-top:50px;
+  } 
+}
+
+@media(max-width: 340px){
+  .loginbox.loginboxinner{
+    width:250px;
   } 
 }
