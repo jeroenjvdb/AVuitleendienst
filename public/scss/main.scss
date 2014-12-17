@@ -6,23 +6,23 @@ $primary-blue: #27318b;
 
 
 html, body{
-	font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
+  font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
 }
 
 .highlight{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .title{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .success{
-	color: $primary-blue;
+  color: $primary-blue;
 }
 
 h1{
-	color: $primary-green;
+  color: $primary-green;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
@@ -36,12 +36,10 @@ h1{
   width:100%;
   border-radius: 0px !important;
 
-}
-
 .nav{
-	margin-left:10px;
+  margin-left:10px;
   margin-top:40px;
-	width:100%;
+  width:100%;
 }
 
 .nav-bars{
@@ -105,26 +103,26 @@ h1{
   color:#27318B;
 }
 
-.loginbox .btnreg{	
+.loginbox .btnreg{  
   box-shadow:none;
   border-color:#ddd;
   border-radius:0;
 }
 
 .loginbox form{
-	padding:17px;
+  padding:17px;
 }
 
 .loginbox .centerbuttons{
-	width:154px;
-	margin:0 auto;
-	margin-bottom:10px;
-	padding-top:10px;
+  width:154px;
+  margin:0 auto;
+  margin-bottom:10px;
+  padding-top:10px;
 }
 
 .loginbox .btn:hover{
-	background-color:#27318B;
-	color:#ffffff;
+  background-color:#27318B;
+  color:#ffffff;
 }
 
 
@@ -132,14 +130,14 @@ h1{
 
 .loginboxshadow
 {
-  	position:relative;
+    position:relative;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 .loginboxshadow:before, .loginboxshadow:after
 {
-	content:"";
+  content:"";
     position:absolute;
     z-index:-1;
     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
@@ -154,7 +152,7 @@ h1{
 }
 .loginboxshadow:after
 {
-	right:10px;
+  right:10px;
     left:auto;
     -webkit-transform:skew(8deg) rotate(3deg);
        -moz-transform:skew(8deg) rotate(3deg);
