@@ -67,6 +67,6 @@
 				@endforelse
 			@endforeach
 		</div>
-		{{$cal->generate()}}
+		{{$cal->generate($material->id)}}
 	</div>
 @stop

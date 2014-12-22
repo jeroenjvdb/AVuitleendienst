@@ -47,6 +47,22 @@ class CreateAccessoriesTable extends Migration {
 	        	  'fk_slavematerial' => '5'),
 			array('fk_mastermaterial' => '4',
 	        	  'fk_slavematerial' => '6'),
+			array('fk_mastermaterial' => '7',
+	        	  'fk_slavematerial' => '1'),
+			array('fk_mastermaterial' => '8',
+	        	  'fk_slavematerial' => '1'),
+			array('fk_mastermaterial' => '7',
+	        	  'fk_slavematerial' => '2'),
+			array('fk_mastermaterial' => '8',
+	        	  'fk_slavematerial' => '2'),
+			array('fk_mastermaterial' => '5',
+	        	  'fk_slavematerial' => '3'),
+			array('fk_mastermaterial' => '6',
+	        	  'fk_slavematerial' => '3'),
+			array('fk_mastermaterial' => '5',
+	        	  'fk_slavematerial' => '4'),
+			array('fk_mastermaterial' => '6',
+	        	  'fk_slavematerial' => '4'),
 	    	));
 	}
 

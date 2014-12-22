@@ -20,7 +20,11 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		return Input::all();
+		$begin = str_replace ( "%20", " " , Request::segment(3) );
+		$materialId = Request::segment(4);
+		$material = Material::find($materialId);
+		return View::make('reservations.new',['begin' => $begin , 'material' =>$material]);
+
 	}
 
 
@@ -31,7 +35,7 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return Input::all();
 	}
 
 
