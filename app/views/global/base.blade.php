@@ -8,8 +8,15 @@
 	{{HTML::script("js/bootstrap.min.js")}}
 	{{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
 	{{HTML::script("js/main.js")}}
+	{{HTML::script("/pickadate/lib/compressed/picker.js")}}
+	{{HTML::script("/pickadate/lib/compressed/picker.date.js")}}
+	{{HTML::script("/pickadate/lib/compressed/picker.time.js")}}
 	{{ HTML::style('css/main.css') }}
 	{{ HTML::style("css/bootstrap.min.css")}}
+	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
+	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
+	{{ HTML::style('pickadate/lib/compressed/themes/classic.time.css') }}
+	
 	
 </head>
 <body>

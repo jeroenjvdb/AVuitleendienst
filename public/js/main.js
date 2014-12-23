@@ -16,4 +16,15 @@ $(document).ready(function(){
         $(".nav-bars-x").css("display","none"); 
         $(".nav-bars").css("display","block"); 
     }); 
+    //voor date en time picker reservatie
+    $('#date').pickadate({
+        formatSubmit : 'yyyy-mm-dd',
+        format : 'yyyy-mm-dd'
+    });
+    $('#time').pickatime({
+        formatSubmit : 'H:i:s',
+        format : 'H:i',
+        min:'8:00',
+        max:'22:00',
+    });
 });

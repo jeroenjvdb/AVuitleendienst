@@ -17,7 +17,8 @@
 	</div>
 	<div>
 		{{Form::label('einde','Eind datum: ')}}
-		{{Form::text('end','',array('required' => 'required'))}}
+		{{Form::text("endDate",'',array('placeholder' => 'kies een datum','id'=>'date'))}}
+		{{Form::text("endHour",'',array('placeholder' => 'kies een uur','id'=>'time'))}}
 	</div>
 	<div>
 		{{Form::label('Reden','Reden van reservatie: ')}}
@@ -40,4 +41,5 @@
 	</div>
 	{{Form::submit('bevestigen')}}
 	{{Form::close()}}
+
 @stop

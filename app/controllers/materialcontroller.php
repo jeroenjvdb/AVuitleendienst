@@ -116,7 +116,7 @@ class materialcontroller extends \BaseController {
 		    $cal->setBasePath('/materials/'.$id.'/cal'); // Base path for navigation URLs
 		    $cal->showNav(true); // Show or hide navigation
 		    $cal->setView("week"); //'day' or 'week' or null
-		    $cal->setStartEndHours(8,20); // Set the hour range for day and week view
+		    $cal->setStartEndHours(8,22); // Set the hour range for day and week view
 		    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
 		    $cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
 		    $cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
@@ -246,7 +246,7 @@ class materialcontroller extends \BaseController {
 		    $cal->setBasePath('/materials/'.$id.'/cal'); // Base path for navigation URLs
 		    $cal->showNav(true); // Show or hide navigation
 		    $cal->setView("week"); //'day' or 'week' or null
-		    $cal->setStartEndHours(8,20); // Set the hour range for day and week view
+		    $cal->setStartEndHours(8,22); // Set the hour range for day and week view
 		    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
 		    $cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
 		    $cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
