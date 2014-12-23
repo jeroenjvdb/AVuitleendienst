@@ -27,6 +27,7 @@ class CreateReservationusersTable extends Migration {
 						->on("reservations")
 						->onUpdate("cascade")
 						->onDelete("restrict");
+			$table->enum('type',['Hoofdverantwoordelijk','verantwoordelijk']);
 			$table->integer("usercheckedin")->unsigned();
 			$table->foreign("usercheckedin")
 						->references("id")

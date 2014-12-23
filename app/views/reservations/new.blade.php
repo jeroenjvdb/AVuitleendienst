@@ -12,6 +12,15 @@
 	<h1>{{{$material->name}}} Reserveren</h1>
 	{{Form::open(['route' => 'reservations.store'])}}
 	<div>
+		@if($errors->first('end'))
+			<p>Een geldige eind datum is verplicht</p>
+		@endif
+		@if(Session::has('message') )
+			{{Session::get('message')}}
+		@endif
+	</div>
+		{{Form::hidden('materialId',$material->id)}}
+	<div>
 		{{Form::label('begin','Begin datum: ')}}
 		{{Form::text('begin',$begin,array('required' => 'required'))}}
 	</div>
@@ -25,8 +34,13 @@
 		{{Form::textarea('reason','',array('required' => "required"))}}
 	</div>
 	<div>
-		{{Form::label('mede gebruikers','Medeontleenders: ')}}
-		{{Form::select('users',array('1' => 'gebruiker1' , '2' => 'gebruiker2'))}}
+		<h3>mede gebruikers selecteren</h3>
+		@forelse($users as $user)
+			{{Form::checkbox('users[]', $user->id);}}
+			<p>{{{$user->firstname." ".$user->lastname}}}</p>
+		@empty
+			<p>Er zijn nog geen gebruikers</p>
+		@endforelse
 	</div>
 	<div>
 		<h3>Extra accesoires</h3>
