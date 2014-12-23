@@ -28,10 +28,27 @@ class reservationcontroller extends \BaseController {
 	public function create()
 	{
 		$begin = str_replace ( "%20", " " , Request::segment(3) );
-		$users = User::where('type','!=','admin')->where('id','!=',Auth::id())->get();
 		$materialId = Request::segment(4);
-		$material = Material::find($materialId);
-		return View::make('reservations.new',['begin' => $begin , 'material' =>$material, 'users' => $users]);
+		//checken of de geselecteerde datum nog niet voorbij is
+		if($begin >= date("Y-m-d H:i:s"))
+		{
+			//checken of het item op deze datum nog niet gereserveerd is
+			if(!in_array($begin, $this->reservation->getAllReservedDatesArray($materialId)))
+			{
+				$users = User::where('type','!=','admin')->where('id','!=',Auth::id())->get();
+				$material = Material::find($materialId);
+				return View::make('reservations.new',['begin' => $begin , 'material' =>$material, 'users' => $users]);
+			}
+			else
+			{
+				return View::make('errors.message',['message' => 'Op deze datum wordt dit item al verleend.','url' => '/materials/'.$materialId]);
+			}
+			
+		}
+		else{
+			return View::make('errors.message',['message' => 'U moet een datum selecteren die nog niet voorbij is.','url' => '/materials/'.$materialId]);
+		}
+		
 
 	}
 
@@ -45,21 +62,37 @@ class reservationcontroller extends \BaseController {
 	{
 		$this->reservation->fill(Input::all());
 		$this->reservation->end = Input::get('endDate_submit')." ".str_replace("s", "00", Input::get('endHour_submit'));
+		$materialId = Input::get('materialId');
 		if( $this->reservation->isValid())
 		{
-			if($this->reservation->end > date("Y-m-d H:i:s"))
+			//checken of er geen reservatie overlapt bij het hoofdarticle
+			if(!$this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$materialId))
 			{
-				$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endDHour_submit'),Input::get('materialId'));
-				foreach(Input::get('accessories') as $accessorieId)
+				if(Input::get('accessories'))
 				{
-					$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endDHour_submit'),$accessorieId);
+					foreach(Input::get('accessories') as $accessorieId)
+					{	//checken of er geen reservatie overlapt bij de accessories
+						if(!$this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$accessorieId))
+						{
+							$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+						}
+						else
+						{
+							$material = Material::find($accessorieId);
+							return Redirect::back()->withInput()->with('message','De gekozen eind datum overlapt met een andere reservatie voor '.$material->name.' .');
+						}
+					}
 				}
-				return Redirect::to('materials/'.Input::get('materialId'))->with('message','U hebt succesvol u reservatie geplaatst');
+				$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
+				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol u reservatie geplaatst');
+
 			}
 			else
 			{
-				return Redirect::back()->withInput()->with('message','De eind datum moet een geldige datum zijn');
+				$material = Material::find($materialId);
+				return Redirect::back()->withInput()->with('message','De gekozen eind datum overlapt met een andere reservatie voor '.$material->name.' .');
 			}
+				
 		}
 		else
 		{
@@ -77,9 +110,12 @@ class reservationcontroller extends \BaseController {
 		$resId = $this->reservation->id;
 		$this->reservation->saveReservationMaterial($resId,$materialId);
 		$this->reservation->saveReservationUser($resId, Auth::id(),'Hoofdverantwoordelijk');
-		foreach($users as $user)
+		if($users)
 		{
-			$this->reservation->saveReservationUser($resId,$user,'verantwoordelijk');
+			foreach($users as $user)
+			{
+				$this->reservation->saveReservationUser($resId,$user,'verantwoordelijk');
+			}
 		}
 	}
 

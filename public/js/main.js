@@ -22,9 +22,9 @@ $(document).ready(function(){
         format : 'yyyy-mm-dd'
     });
     $('#time').pickatime({
-        formatSubmit : 'H:i:s',
+        formatSubmit : 'HH:i:s',
         format : 'H:i',
-        min:'8:00',
+        min:'08:00',
         max:'22:00',
     });
 });

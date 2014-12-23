@@ -12,9 +12,7 @@
 	<h1>{{{$material->name}}} Reserveren</h1>
 	{{Form::open(['route' => 'reservations.store'])}}
 	<div>
-		@if($errors->first('end'))
-			<p>Een geldige eind datum is verplicht</p>
-		@endif
+		{{str_replace('begin','begin datum',str_replace('end', 'eind datum', $errors->first('end')))}}
 		@if(Session::has('message') )
 			{{Session::get('message')}}
 		@endif
@@ -22,7 +20,7 @@
 		{{Form::hidden('materialId',$material->id)}}
 	<div>
 		{{Form::label('begin','Begin datum: ')}}
-		{{Form::text('begin',$begin,array('required' => 'required'))}}
+		{{Form::text('begin',$begin,array('required' => 'required','readonly'))}}
 	</div>
 	<div>
 		{{Form::label('einde','Eind datum: ')}}
