@@ -21,7 +21,11 @@
 </head>
 <body>
 	<div class="navbar">
-		<a class="navbar-brand logo" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
+		@if(Auth::check())
+			<a class="navbar-brand logo" href="/materials">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
+		@else
+			<a class="navbar-brand logo" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
+		@endif
 		<a class="navbar-brand logosmall" href="/">{{ HTML::image('assets/images/logosmall.png', 'alt-text') }}</a>
 		@yield("nav")
 	</div>	

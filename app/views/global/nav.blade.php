@@ -6,7 +6,7 @@
 ?>
 <ul class="nav nav-pills loginboxshadow" multilinks-noscroll="true">
 	<li class="active" role="presentation" multilinks-noscroll="true">
-		<a href="#" multilinks-noscroll="true">Reserveren</a>
+		<a href="/materials" multilinks-noscroll="true">Reserveren</a>
 	</li>
 	<li role="presentation" multilinks-noscroll="true">
 		<a href="#" multilinks-noscroll="true">Mijn Reservaties</a>
