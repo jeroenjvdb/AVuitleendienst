@@ -3966,25 +3966,30 @@ h1 {
     text-align: right;
   }
 }
+/* line 196, ../scss/main.scss */
+.item {
+  text-align: center;
+}
+
 @media (max-width: 530px) {
-  /* line 197, ../scss/main.scss */
+  /* line 201, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 200, ../scss/main.scss */
+  /* line 204, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 206, ../scss/main.scss */
+  /* line 210, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 212, ../scss/main.scss */
+  /* line 216, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }
