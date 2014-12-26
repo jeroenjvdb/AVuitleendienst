@@ -31,8 +31,8 @@
 			@forelse($categorie->materials as $material)
 			<div class="col-md-4 col-sm-6 col-xs-12">
 				<div class="thumbnail loginbox loginboxinner loginboxshadow">
-					<a href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="item">
-						<h3>{{{$material->name}}}</h3>
+					<a class="item" href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="item">
+						<h3 class="primaryblue">{{{$material->name}}}</h3>
 						<img src="/images/{{$material->image}}" alt="">
 					</a>
 					

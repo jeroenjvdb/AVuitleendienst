@@ -68,6 +68,7 @@
 				@endforelse
 			@endforeach
 		</div>
+		<a name="calendar"></a>
 		{{$cal->generate($material->id)}}
 	</div>
 @stop

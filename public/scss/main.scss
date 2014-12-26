@@ -21,6 +21,20 @@ html, body{
   color: $primary-blue;
 }
 
+.item{
+  color: $primary-blue; 
+}
+
+.item:hover{
+  text-decoration: none;
+  color: $primary-blue; 
+}
+
+.item:hover{
+  color:$primary-green;
+}
+
+
 h1{
   color: $primary-green;
 }
