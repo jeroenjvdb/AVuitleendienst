@@ -24,6 +24,10 @@ class Material extends Eloquent {
     {
         return $this->belongsToMany('Material','accessories','fk_mastermaterial','fk_slavematerial');
     }
+    public function reservations()
+    {
+        return $this->belongsToMany('Reservation','reservationmaterials','fk_materialid','fk_reservationsid');
+    }
 
     public function getMaterialById($id)
     {

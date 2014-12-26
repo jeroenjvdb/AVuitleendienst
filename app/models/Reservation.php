@@ -8,6 +8,16 @@ class Reservation extends Eloquent {
         'end' => 'required|after:begin'
     ];
 
+    public function materials()
+    {
+        return $this->belongsToMany('Material','reservationmaterials','fk_materialid','fk_reservationsid');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('User','reservationusers','fk_usersid','fk_reservationsid');
+    }
+
 	public function isValid()
     {
     	$validation =Validator::make($this->attributes,static::$rules);
@@ -101,5 +111,16 @@ class Reservation extends Eloquent {
         }
 
         return $collision;
+    }
+
+    public function getReservationsWhereUserId($id)
+    {
+        return DB::table('reservationmaterials')
+                ->join('reservations','reservationmaterials.fk_reservationsid','=','reservations.id')
+                ->join('materials','reservationmaterials.fk_materialsid','=','materials.id')
+                ->join('reservationusers','reservationusers.fk_reservationsid','=','reservations.id')
+                ->where('reservationusers.fk_usersid','=',$id)
+                ->where('reservations.end','>=',date('Y-m-d H:i:s'))
+                ->get();
     }
 }

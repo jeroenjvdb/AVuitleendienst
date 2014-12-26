@@ -9,7 +9,7 @@
 		<a href="/materials" multilinks-noscroll="true">Reserveren</a>
 	</li>
 	<li role="presentation" multilinks-noscroll="true">
-		<a href="#" multilinks-noscroll="true">Mijn Reservaties</a>
+		<a href="/reservations" multilinks-noscroll="true">Mijn Reservaties</a>
 	</li>
 	<li role="presentation">
 		<a href="#">Materiaal Uitchecken</a>

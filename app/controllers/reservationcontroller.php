@@ -16,7 +16,8 @@ class reservationcontroller extends \BaseController {
 
 	public function index()
 	{
-		//
+		$reservations = $this->reservation->getReservationsWhereUserId(Auth::id());
+		return View::make('reservations.myreservations',['reservations' => $reservations]);
 	}
 
 
