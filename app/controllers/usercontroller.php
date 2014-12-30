@@ -37,7 +37,7 @@ class usercontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('users.admin.addUser');
 	}
 
 
@@ -48,7 +48,21 @@ class usercontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		if (!$this->user->isValid($input = Input::all())) 
+		{
+			//The form was not valid, so redirect back with the error messages of the model
+			return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+		}
+
+		$this->user->create([
+			"email"		=> Input::get("email"),
+			"password" 	=> Hash::make(Input::get("password")),
+			"firstname"	=> Input::get("firstname"),
+			"lastname"	=> Input::get("lastname"),
+			"type"		=> Input::get("type")
+		]);
+
+		return Redirect::to("/beheer/gebruikers");
 	}
 
 
@@ -72,7 +86,9 @@ class usercontroller extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		//Get specifieke gebruiker
+		$gebruiker = $this->user->find($id);
+		return View::make("users.admin.editGebruiker", ["gebruiker" => $gebruiker]);
 	}
 
 
@@ -84,7 +100,32 @@ class usercontroller extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+
+		$gebruiker = $this->user->find($id);
+
+		if ($gebruiker->email != Input::get("email")) 
+		{
+			$input = Input::all(); 
+		}
+		else
+		{
+			$input = Input::except("email");
+		}
+
+		if (!$this->user->isValid($input)) 
+		{
+			//The form was not valid, so redirect back with the error messages of the model
+			return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+		}
+
+		//$gebruiker = $this->user->find($id);
+		$gebruiker->email = Input::get("email");
+		$gebruiker->firstname = Input::get("firstname");
+		$gebruiker->lastname = Input::get("lastname");
+		$gebruiker->type = Input::get("type");
+		$gebruiker->save();
+
+		return Redirect::to("/beheer/gebruikers");
 	}
 
 

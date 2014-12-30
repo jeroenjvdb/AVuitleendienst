@@ -16,7 +16,8 @@ class HomeController extends BaseController {
 	public function beheerGebruikers(){
 		if(Auth::check())
 		{
-			return View::make('users.admin.beheerGebruikers');
+			$gebruikers = User::get();
+			return View::make('users.admin.beheerGebruikers', ["gebruikers" => $gebruikers]);
 		}
 		else
 		{
