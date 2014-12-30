@@ -21,6 +21,22 @@ class Accessorie extends Eloquent {
 									'fk_slavematerial' => $materialId);
 		}
 
-		DB::table('accessories')->insert($insertValues);
+		Accessorie::insert($insertValues);
+	}
+	public function updateAccessories($accessories,$materialId)
+	{
+		Accessorie::where('fk_mastermaterial' , '=', $materialId)
+								->orwhere('fk_slavematerial' , '=', $materialId)
+								->delete();
+		$insertValues = array();
+		foreach($accessories as $accessorie)
+		{
+			$insertValues[] = array('fk_mastermaterial' => $materialId,
+									'fk_slavematerial' => $accessorie);
+			$insertValues[] = array('fk_mastermaterial' => $accessorie,
+									'fk_slavematerial' => $materialId);
+		}
+
+		Accessorie::insert($insertValues);
 	}
 }

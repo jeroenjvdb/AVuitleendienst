@@ -2,6 +2,11 @@
 
 class HomeController extends BaseController {
 
+	public function __construct(Categorie $categorie)
+	{
+		$this->categorie = $categorie;
+	}
+
 	public function beheer(){
 		if(Auth::check())
 		{
@@ -28,8 +33,8 @@ class HomeController extends BaseController {
 	public function beheerMateriaal(){
 		if(Auth::check())
 		{
-			$materials= Material::get();
-			return View::make('users.admin.beheerMateriaal');
+			$categories = $this->categorie->getCategoriesWhitMaterials();
+			return View::make('users.admin.beheerMateriaal',['categories' => $categories]);
 		}
 		else
 		{

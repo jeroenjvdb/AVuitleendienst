@@ -15,10 +15,12 @@ Route::get('logout','sessioncontroller@destroy');
 Route::resource('users','usercontroller');
 Route::resource('materials','materialcontroller');
 Route::resource('categories','categoriecontroller');
+Route::resource('reservations','reservationcontroller');
 Route::get('/beheer', 'HomeController@beheer');
 Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
-
+Route::get('/materials/{id}/cal', 'materialcontroller@calNext');
+Route::get('/reservations/create/{date}/{materialId}', 'reservationcontroller@create');
 Route::get('/', function()
 {
 	return View::make('index');

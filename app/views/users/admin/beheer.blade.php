@@ -10,8 +10,14 @@
 
 @section("content")
 	<h2>Beheer</h2>
-	<div>
-		<a href="/beheer/materiaal">Beheer materiaal</a>
-		<a href="/beheer/gebruikers">Beheer studenten</a>
-	</div>
+
+<div class="loginbox">    
+	<a href="/beheer/materiaal">
+	    <button class="btn btnreg btn-success btn-default">Materiaalbeheer</button>
+	</a>
+	<a href="/beheer/gebruikers">
+	    <button class="btn btnreg btn-success btn-default">Studentenbeheer</button>
+	</a>
+</div>
+
 @stop
