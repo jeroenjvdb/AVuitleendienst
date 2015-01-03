@@ -123,4 +123,17 @@ class Reservation extends Eloquent {
                 ->where('reservations.end','>=',date('Y-m-d H:i:s'))
                 ->get();
     }
+
+    public function getLastReservations($materialId)
+    {
+        return DB::table('reservationmaterials')
+                ->join('reservations','reservationmaterials.fk_reservationsid','=','reservations.id')
+                ->join('materials','reservationmaterials.fk_materialsid','=','materials.id')
+                ->join('reservationusers','reservationusers.fk_reservationsid','=','reservations.id')
+                ->join('users','users.id','=','reservationusers.fk_usersid')
+                ->where('reservationmaterials.fk_materialsid','=',$materialId)
+                ->where('reservationmaterials.datecheckedout','!=','0000-00-00 00:00:00')
+                ->orderBy('reservationmaterials.datecheckedout','DESC')
+                ->paginate(8);
+    }
 }

@@ -71,4 +71,30 @@ class Material extends Eloquent {
                     ->delete();
         Material::where('id','=',$id)->delete(); 
     }
+    public function searchMaterial($name,$status,$availability,$categorie)
+    {
+        $qeury = Material::select('*');
+        if($name != '')
+        {
+            $qeury = $qeury->where('name','LIKE','%'.$name.'%');
+        }
+        if($status != 'all')
+        {
+            $qeury = $qeury->where('status','=',$status);
+        }
+        if($availability != 'all')
+        {
+            $qeury = $qeury->where('availability','=',$availability);
+        }
+        if($categorie != 'all')
+        {
+            $qeury = $qeury->whereHas('categories', function($q) use($categorie)
+        {
+            $q->where('categories.id', '=', $categorie);
+
+        });
+        }
+        $result = $qeury->get();
+        return $result;
+    }
 }

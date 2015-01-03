@@ -232,5 +232,36 @@ class materialcontroller extends \BaseController {
 	    return $cal;
 	}
 
+	public function getLogbook()
+	{
+		$categories = Categorie::getAllCategories();
+		$categories['all'] ='alle';
+		$logbook = Material::paginate(3);	
+		return View::make('materials.logbook',['logbook' =>$logbook,'paginate' => true,'categories' =>$categories]);
+	}
+
+	public function getReservations($id)
+	{
+		$reservations = $this->reservation->getLastReservations($id);
+		return View::make('materials.lastReservation',['reservations' => $reservations]);
+	}
+
+	public function filterLogbook()
+	{
+		if((Input::get('search') == '') && (Input::get('status') == 'all') && (Input::get('availability') == 'all') && (Input::get('categorie') == 'all'))
+		{
+			return Redirect::to('/logbook');
+		}
+		else
+		{
+			$categories = Categorie::getAllCategories();
+			$categories['all'] ='alle';
+			$result = $this->material->searchMaterial(Input::get('search'),Input::get('status'),Input::get('availability'),Input::get('categorie'));
+			Session::put('input',Input::all());
+			return View::make('materials.logbook',['logbook' => $result,'paginate' => false,'categories' =>$categories]);	
+		}
+		
+	}
+
 
 }
