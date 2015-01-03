@@ -27,6 +27,11 @@
 			{{Form::file('image')}}	
 		</div>
 		<div>
+			{{Form::label('status','Status:')}}
+			{{Form::select('status',array('ok' => 'ok' , 'missing' => 'vermist' , 'broken' => 'defect'))}}
+
+		</div>
+		<div>
 			{{Form::label('barcode','Barcode:')}}
 			{{Form::text('barcode',$material->barcode,array('required' => 'required'))}}			
 		</div>
