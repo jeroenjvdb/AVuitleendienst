@@ -236,7 +236,7 @@ class materialcontroller extends \BaseController {
 	{
 		$categories = Categorie::getAllCategories();
 		$categories['all'] ='alle';
-		$logbook = Material::paginate(3);	
+		$logbook = Material::paginate(8);	
 		return View::make('materials.logbook',['logbook' =>$logbook,'paginate' => true,'categories' =>$categories]);
 	}
 
