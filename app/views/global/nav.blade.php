@@ -20,12 +20,12 @@
 
 	@if(Auth::user()->type == "monitor")
 	<li role="presentation">
-		<a href="#">Logboek</a>
+		<a href="/logbook">Logboek</a>
 	</li>
 	
 	@elseif(Auth::user()->type == "teacher" || Auth::user()->type == "admin")
 	<li role="presentation">
-		<a href="#">Logboek</a>
+		<a href="/logbook">Logboek</a>
 	</li>
 	<li role="presentation">
 		<a href="/beheer">Beheer</a>
