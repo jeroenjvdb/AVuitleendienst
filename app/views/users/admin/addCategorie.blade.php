@@ -10,7 +10,7 @@
 
 @section("content")
 	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Categorie Toevoegen</span>
-	<h1>Categorie Toevoegen</h1>
+	<h2>Categorie Toevoegen</h2>
 	@if(Session::has('message'))
         <div>{{ Session::get('message')}}</div>
     @endif
@@ -23,7 +23,11 @@
 			{{Form::label('name','Naam:')}}
 			{{Form::text('name','',array('required' => 'required'))}}
 		</div>
-		{{Form::submit('verzend')}}
+		<br>
+		<div class="loginbox">
+		{{Form::submit('Toevoegen',array('class' => 'btn btnreg btn-success btn-default'))}}
+		</div>
 		{{Form::close()}}
 	</div>
+
 @stop

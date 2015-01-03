@@ -16,33 +16,44 @@
 	        <div>{{ Session::get('message')}}</div>
 	    @endif
 	</div>
-	<div>
-		<a href="/materials/create">Materiaal toevoegen</a>
-		<a href="/categories/create">Categorie toevoegen</a>
+	<div class="loginbox">    
+		<a href="/materials/create">
+		    <button class="btn btnreg btn-success btn-default">Materiaal toevoegen</button>
+		</a>
+		<a href="/categories/create">
+		    <button class="btn btnreg btn-success btn-default">Categorie toevoegen</button>
+		</a>
 	</div>
 	<div>
+	<div>
 		@forelse($categories as $categorie)
+		<div class="category">
 		<h3>{{{$categorie->name}}} 
 			{{ Form::open(['route' => ['categories.edit', $categorie->id], 'method' => 'GET']) }}
-				    <button type="submit" >Edit</button>
+			<input class="editbutton" type="image" src="../../assets/images/edit.png" alt="EDIT">
 			{{ Form::close() }}
 			{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete']) }}
-			    <button type="submit" >Delete</button>
+			<input class="editbutton" type="image" src="../../assets/images/delete.png" alt="DELETE">
 			{{ Form::close() }}
+			<br><br>
 		</h3>
+		</div>
+	</div>
+	<div>
 			@forelse($categorie->materials as $material)
-			<div>{{link_to('materials/'.$material->id,$material->name)}}
+			<div class="material-item">{{link_to('materials/'.$material->id,$material->name)}}
 				{{ Form::open(['route' => ['materials.edit', $material->id], 'method' => 'GET']) }}
-				    <button type="submit" >Edit</button>
+				    <div class="floatleft"><input type="image" src="../../assets/images/edit.png" alt="EDIT"></div>
 				{{ Form::close() }}
 				{{ Form::open(['route' => ['materials.destroy', $material->id], 'method' => 'delete']) }}
-				    <button type="submit" >Delete</button>
+				    <div class="floatleft"><input type="image" src="../../assets/images/delete.png" alt="DELETE"></div>
 				{{ Form::close() }}
-			@empty
-			<p>geen materiaal</p>
-			@endforelse
-		@empty
-		<p>geen categorien</p>
-		@endforelse
+				@empty
+				<p>Geen materiaal beschikbaar</p>
+				@endforelse
+				@empty
+				<p>Geen categorieën beschikbaar</p>
+				@endforelse
+			</div>
 	</div>
 @stop

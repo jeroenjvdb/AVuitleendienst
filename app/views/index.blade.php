@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group text-center centerbuttons">                        
                     <input type="submit" class="btn btn-success btn-login-submit" value="Login" />
-                    <button type="submit" class="btn btnreg btn-success btn-default">Registreer</button>
+                    
                 </div>
             {{ Form::close() }}               
         </div>

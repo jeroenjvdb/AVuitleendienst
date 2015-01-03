@@ -10,7 +10,7 @@
 
 @section("content")
 	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Materiaal Toevoegen</span>
-	<h1>Materiaal Toevoegen</h1>
+	<h2>Materiaal Toevoegen</h2>
 	@if(Session::has('message'))
         <div>{{ Session::get('message')}}</div>
     @endif
@@ -21,41 +21,43 @@
 			{{ $errors->first('barcode')}}
 		</div>
 		<div>
-			{{Form::label('naam','Naam:')}}
+			{{Form::label('naam','Naam:')}}<br>
 			{{Form::text('name','',array('required' => 'required'))}}			
 		</div>
 		<div>
-			{{Form::label('image','Afbeelding:')}}
+			{{Form::label('image','Afbeelding:')}}<br>
 			{{Form::file('image')}}	
 		</div>
 		<div>
-			{{Form::label('barcode','Barcode:')}}
+			{{Form::label('barcode','Barcode:')}}<br>
 			{{Form::text('barcode','',array('required' => 'required'))}}			
 		</div>
 		<div>
-			{{Form::label('categorei','Categorie:')}}
+			{{Form::label('categorei','Categorie:')}}<br>
 			{{Form::select('categorie', $categories)}}
 		</div>
 		<div>
 			{{Form::label('details','Details:')}}
 			<br/>
-			{{Form::textarea('details','',array('required' => 'required','rows' => '4'))}}			
+			{{Form::textarea('details','',array('required' => 'required','rows' => '3'))}}			
 		</div>
-		<h2>Selecteer de bijhorende Accessiores</h2>
+		<h2>Selecteer de bijhorende accessiores</h2>
 		@forelse($accesoriesCategorie as $accesorieCategorie)
 		<h3>{{{$accesorieCategorie->name}}}</h3>
 			@forelse($accesorieCategorie->materials as $material)
 			<div>
-				{{Form::checkbox('accessories[]', $material->id);}}
-				<p>{{$material->name}}</p>
-				<img src="/images/{{$material->image}}" alt="">
-			@empty
-			<p>geen materiaal</p>
+					{{Form::checkbox('accessories[]', $material->id);}}			
+					<p>{{$material->name}}</p>
+					<img src="/images/{{$material->image}}" width="100px" alt="">
+				@empty
+				<p>geen materiaal</p>
 			@endforelse
 		@empty
 		<p>geen categorien</p>
 		@endforelse
-		{{Form::submit('verzend')}}
+		<br>
+		{{Form::submit('Toevoegen',array('class' => 'btn btnreg btn-success btn-default'))}}
 		{{Form::close()}}
+		<br><br>
 	</div>
 @stop

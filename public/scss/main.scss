@@ -184,6 +184,40 @@ h1{
             transform:skew(8deg) rotate(3deg);
 }
 
+/*Beheer*/
+
+.editbutton{
+  float:left;
+}
+
+.floatleft{
+  float:left;
+}
+
+.materiaalbeheer-edit input[type=submit] {
+    background: url(../img/edit.png);
+    border:0;
+    display:block;
+    height:128px;
+    width:128px;
+}
+
+.category{
+  clear:both;
+  padding-top:10px;
+}
+
+.material-item{
+  clear:both;
+  /* padding-left:20px; */
+}
+
+.acc-keuze{
+  float:left;
+}
+
+/*end Beheer*/
+
 
 
 @media(max-width: 1270px){

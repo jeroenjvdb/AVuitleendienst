@@ -20,8 +20,8 @@
 			{{Form::label('naam','Naam:')}}
 			{{Form::text('name',$categorie->name,array('required' => 'required'))}}			
 		</div>
-		
-		{{Form::submit('verzend')}}
+		<br>
+		{{Form::submit('Wijzigen',array('class' => 'btn btnreg btn-success btn-default'))}}
 		{{Form::close()}}
 	</div>
 @stop

@@ -18,34 +18,39 @@
 			{{ $errors->first('barcode')}}
 		</div>
 		<div>
-			{{Form::label('naam','Naam:')}}
+			{{Form::label('naam','Naam:')}}<br>
 			{{Form::text('name',$material->name,array('required' => 'required'))}}			
 		</div>
 		<div>
-			{{Form::label('image','Afbeelding:')}}
+		<br>
+			{{Form::label('image','Afbeelding:')}}<br>
 			<img src="/images/{{$material->image}}" alt="">
 			{{Form::file('image')}}	
 		</div>
 		<div>
-			{{Form::label('status','Status:')}}
+		<br>
+			{{Form::label('status','Status:')}}<br>
 			{{Form::select('status',array('ok' => 'ok' , 'missing' => 'vermist' , 'broken' => 'defect'))}}
 
 		</div>
 		<div>
-			{{Form::label('barcode','Barcode:')}}
+		<br>
+			{{Form::label('barcode','Barcode:')}}<br>
 			{{Form::text('barcode',$material->barcode,array('required' => 'required'))}}			
 		</div>
 		<div>
-			{{Form::label('categorei','Categorie:')}}
+		<br>
+			{{Form::label('categorei','Categorie:')}}<br>
 			{{Form::select('categorie', $categories,$material->categories[0]->id)}}
 		</div>
 		<div>
+		<br>
 			{{Form::label('details','Details:')}}
 			<br/>
-			{{Form::textarea('details',$material->details,array('required' => 'required','rows' => '4'))}}			
+			{{Form::textarea('details',$material->details,array('required' => 'required','rows' => '3'))}}			
 		</div>
 
-		<h2>Selecteer de bijhorende Accessiores</h2>
+		<h2>Selecteer de bijhorende accessiores</h2>
 
 		@forelse($accesoriesCategorie as $accesorieCategorie)
 		<h3>{{{$accesorieCategorie->name}}}</h3>
@@ -53,15 +58,16 @@
 			<div>
 				{{Form::checkbox('accessories[]', $material->id,in_array($material->id, $accessoriesOfMaterial));}}
 				<p>{{$material->name}}</p>
-				<img src="/images/{{$material->image}}" alt="">
+				<img width="100px" src="/images/{{$material->image}}" alt="">
 			@empty
-			<p>geen materiaal</p>
+			<p>Geen materiaal beschikbaar</p>
 			@endforelse
 		@empty
-		<p>geen categorien</p>
+		<p>Geen categorieën beschikbaar</p>
 		@endforelse
-		
-		{{Form::submit('verzend')}}
+		<br>
+		{{Form::submit('Wijzigen',array('class' => 'btn btnreg btn-success btn-default'))}}
+		<br><br>
 		{{Form::close()}}
 	</div>
 @stop

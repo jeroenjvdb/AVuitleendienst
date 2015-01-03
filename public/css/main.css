@@ -3954,18 +3954,56 @@ h1 {
   transform: skew(8deg) rotate(3deg);
 }
 
+/*Beheer*/
+/* line 189, ../scss/main.scss */
+.editbutton {
+  float: left;
+}
+
+/* line 193, ../scss/main.scss */
+.floatleft {
+  float: left;
+}
+
+/* line 197, ../scss/main.scss */
+.materiaalbeheer-edit input[type=submit] {
+  background: url(../img/edit.png);
+  border: 0;
+  display: block;
+  height: 128px;
+  width: 128px;
+}
+
+/* line 205, ../scss/main.scss */
+.category {
+  clear: both;
+  padding-top: 10px;
+}
+
+/* line 210, ../scss/main.scss */
+.material-item {
+  clear: both;
+  /* padding-left:20px; */
+}
+
+/* line 215, ../scss/main.scss */
+.acc-keuze {
+  float: left;
+}
+
+/*end Beheer*/
 @media (max-width: 1270px) {
-  /* line 190, ../scss/main.scss */
+  /* line 224, ../scss/main.scss */
   .nav-pills {
     display: none;
   }
 
-  /* line 193, ../scss/main.scss */
+  /* line 227, ../scss/main.scss */
   .nav-bars {
     display: block;
   }
 
-  /* line 196, ../scss/main.scss */
+  /* line 230, ../scss/main.scss */
   .nav-pills {
     position: absolute;
     top: 80px;
@@ -3975,42 +4013,42 @@ h1 {
     z-index: 9999;
   }
 
-  /* line 204, ../scss/main.scss */
+  /* line 238, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 209, ../scss/main.scss */
+  /* line 243, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
-/* line 214, ../scss/main.scss */
+/* line 248, ../scss/main.scss */
 .item {
   text-align: center;
 }
 
 @media (max-width: 530px) {
-  /* line 219, ../scss/main.scss */
+  /* line 253, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 222, ../scss/main.scss */
+  /* line 256, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 228, ../scss/main.scss */
+  /* line 262, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 234, ../scss/main.scss */
+  /* line 268, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }
