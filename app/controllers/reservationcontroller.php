@@ -36,7 +36,7 @@ class reservationcontroller extends \BaseController {
 			//checken of het item op deze datum nog niet gereserveerd is
 			if(!in_array($begin, $this->reservation->getAllReservedDatesArray($materialId)))
 			{
-				$users = User::where('type','!=','admin')->where('id','!=',Auth::id())->get();
+				$users = User::where('type','!=','admin')->where('id','!=',Auth::id())->paginate(12);
 				$material = Material::find($materialId);
 				return View::make('reservations.new',['begin' => $begin , 'material' =>$material, 'users' => $users]);
 			}

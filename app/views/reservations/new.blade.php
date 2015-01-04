@@ -52,6 +52,7 @@
 		@empty
 			<p>Er zijn nog geen gebruikers</p>
 		@endforelse
+		{{$users->links()}}
 	</div>
 	<div class="form-group">
 		<h3 class="itemrestitle">Extra accesoires</h3>

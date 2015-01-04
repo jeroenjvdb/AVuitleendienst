@@ -234,6 +234,7 @@ class materialcontroller extends \BaseController {
 
 	public function getLogbook()
 	{
+		Session::forget('input');
 		$categories = Categorie::getAllCategories();
 		$categories['all'] ='alle';
 		$logbook = Material::paginate(8);	
@@ -248,6 +249,7 @@ class materialcontroller extends \BaseController {
 
 	public function filterLogbook()
 	{
+		Session::forget('input');
 		if((Input::get('search') == '') && (Input::get('status') == 'all') && (Input::get('availability') == 'all') && (Input::get('categorie') == 'all'))
 		{
 			return Redirect::to('/logbook');
