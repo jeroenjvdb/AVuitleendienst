@@ -33,12 +33,11 @@
 				<div class="thumbnail loginbox loginboxinner loginboxshadow">
 					<a class="item" href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="item">
 						<h3 class="primaryblue">{{{$material->name}}}</h3>
-						<img src="/images/{{$material->image}}" alt="">
+						<img src="/images/{{$material->image}}" alt="{{{$material->name}}}" class="img-rounded">
 					</a>
 					
 				</div>
 			</div>
-			
 			
 			@empty
 			<p>geen materiaal</p>
@@ -49,18 +48,4 @@
 			<p>There's no category here; Helloooo? ooo? oo?</p>
 		</div>
 	@endforelse
-
-	<!-- <div>
-		@forelse($categories as $categorie)
-		<h3>{{{$categorie->name}}}</h3>
-			@forelse($categorie->materials as $material)
-			{{link_to('materials/'.$material->id,$material->name)}}
-			<img src="/images/{{$material->image}}" alt="">
-			@empty
-			<p>geen materiaal</p>
-			@endforelse
-		@empty
-		<p>geen categorien</p>
-		@endforelse
-	</div> -->
 @stop
