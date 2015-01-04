@@ -10,7 +10,7 @@
 
 @section("content")
 	<h1>{{{$material->name}}} Reserveren</h1>
-	{{Form::open(['route' => 'reservations.store'])}}
+	{{Form::open(['route' => 'reservations.store', "class" => "form-horizontal"])}}
 	<div>
 		{{str_replace('begin','begin datum',str_replace('end', 'eind datum', $errors->first('end')))}}
 		@if(Session::has('message') )
@@ -18,40 +18,60 @@
 		@endif
 	</div>
 		{{Form::hidden('materialId',$material->id)}}
-	<div>
-		{{Form::label('begin','Begin datum: ')}}
-		{{Form::text('begin',$begin,array('required' => 'required','readonly'))}}
+	<div class="form-group">
+		{{Form::label('begin','Begin datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
+		<div class="col-sm-8">
+			{{Form::text('begin',$begin,array('required' => 'required','readonly', "class" => "form-control cursorpointer"))}}
+		</div>
+		
 	</div>
-	<div>
-		{{Form::label('einde','Eind datum: ')}}
-		{{Form::text("endDate",'',array('placeholder' => 'kies een datum','id'=>'date'))}}
-		{{Form::text("endHour",'',array('placeholder' => 'kies een uur','id'=>'time'))}}
+	<div class="form-group">
+		{{Form::label('einde','Eind datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
+		<div class="col-sm-8">
+			{{Form::text("endDate",'',array('placeholder' => 'kies een datum','id'=>'date', "class" => "form-control cursorpointer"))}}
+		{{Form::text("endHour",'',array('placeholder' => 'kies een uur','id'=>'time', "class" => "form-control cursorpointer"))}}
+		</div>
+		
 	</div>
-	<div>
-		{{Form::label('Reden','Reden van reservatie: ')}}
-		{{Form::textarea('reason','',array('required' => "required"))}}
+	<div class="form-group">
+		{{Form::label('Reden','Reden van reservatie: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
+		<div class="col-sm-8">
+			{{Form::textarea('reason','',array('required' => "required", "class" => "form-control", "rows" => "2"))}}
+		</div>
+		
 	</div>
-	<div>
-		<h3>mede gebruikers selecteren</h3>
+	<div class="form-group">
+		<h3 class="itemrestitle">Mede gebruikers selecteren:</h3>
 		@forelse($users as $user)
-			{{Form::checkbox('users[]', $user->id);}}
-			<p>{{{$user->firstname." ".$user->lastname}}}</p>
+			<div class="col-sm-4 col-md-3 col-xs-12">
+				<label class="checkbox-inline">
+					{{Form::checkbox('users[]', $user->id);}}
+					{{{$user->firstname." ".$user->lastname}}}
+				</label>
+			</div>
 		@empty
 			<p>Er zijn nog geen gebruikers</p>
 		@endforelse
 	</div>
-	<div>
-		<h3>Extra accesoires</h3>
+	<div class="form-group">
+		<h3 class="itemrestitle">Extra accesoires</h3>
 		@forelse($material->accessories as $accessorie)
-			{{Form::checkbox('accessories[]', $accessorie->id);}}
-			<img src="/images/{{$accessorie->image}}" alt="{{{$accessorie->name}}}">
-			<p>{{{$accessorie->name}}}</p>
+		<div class="col-md-4 col-sm-6 col-xs-12 extracc">
+			<div class="thumbnail loginbox loginboxinner loginboxshadow">
+				{{Form::checkbox('accessories[]', $accessorie->id, false, ["class" => "checkbox checker"]);}}
+				<h4 class="success">{{{$accessorie->name}}}</h4>
+				<img src="/images/{{$accessorie->image}}" alt="{{{$accessorie->name}}}" class="img-rounded">
+			</div>
+		</div>	
 		@empty
 			<p>Bij dit item horen er geen accesoires</p>
 		@endforelse
 
 	</div>
-	{{Form::submit('bevestigen')}}
+	<div class="loginbox">
+		{{Form::submit('Bevestigen', ["class" => "btn btnreg btn-success"])}}
+	</div>
+	
 	{{Form::close()}}
 
 @stop

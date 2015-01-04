@@ -3751,56 +3751,57 @@ tbody.collapse.in {
 /* line 8, ../scss/main.scss */
 html, body {
   font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
+  padding-bottom: 2vh;
 }
 
-/* line 12, ../scss/main.scss */
+/* line 13, ../scss/main.scss */
 .highlight {
   color: #c1d82f;
 }
 
-/* line 16, ../scss/main.scss */
+/* line 17, ../scss/main.scss */
 .title {
   color: #c1d82f;
 }
 
-/* line 20, ../scss/main.scss */
+/* line 21, ../scss/main.scss */
 .success {
   color: #27318b;
 }
 
-/* line 24, ../scss/main.scss */
+/* line 25, ../scss/main.scss */
 .item {
   color: #27318b;
 }
 
-/* line 28, ../scss/main.scss */
+/* line 29, ../scss/main.scss */
 .item:hover {
   text-decoration: none;
   color: #27318b;
 }
 
-/* line 33, ../scss/main.scss */
+/* line 34, ../scss/main.scss */
 .item:hover {
   color: #c1d82f;
 }
 
-/* line 37, ../scss/main.scss */
+/* line 38, ../scss/main.scss */
 .dropdown {
   padding-top: 20px;
 }
 
-/* line 42, ../scss/main.scss */
+/* line 43, ../scss/main.scss */
 h1 {
   color: #c1d82f;
 }
 
-/* line 46, ../scss/main.scss */
+/* line 47, ../scss/main.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #c1d82f;
   color: #27318b;
 }
 
-/* line 51, ../scss/main.scss */
+/* line 52, ../scss/main.scss */
 .navbar {
   background-color: #27318b;
   height: 115px;
@@ -3808,14 +3809,14 @@ h1 {
   border-radius: 0px !important;
 }
 
-/* line 58, ../scss/main.scss */
+/* line 59, ../scss/main.scss */
 .nav {
   margin-left: 10px;
   margin-top: 40px;
   width: 100%;
 }
 
-/* line 64, ../scss/main.scss */
+/* line 65, ../scss/main.scss */
 .nav-bars, .nav-bars-x {
   display: none;
   float: right;
@@ -3823,7 +3824,7 @@ h1 {
   margin-top: 47px;
 }
 
-/* line 71, ../scss/main.scss */
+/* line 72, ../scss/main.scss */
 .nav-bars-menu {
   display: none;
   background-color: #27318B;
@@ -3834,32 +3835,32 @@ h1 {
   margin-right: -70px;
 }
 
-/* line 81, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 .logosmall {
   display: none;
 }
 
-/* line 85, ../scss/main.scss */
+/* line 86, ../scss/main.scss */
 .nav-bars-x {
   display: none;
 }
 
 /*LOGIN PAGINA*/
-/* line 91, ../scss/main.scss */
+/* line 92, ../scss/main.scss */
 .loginbox {
   background-color: #fff!important;
   border-radius: 0!important;
   border: none!important;
 }
 
-/* line 97, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 .loginbox.loginboxinner {
   width: 300px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-/* line 102, ../scss/main.scss */
+/* line 103, ../scss/main.scss */
 .loginbox.loginboxinner legend {
   font-size: 26px;
   text-align: center;
@@ -3867,44 +3868,44 @@ h1 {
   padding-top: 2px;
 }
 
-/* line 108, ../scss/main.scss */
+/* line 109, ../scss/main.scss */
 .loginbox.loginboxinner label {
   font-weight: 300;
   font-size: 16px;
 }
 
-/* line 113, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .loginbox.loginboxinner input {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 119, ../scss/main.scss */
+/* line 120, ../scss/main.scss */
 .loginbox.welcome-text {
   font-size: 21px;
 }
 
-/* line 123, ../scss/main.scss */
+/* line 124, ../scss/main.scss */
 .loginbox .btn {
   background-color: #C1D82F;
   border: #C1D82F;
   color: #27318B;
 }
 
-/* line 129, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 .loginbox .btnreg {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 135, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .loginbox form {
   padding: 17px;
 }
 
-/* line 139, ../scss/main.scss */
+/* line 140, ../scss/main.scss */
 .loginbox .centerbuttons {
   width: 154px;
   margin: 0 auto;
@@ -3912,14 +3913,14 @@ h1 {
   padding-top: 10px;
 }
 
-/* line 146, ../scss/main.scss */
+/* line 147, ../scss/main.scss */
 .loginbox .btn:hover {
   background-color: #27318B;
   color: #ffffff;
 }
 
 /*BOX SHADOWWWWWWWW*/
-/* line 155, ../scss/main.scss */
+/* line 156, ../scss/main.scss */
 .loginboxshadow {
   position: relative;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -3927,7 +3928,7 @@ h1 {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-/* line 162, ../scss/main.scss */
+/* line 163, ../scss/main.scss */
 .loginboxshadow:before, .loginboxshadow:after {
   content: "";
   position: absolute;
@@ -3943,7 +3944,7 @@ h1 {
   border-radius: 100px/10px;
 }
 
-/* line 177, ../scss/main.scss */
+/* line 178, ../scss/main.scss */
 .loginboxshadow:after {
   right: 10px;
   left: auto;
@@ -3954,18 +3955,24 @@ h1 {
   transform: skew(8deg) rotate(3deg);
 }
 
+/* line 188, ../scss/main.scss */
+.detailimg {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 /*Beheer*/
-/* line 189, ../scss/main.scss */
+/* line 195, ../scss/main.scss */
 .editbutton {
   float: left;
 }
 
-/* line 193, ../scss/main.scss */
+/* line 199, ../scss/main.scss */
 .floatleft {
   float: left;
 }
 
-/* line 197, ../scss/main.scss */
+/* line 203, ../scss/main.scss */
 .materiaalbeheer-edit input[type=submit] {
   background: url(../img/edit.png);
   border: 0;
@@ -3974,36 +3981,88 @@ h1 {
   width: 128px;
 }
 
-/* line 205, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 .category {
   clear: both;
   padding-top: 10px;
 }
 
-/* line 210, ../scss/main.scss */
+/* line 216, ../scss/main.scss */
 .material-item {
   clear: both;
   /* padding-left:20px; */
 }
 
-/* line 215, ../scss/main.scss */
+/* line 221, ../scss/main.scss */
 .acc-keuze {
   float: left;
 }
 
+/* line 225, ../scss/main.scss */
+.itemrestitle {
+  padding-left: 8px;
+}
+
 /*end Beheer*/
+/*Reserveren item*/
+/* line 233, ../scss/main.scss */
+.cursorpointer {
+  cursor: pointer !important;
+}
+
+/* line 237, ../scss/main.scss */
+.extracc {
+  margin-top: -80px;
+}
+/* line 239, ../scss/main.scss */
+.extracc .thumbnail {
+  cursor: pointer;
+}
+/* line 242, ../scss/main.scss */
+.extracc .checker {
+  float: right;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+/*end reserveren item*/
+/*Logboek*/
+/* line 254, ../scss/main.scss */
+table img {
+  max-height: 20%;
+  max-width: 20%;
+}
+
+/* line 259, ../scss/main.scss */
+tr.danger {
+  background-color: #f2dede;
+}
+
+/* line 263, ../scss/main.scss */
+tr.warning {
+  background-color: #fcf8e3;
+}
+
+/* line 267, ../scss/main.scss */
+.logsearchbtn {
+  margin-top: .8em;
+  margin-bottom: .8em;
+}
+
+/*End Logboek*/
 @media (max-width: 1270px) {
-  /* line 224, ../scss/main.scss */
+  /* line 275, ../scss/main.scss */
   .nav-pills {
     display: none;
   }
 
-  /* line 227, ../scss/main.scss */
+  /* line 278, ../scss/main.scss */
   .nav-bars {
     display: block;
   }
 
-  /* line 230, ../scss/main.scss */
+  /* line 281, ../scss/main.scss */
   .nav-pills {
     position: absolute;
     top: 80px;
@@ -4013,42 +4072,42 @@ h1 {
     z-index: 9999;
   }
 
-  /* line 238, ../scss/main.scss */
+  /* line 289, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 243, ../scss/main.scss */
+  /* line 294, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
-/* line 248, ../scss/main.scss */
+/* line 299, ../scss/main.scss */
 .item {
   text-align: center;
 }
 
 @media (max-width: 530px) {
-  /* line 253, ../scss/main.scss */
+  /* line 304, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 256, ../scss/main.scss */
+  /* line 307, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 262, ../scss/main.scss */
+  /* line 313, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 268, ../scss/main.scss */
+  /* line 319, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }

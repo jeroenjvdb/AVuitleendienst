@@ -27,4 +27,11 @@ $(document).ready(function(){
         min:'08:00',
         max:'22:00',
     });
+
+    $(".thumbnail").click(function(e){
+        if(e.target.nodeName  != "INPUT"){
+            var check = $(this).find("input:checkbox.checker").prop("checked");
+            $(this).find("input:checkbox.checker").prop("checked", !check);
+        }
+    });
 });

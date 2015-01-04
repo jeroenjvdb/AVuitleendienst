@@ -7,6 +7,7 @@ $primary-blue: #27318b;
 
 html, body{
   font-family: "arial","trebuchet MS","tahoma","helvetica","clean,sans-serif";
+  padding-bottom: 2vh;
 }
 
 .highlight{
@@ -184,6 +185,11 @@ h1{
             transform:skew(8deg) rotate(3deg);
 }
 
+.detailimg{
+  max-height: 100%;
+  max-width: 100%;
+}
+
 /*Beheer*/
 
 .editbutton{
@@ -216,9 +222,54 @@ h1{
   float:left;
 }
 
+.itemrestitle{
+  padding-left: 8px;
+}
+
 /*end Beheer*/
 
+/*Reserveren item*/
 
+.cursorpointer{
+  cursor: pointer !important;
+}
+
+.extracc{
+  margin-top: -80px;
+  .thumbnail{
+    cursor: pointer;
+  }
+  .checker{
+    float: right;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/*end reserveren item*/
+
+/*Logboek*/
+
+table img{
+  max-height: 20%;
+  max-width: 20%;
+}
+
+tr.danger{
+  background-color: #f2dede;
+}
+
+tr.warning{
+  background-color: #fcf8e3;
+}
+
+.logsearchbtn{
+  margin-top: .8em;
+  margin-bottom: .8em;
+}
+
+/*End Logboek*/
 
 @media(max-width: 1270px){
   .nav-pills{
