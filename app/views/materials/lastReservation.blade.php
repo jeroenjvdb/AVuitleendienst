@@ -10,7 +10,7 @@
 
 @section("content")
 	<div>
-		@if(!empty($reservations))
+		@if(!$reservations->isEmpty())
 			<h1>Laatste reservaties van {{$reservations[0]->name}}</h1>
 			<table>
 				<tr>
