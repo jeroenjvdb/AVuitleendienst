@@ -15,6 +15,7 @@
 			<table>
 				<tr>
 					<th>Naam</th>
+					<th>email</th>
 					<th>Reden</th>
 					<th>datum ingechecked</th>
 					<th>datum uitgechecked</th>
@@ -23,6 +24,7 @@
 			@foreach($reservations as $reservation)
 				<tr>
 					<td>{{$reservation->firstname}} {{$reservation->lastname}}</td>
+					<td>{{$reservation->email}}</td>
 					<td>{{{$reservation->reason}}}</td>
 					<td>{{{$reservation->datecheckedin}}}</td>
 					<td>{{{$reservation->datecheckedout}}}</td>
