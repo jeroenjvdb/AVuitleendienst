@@ -67,7 +67,13 @@ class messagecontroller extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$message = Message::find($id);
+		$message->fill(Input::all());
+		$message->save();
+		$material = Material::find(Input::get('materialid'));
+		$material->status = 'ok';
+		$material->save();
+		return Redirect::to('/beheer');
 	}
 
 

@@ -25,7 +25,9 @@ class Categorie extends Eloquent {
 
     public function getCategoriesWhitMaterials()
     {
-    	return Categorie::with('materials')->get();
+    	return Categorie::with(array('materials'=> function($q){
+    				$q->where('materials.status','=','ok');
+    	}))->get();
     }
     public static function getAllCategories()
 	{

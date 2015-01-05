@@ -16,6 +16,7 @@ Route::resource('users','usercontroller');
 Route::resource('materials','materialcontroller');
 Route::resource('categories','categoriecontroller');
 Route::resource('reservations','reservationcontroller');
+Route::resource('messages','messagecontroller');
 Route::get('/beheer', 'HomeController@beheer');
 Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
