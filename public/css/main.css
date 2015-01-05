@@ -3977,18 +3977,23 @@ h1 {
   max-width: 100%;
 }
 
+/* line 210, ../scss/main.scss */
+.detailcalendar {
+  margin-top: 2em;
+}
+
 /*Beheer*/
-/* line 212, ../scss/main.scss */
+/* line 216, ../scss/main.scss */
 .editbutton {
   float: left;
 }
 
-/* line 216, ../scss/main.scss */
+/* line 220, ../scss/main.scss */
 .floatleft {
   float: left;
 }
 
-/* line 220, ../scss/main.scss */
+/* line 224, ../scss/main.scss */
 .materiaalbeheer-edit input[type=submit] {
   background: url(../img/edit.png);
   border: 0;
@@ -3997,44 +4002,44 @@ h1 {
   width: 128px;
 }
 
-/* line 228, ../scss/main.scss */
+/* line 232, ../scss/main.scss */
 .category {
   clear: both;
   padding-top: 10px;
 }
 
-/* line 233, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .material-item {
   clear: both;
   /* padding-left:20px; */
 }
 
-/* line 238, ../scss/main.scss */
+/* line 242, ../scss/main.scss */
 .acc-keuze {
   float: left;
 }
 
-/* line 242, ../scss/main.scss */
+/* line 246, ../scss/main.scss */
 .itemrestitle {
   padding-left: 8px;
 }
 
 /*end Beheer*/
 /*Reserveren item*/
-/* line 250, ../scss/main.scss */
+/* line 254, ../scss/main.scss */
 .cursorpointer {
   cursor: pointer !important;
 }
 
-/* line 254, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 .extracc {
   margin-top: -80px;
 }
-/* line 256, ../scss/main.scss */
+/* line 260, ../scss/main.scss */
 .extracc .thumbnail {
   cursor: pointer;
 }
-/* line 259, ../scss/main.scss */
+/* line 263, ../scss/main.scss */
 .extracc .checker {
   float: right;
   margin-right: 4px;
@@ -4042,79 +4047,79 @@ h1 {
   height: 16px;
 }
 
-/* line 267, ../scss/main.scss */
+/* line 271, ../scss/main.scss */
 .myreservation img {
   max-height: 200px;
 }
 
-/* line 271, ../scss/main.scss */
+/* line 275, ../scss/main.scss */
 .infogreen {
   color: #7A8E01;
 }
 
-/* line 275, ../scss/main.scss */
+/* line 279, ../scss/main.scss */
 .infored {
   color: #d44950;
 }
 
-/* line 279, ../scss/main.scss */
+/* line 283, ../scss/main.scss */
 .centering {
   text-align: center;
 }
 
 /*end reserveren item*/
 /*Logboek*/
-/* line 287, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 table img {
   max-height: 20%;
   max-width: 20%;
 }
 
-/* line 292, ../scss/main.scss */
+/* line 296, ../scss/main.scss */
 tr.danger {
   background-color: #f2dede;
 }
 
-/* line 296, ../scss/main.scss */
+/* line 300, ../scss/main.scss */
 tr.warning {
   background-color: #fcf8e3;
 }
 
-/* line 300, ../scss/main.scss */
+/* line 304, ../scss/main.scss */
 tr td:first-child {
   width: 20%;
 }
 
-/* line 304, ../scss/main.scss */
+/* line 308, ../scss/main.scss */
 .logsearchbtn {
   margin-top: .8em;
   margin-bottom: .8em;
 }
 
-/* line 309, ../scss/main.scss */
+/* line 313, ../scss/main.scss */
 th {
   background-color: #7eb1dc;
 }
 
 /*End Logboek*/
-/* line 315, ../scss/main.scss */
+/* line 319, ../scss/main.scss */
 .notification {
   text-align: center;
   color: #337ab7;
 }
 
 @media (max-width: 1270px) {
-  /* line 321, ../scss/main.scss */
+  /* line 325, ../scss/main.scss */
   .nav-pills {
     display: none;
   }
 
-  /* line 324, ../scss/main.scss */
+  /* line 328, ../scss/main.scss */
   .nav-bars {
     display: block;
   }
 
-  /* line 327, ../scss/main.scss */
+  /* line 331, ../scss/main.scss */
   .nav-pills {
     position: absolute;
     top: 80px;
@@ -4124,48 +4129,48 @@ th {
     z-index: 9999;
   }
 
-  /* line 335, ../scss/main.scss */
+  /* line 339, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 340, ../scss/main.scss */
+  /* line 344, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
-/* line 345, ../scss/main.scss */
+/* line 349, ../scss/main.scss */
 .item {
   text-align: center;
 }
 
 @media (max-width: 720px) {
-  /* line 350, ../scss/main.scss */
+  /* line 354, ../scss/main.scss */
   h1 {
     font-size: 24px !important;
   }
 }
 @media (max-width: 530px) {
-  /* line 356, ../scss/main.scss */
+  /* line 360, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 359, ../scss/main.scss */
+  /* line 363, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 365, ../scss/main.scss */
+  /* line 369, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 371, ../scss/main.scss */
+  /* line 375, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }

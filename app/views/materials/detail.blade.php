@@ -10,7 +10,14 @@
 
 @section("content")
 
-	<h1>{{{$material->name}}}</h1>
+	<h1>{{{$material->name}}}
+		@if($material->status == "missing")
+			<small class="infoorange">{{$material->status}}
+		@elseif($material->status == "broken")
+			<small class="infored">{{$material->status}}
+		@endif
+		</small>
+	</h1>
 	<div>
 		@if(Session::has('message') )
 			{{Session::get('message')}}
@@ -68,7 +75,11 @@
 				@endforelse
 			@endforeach
 		</div>
-		<a name="calendar"></a>
-		{{$cal->generate($material->id)}}
+
+		<div class="detailcalendar">
+			<a name="calendar"></a>
+			{{$cal->generate($material->id)}}
+		</div>
+		
 	</div>
 @stop
