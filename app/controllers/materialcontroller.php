@@ -76,8 +76,11 @@ class materialcontroller extends \BaseController {
 				$this->material->image = $filename;
 				$this->material->save();
 				$this->categorie->saveMaterialToCategorie(Input::get('categorie'),$this->material->id);
-				$this->accessorie->saveAccessories(Input::get('accessories'),$this->material->id);
-				return Redirect::to('/materials/create')->with('message', 'U heeft succesvol '.Input::get('name').' toegevoegd aan de lijst van materiaal');
+				if(!empty(Input::get('accessories')))
+				{
+					$this->accessorie->saveAccessories(Input::get('accessories'),$this->material->id);
+				}
+				return Redirect::to('/beheer/materiaal')->with('message', 'U heeft succesvol '.Input::get('name').' toegevoegd aan de lijst van materiaal');
 			}
 			else
 			{
@@ -164,7 +167,10 @@ class materialcontroller extends \BaseController {
 				$this->material->image = $filename;
 				$this->material->save();
 				$this->categorie->updateMaterialCategorie(Input::get('categorie'),$id);
-				$this->accessorie->updateAccessories(Input::get('accessories'),$this->material->id);
+				if(!empty(Input::get('accessories')))
+				{
+					$this->accessorie->updateAccessories(Input::get('accessories'),$this->material->id);
+				}
 				return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.Input::get('name').' aangepast');
 				
 			}
