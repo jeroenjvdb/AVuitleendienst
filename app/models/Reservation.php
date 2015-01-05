@@ -138,4 +138,40 @@ class Reservation extends Eloquent {
                 ->orderBy('reservationmaterials.datecheckedout','DESC')
                 ->paginate(8);
     }
+
+    public function checkMaterialAvailable()
+    {
+        //checken of het materiaal al binnen is op dit moment wanneer je reservatie binnen een uur start
+        $now = strtotime(date('Y-m-d H:i:s'));
+        $time1 = date('Y-m-d H:i:s',strtotime('+1 hour',$now));
+        $time1stamp = strtotime($time1);
+        $time2 = date('Y-m-d H:i:s',strtotime('+1 hour', $time1stamp));
+        return DB::table('reservationmaterials')
+                ->join('reservations','reservationmaterials.fk_reservationsid','=','reservations.id')
+                ->join('materials','reservationmaterials.fk_materialsid','=','materials.id')
+                ->join('reservationusers','reservationusers.fk_reservationsid','=','reservations.id')
+                ->join('users','users.id','=','reservationusers.fk_usersid')
+                ->where('materials.availability','=','uitgeleend')
+                ->where('reservations.begin','>=', $time1)
+                ->where('reservations.begin','<=', $time2)
+                ->get();
+    }
+
+    public function checkMaterialBroughtBack()
+    {
+        $now = strtotime(date('Y-m-d H:i:s'));
+        $time1 = date('Y-m-d H:i:s',strtotime('-1 hour',$now));
+        $time1stamp = strtotime($time1);
+        $time2 = date('Y-m-d H:i:s',strtotime('-1 hour', $time1stamp));
+
+        return DB::table('reservationmaterials')
+                ->join('reservations','reservationmaterials.fk_reservationsid','=','reservations.id')
+                ->join('materials','reservationmaterials.fk_materialsid','=','materials.id')
+                ->join('reservationusers','reservationusers.fk_reservationsid','=','reservations.id')
+                ->join('users','users.id','=','reservationusers.fk_usersid')
+                ->where('materials.availability','=','uitgeleend')
+                ->where('reservations.end','<=', $time1)
+                ->where('reservations.end','>=', $time2)
+                ->get(); 
+    }
 }

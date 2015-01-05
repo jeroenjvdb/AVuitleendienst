@@ -7,6 +7,14 @@ class messagecontroller extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function __construct(User $user, Material $material, Reservation $reservation)
+	{
+		$this->user = $user;
+		$this->material = $material;
+		$this->reservation = $reservation;
+
+	}
+
 	public function index()
 	{
 		//
@@ -90,6 +98,7 @@ class messagecontroller extends \BaseController {
 
 	public function sendMails()
 	{
+		//gedeelte dat mails verstuurd wanneer er iets deffect of vermist is
 		$teachers =  User::where('type','=','teacher')->get();
 		$messages = Message::where('status','=','unsolved')
 							->where('mailsend','=',false)
@@ -109,6 +118,34 @@ class messagecontroller extends \BaseController {
 		{
 			$message->mailsend  = true;
 			$message->save();
+		}
+
+		//gedeelte dat studenten op de hoogt brengt wanneer hun materiaal nog niet binnen is wanneer iemand anders zijn reservatie start
+
+		// de gebruikers + details van reservatie waarvan het materiaal nog niet binnen is of het gebroken of vermist is 
+		$usersMaterialNotAvailable = $this->reservation->checkMaterialAvailable();
+		if(!empty($usersMaterialNotAvailable))
+		{
+			foreach($usersMaterialNotAvailable as $reservation)
+			{
+				Mail::send('emails.notavailable', array('reservation' => $reservation), function($message) use($reservation) 
+				{
+					$message->to( $reservation->email, $reservation->lastname.' '.$reservation->firstname)->subject('materiaal voor reservatie niet binnen');
+				});
+			}	
+		}
+		// gedeelte waarbij student op de hoogte word gebracht wanneer materiaal niet binnen is na de opgegeven eind tijd
+		$usersMaterialBringback = $this->reservation->checkMaterialBroughtBack();
+
+		if(!empty($usersMaterialBringback))
+		{
+			foreach($usersMaterialBringback as $reservation)
+			{
+				Mail::send('emails.bringBack', array('reservation' => $reservation), function($message) use($reservation) 
+				{
+					$message->to($reservation->email, $reservation->lastname.' '.$reservation->firstname)->subject('materiaal voor reservatie niet binnen gebracht');
+				});
+			}	
 		}
 		
 	}
