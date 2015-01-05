@@ -30,6 +30,7 @@
 		<h2 class="indexacctitle">Accessoires</h2>
 		<div class="row">
 		@forelse($material->accessories as $accessorie)
+			@if($accessorie->status == 'ok')
 			<div class="col-sm-6 col-md-4 col-xs-12">
 				<div class="thumbnail loginbox loginboxinner loginboxshadow">
 					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="item">
@@ -41,6 +42,7 @@
 					</a>
 				</div>
 			</div>
+			@endif
 		@empty
 			<h4 class="notification">Geen accessoires voor dit item.</h4>
 		@endforelse
@@ -50,7 +52,7 @@
 		<div class="row">
 			@foreach($material->categories as $categorie)
 				@forelse($categorie->materials as $catMaterial)
-					@if($material->id != $catMaterial->id)
+					@if(($material->id != $catMaterial->id) && ($catMaterial->status =='ok'))
 					<div class="col-sm-6 col-md-4 col-xs-12">
 						<div class="thumbnail loginbox loginboxinner loginboxshadow">
 							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="item">
