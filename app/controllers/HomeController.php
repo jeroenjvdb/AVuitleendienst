@@ -34,7 +34,7 @@ class HomeController extends BaseController {
 	public function beheerMateriaal(){
 		if(Auth::check())
 		{
-			$categories = $this->categorie->getCategoriesWhitMaterials();
+			$categories =  Categorie::with('materials')->get();
 			return View::make('users.admin.beheerMateriaal',['categories' => $categories]);
 		}
 		else
