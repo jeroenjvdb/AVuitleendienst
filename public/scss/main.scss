@@ -37,10 +37,6 @@ body{
 
 .item:hover{
   text-decoration: none;
-  color: $primary-blue; 
-}
-
-.item:hover{
   color:$primary-green;
 }
 
@@ -148,6 +144,11 @@ h1{
   box-shadow:none;
   border-color:#ddd;
   border-radius:0;
+}
+
+.btnstyle{
+  border-radius: 0 !important;
+  width: 10em;
 }
 
 .loginbox form{
@@ -363,12 +364,16 @@ th{
   .logo{
     display:none;
   }
+
+  table{
+    font-size: 12px !important;
+  }
 }
 
 @media(max-width: 500px){
   .loginbox.loginboxinner{
     margin-top:50px;
-  } 
+  }
 }
 
 @media(max-width: 340px){

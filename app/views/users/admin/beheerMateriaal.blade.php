@@ -39,14 +39,23 @@
 				</div>	
 			</div>
 			@if(!$categorie->materials->isEmpty())
-				<table>
+			<div class="col-md-12 table-responsive">
+				<table class="table">
 					<tr>
 						<th>Name</th>
 						<th>status</th>
 						<th>barcode</th>
+						<th></th>
+						<th></th>
 					</tr>
 					@foreach($categorie->materials as $material)
-					<tr>
+					@if ($material->status == "broken")
+					<tr class="danger">
+					@elseif ($material->status == "missing")
+							<tr class="warning">
+					@else
+						<tr>
+					@endif
 						<td>{{link_to('materials/'.$material->id,$material->name)}}</td>
 						<td>{{$material->status}}</td>
 						<td>{{$material->barcode}}</td>
@@ -62,6 +71,7 @@
 					</tr>
 					@endforeach
 				</table>
+			</div>
 			@else
 			<h4 class="notification">Geen materiaal beschikbaar</h4>
 			@endif

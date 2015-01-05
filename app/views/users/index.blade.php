@@ -12,8 +12,8 @@
 	<h2>Welkom, {{Auth::user()->firstname}}</h2>
 	
 	<div class="col-md-12 indexmain">
-		<div class="dropdown col-lg-3 col-md-3 col-sm-4 col-xs-6">
-		  <button class="btn btn-default dropdown-toggle indexinput" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		<div class="dropdown col-lg-2 col-md-2 col-sm-6 col-xs-6">
+		  <button class="btn btnstyle dropdown-toggle indexinput" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 		    Categorieën
 		    <span class="caret"></span>
 		  </button>
@@ -26,8 +26,8 @@
 		  </ul>
 		</div>
 		
-		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-			<input type="search" class="filter indexinput form-control" placeholder="Filter">
+		<div class="col-lg-2 col-md-2 col-sm-6 col-xs-6">
+			<input type="search" class="filter btnstyle indexinput form-control" placeholder="Filter op naam">
 		</div>
 	</div>
 	

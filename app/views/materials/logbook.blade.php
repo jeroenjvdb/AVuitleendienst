@@ -32,14 +32,14 @@
 					{{Form::select('availability',array('all' => 'alle' ,'beschikbaar' => 'beschikbaar' ,'uitgeleend' => 'uitgeleend', ),Session::has('input') ? Session::get('availability')['search'] :'all', ["class" => "form-control"])}}
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12 logsearchbtn">
-					{{Form::submit('Zoek', ["class" => "btn btn-submit btn-info"])}}
+					{{Form::submit('Zoek', ["class" => "btn btnstyle btn-submit btn-info"])}}
 				</div>
 			</div>
 		{{Form::close()}}
 	</div>
 
 	
-	<div>
+	<div class="col-md-12 table-responsive">
 
 		<table class="table">
 			<tr>
