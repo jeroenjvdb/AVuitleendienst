@@ -6,7 +6,7 @@
 	<body>
 		<h1>Alle berichten van uitleendienst</h1>
 		@foreach($messages as $message)
-			<div>
+			<div class="col-md-12 well well-sm">
 				<h2>{{{$message->title}}}</h2>
 				<p>
 					From: {{$message->users->lastname.' '.$message->users->firstname}}<br/>

@@ -4,6 +4,7 @@
 $primary-green: #c1d82f;
 $primary-blue: #27318b;
 $secondary-blue: #337ab7;
+$third-blue: #7EB1DC;
 $info-red: #d44950;
 $danger: #f2dede;
 $warning: #fcf8e3;
@@ -305,6 +306,10 @@ tr td:first-child{
   margin-bottom: .8em;
 }
 
+th{
+  background-color: $third-blue;
+}
+
 /*End Logboek*/
 
 .notification{
@@ -339,6 +344,12 @@ tr td:first-child{
 
 .item{
   text-align: center;
+}
+
+@media(max-width: 720px){
+  h1{
+    font-size: 24px !important;
+  }
 }
 
 @media(max-width: 530px){
