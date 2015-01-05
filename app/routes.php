@@ -23,6 +23,7 @@ Route::get('/materials/{id}/cal', 'materialcontroller@calNext');
 Route::get('/reservations/create/{date}/{materialId}', 'reservationcontroller@create');
 Route::get('/logbook','materialcontroller@getLogbook');
 Route::get('/logbook/{id}','materialcontroller@getReservations');
+Route::get('/mail/check','messagecontroller@sendMails');
 Route::post('/logbook/search','materialcontroller@filterLogbook');
 Route::get('/', function()
 {

@@ -34,4 +34,22 @@ $(document).ready(function(){
             $(this).find("input:checkbox.checker").prop("checked", !check);
         }
     });
+
+    $('.filter').keyup(filterContent);
+    function filterContent()
+    {
+        var search = $('.filter').val();
+        $('.haystack').each(function(i,obj){
+            $(this).parent().parent().parent().css('display','block');
+            text = $(this).html().toLowerCase()
+            console.log(obj);
+            if(text.indexOf(search.toLowerCase()) === -1)
+            {
+                var parent = $(this).parent();
+                var parent = parent.parent();
+                var parent = parent.parent();
+                parent.css('display','none');
+            }
+        });
+    }
 });

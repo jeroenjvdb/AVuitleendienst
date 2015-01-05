@@ -82,5 +82,30 @@ class messagecontroller extends \BaseController {
 		//
 	}
 
+	public function sendMails()
+	{
+		$teachers =  User::where('type','=','teacher')->get();
+		$messages = Message::where('status','=','unsolved')
+							->where('mailsend','=',false)
+							->get();
+		if(!$messages->isEmpty())
+		{
+			Mail::send('emails.message', array('messages' => $messages), function($message) use($teachers) 
+			{
+				foreach($teachers as $teacher)
+				{
+					$message->to($teacher->email, $teacher->lastname.' '.$teacher->firstname)->subject("Alle berichten van uitleendienst");
+				}
+			});
+		}
+
+		foreach($messages as $message)
+		{
+			$message->mailsend  = true;
+			$message->save();
+		}
+		
+	}
+
 
 }

@@ -26,26 +26,31 @@
 	  </ul>
 	</div>
 
-	@forelse($categories as $categorie)
-		<div class="categoryfull {{{$categorie->id}}} row">
-			@forelse($categorie->materials as $material)
-			<div class="col-md-4 col-sm-6 col-xs-12">
-				<div class="thumbnail loginbox loginboxinner loginboxshadow">
-					<a class="item" href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="item">
-						<h3 class="primaryblue">{{{$material->name}}}</h3>
-						<img src="/images/{{$material->image}}" alt="{{{$material->name}}}" class="img-rounded">
-					</a>
-					
+	<input type="search" class="filter" placeholder="Filter">
+
+	<div>
+		@forelse($categories as $categorie)
+			<div class="categoryfull {{{$categorie->id}}} row">
+				@forelse($categorie->materials as $material)
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="thumbnail loginbox loginboxinner loginboxshadow">
+						<a class="item" href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="item">
+							<h3 class="primaryblue haystack">{{{$material->name}}}</h3>
+							<img src="/images/{{$material->image}}" alt="{{{$material->name}}}" class="img-rounded">
+						</a>
+						
+					</div>
 				</div>
+				
+				@empty
+				<p>geen materiaal</p>
+				@endforelse
 			</div>
-			
-			@empty
-			<p>geen materiaal</p>
-			@endforelse
-		</div>
-	@empty
-		<div class="nocategory">
-			<p>There's no category here; Helloooo? ooo? oo?</p>
-		</div>
-	@endforelse
+		@empty
+			<div class="nocategory">
+				<p>There's no category here; Helloooo? ooo? oo?</p>
+			</div>
+	@endforelse		
+	</div>
+
 @stop

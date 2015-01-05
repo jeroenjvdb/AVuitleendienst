@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration {
 			$table->string('title');
 			$table->text('message');
 			$table->enum('status',['solved','unsolved']);
+			$table->boolean('mailsend')->default(false);
 			$table->integer("fk_usersid")->unsigned();
 			$table->foreign("fk_usersid")
 						->references("id")

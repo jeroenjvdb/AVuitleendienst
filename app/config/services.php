@@ -20,7 +20,7 @@ return array(
 	),
 
 	'mandrill' => array(
-		'secret' => '',
+		'secret' => '4sly0iPWJJwIlRQ8CA18kQ',
 	),
 
 	'stripe' => array(
