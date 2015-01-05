@@ -3,6 +3,10 @@
 
 $primary-green: #c1d82f;
 $primary-blue: #27318b;
+$secondary-blue: #337ab7;
+$info-red: #d44950;
+$danger: #f2dede;
+$warning: #fcf8e3;
 
 
 html, body{
@@ -247,6 +251,22 @@ h1{
   }
 }
 
+.myreservation img{
+  max-height: 200px;
+}
+
+.infogreen{
+  color: #7A8E01;
+}
+
+.infored{
+  color: $info-red;
+}
+
+.centering{
+  text-align: center;
+}
+
 /*end reserveren item*/
 
 /*Logboek*/
@@ -257,11 +277,15 @@ table img{
 }
 
 tr.danger{
-  background-color: #f2dede;
+  background-color: $danger;
 }
 
 tr.warning{
-  background-color: #fcf8e3;
+  background-color: $warning;
+}
+
+tr td:first-child{
+  width: 20%;
 }
 
 .logsearchbtn{
@@ -270,6 +294,11 @@ tr.warning{
 }
 
 /*End Logboek*/
+
+.notification{
+  text-align: center;
+  color: $secondary-blue;
+}
 
 @media(max-width: 1270px){
   .nav-pills{

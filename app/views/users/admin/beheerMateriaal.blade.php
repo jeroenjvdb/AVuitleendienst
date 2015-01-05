@@ -49,10 +49,10 @@
 				    <div class="floatleft"><input type="image" src="../../assets/images/delete.png" alt="DELETE"></div>
 				{{ Form::close() }}
 				@empty
-				<p>Geen materiaal beschikbaar</p>
+				<h4 class="notification">Geen materiaal beschikbaar</h4>
 				@endforelse
 				@empty
-				<p>Geen categorieën beschikbaar</p>
+				<h4 class="notification">Geen categorieën beschikbaar</h4>
 				@endforelse
 			</div>
 	</div>

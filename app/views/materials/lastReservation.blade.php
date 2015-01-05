@@ -12,7 +12,7 @@
 	<div>
 		@if(!$reservations->isEmpty())
 			<h1>Laatste reservaties van {{$reservations[0]->name}}</h1>
-			<table>
+			<table class="table">
 				<tr>
 					<th>Naam</th>
 					<th>Reden</th>
@@ -31,7 +31,7 @@
 			</table>
 			{{$reservations->links()}}
 		@else
-			<p>Dit product is nog niet gereserveerd geweest</p>
+			<h4 class="notification">Dit product is nog niet gereserveerd geweest</h4>
 		@endif
 	</div>
 

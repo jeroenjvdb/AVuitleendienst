@@ -77,7 +77,7 @@ class materialcontroller extends \BaseController {
 				$this->material->save();
 				$this->categorie->saveMaterialToCategorie(Input::get('categorie'),$this->material->id);
 				$this->accessorie->saveAccessories(Input::get('accessories'),$this->material->id);
-				return Redirect::to('/materials/create')->with('message', 'u hebt succesvol '.Input::get('name').' toegevoegd aan de lijst van materiaal');
+				return Redirect::to('/materials/create')->with('message', 'U heeft succesvol '.Input::get('name').' toegevoegd aan de lijst van materiaal');
 			}
 			else
 			{
@@ -165,7 +165,7 @@ class materialcontroller extends \BaseController {
 				$this->material->save();
 				$this->categorie->updateMaterialCategorie(Input::get('categorie'),$id);
 				$this->accessorie->updateAccessories(Input::get('accessories'),$this->material->id);
-				return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.Input::get('name').' Aangepast');
+				return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.Input::get('name').' aangepast');
 				
 			}
 			else
@@ -192,7 +192,7 @@ class materialcontroller extends \BaseController {
 		{
 			$name = Material::find($id)->name;
 			$this->material->deleteMaterial($id);
-			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.$name.' Verwijderd');
+			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.$name.' verwijderd');
 		}
 		else
 		{

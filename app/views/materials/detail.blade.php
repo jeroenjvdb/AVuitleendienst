@@ -42,7 +42,7 @@
 				</div>
 			</div>
 		@empty
-			<p>Geen accessoires voor dit item.</p>
+			<h4 class="notification">Geen accessoires voor dit item.</h4>
 		@endforelse
 		</div>
 
@@ -64,7 +64,7 @@
 					</div>
 					@endif
 				@empty
-				<p>Geen gerelateerde items gevonden.</p>
+				<h4 class="notification">Geen gerelateerde items gevonden.</h4>
 				@endforelse
 			@endforeach
 		</div>

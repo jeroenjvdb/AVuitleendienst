@@ -40,12 +40,12 @@
 			</div>
 			
 			@empty
-			<p>geen materiaal</p>
+			<h4 class="notification">Geen materiaal</h4>
 			@endforelse
 		</div>
 	@empty
 		<div class="nocategory">
-			<p>There's no category here; Helloooo? ooo? oo?</p>
+			<h4 class="notification">There's no category here; Helloooo? ooo? oo?</h4>
 		</div>
 	@endforelse
 @stop
