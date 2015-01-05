@@ -217,7 +217,7 @@ class materialcontroller extends \BaseController {
 	    $cal->setView("week"); //'day' or 'week' or null
 	    $cal->setStartEndHours(8,22); // Set the hour range for day and week view
 	    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
-	    $cal->setEventsWrap(array('<p>', '</p>')); // Set the event's content wrapper
+	    $cal->setEventsWrap(array("<div class='reserved'><p>", '</p></div>')); // Set the event's content wrapper
 	    $cal->setDayWrap(array('<div>','</div>')); //Set the day's number wrapper
 	    $cal->setNextIcon('Volgende Week'); //Can also be html: <i class='fa fa-chevron-right'></i>
 	    $cal->setPrevIcon('Vorige Week'); // Same as above
