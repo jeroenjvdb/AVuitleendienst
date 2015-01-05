@@ -85,7 +85,7 @@ class reservationcontroller extends \BaseController {
 					}
 				}
 				$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
-				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol u reservatie geplaatst');
+				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol uw reservatie geplaatst');
 
 			}
 			else

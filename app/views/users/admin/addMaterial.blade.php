@@ -50,10 +50,10 @@
 					<p>{{$material->name}}</p>
 					<img src="/images/{{$material->image}}" width="100px" alt="">
 				@empty
-				<p>geen materiaal</p>
+				<h4 class="notification">Geen materiaal</h4>
 			@endforelse
 		@empty
-		<p>geen categorien</p>
+		<h4 class="notification">geen categorien</h4>
 		@endforelse
 		<br>
 		{{Form::submit('Toevoegen',array('class' => 'btn btnreg btn-success btn-default'))}}

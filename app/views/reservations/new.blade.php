@@ -50,7 +50,7 @@
 				</label>
 			</div>
 		@empty
-			<p>Er zijn nog geen gebruikers</p>
+			<h4 class="notification">Er zijn nog geen gebruikers</h4>
 		@endforelse
 		{{$users->links()}}
 	</div>
@@ -65,7 +65,7 @@
 			</div>
 		</div>	
 		@empty
-			<p>Bij dit item horen er geen accesoires</p>
+			<h4 class="notification">Bij dit item horen er geen accesoires</h4>
 		@endforelse
 
 	</div>
