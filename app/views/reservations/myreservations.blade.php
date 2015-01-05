@@ -20,7 +20,6 @@
 			<p class="infored">Einde: {{$reservation->end}}</p>
 		</div>
 	</div>
-	
 		
 	@empty
 		<h4 class="notification">U heeft op dit moment nog geen reservaties geplaatst.</h4>
