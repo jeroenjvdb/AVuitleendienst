@@ -13,7 +13,7 @@
 	@forelse($reservations as $reservation)
 	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 		<div class="thumbnail loginbox loginboxinner loginboxshadow myreservation">
-			<h2 class="centering">{{$reservation->name}}</h2>
+			<h2 class="centering">{{link_to('materials/'.$reservation->fk_materialsid,$reservation->name)}}</h2>
 			<img src="/images/{{$reservation->image}}" alt="">
 			<p>{{$reservation->reason}}</p>
 			<p class="infogreen">Begin: {{$reservation->begin}}</p>
