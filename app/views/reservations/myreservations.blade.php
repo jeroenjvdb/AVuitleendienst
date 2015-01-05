@@ -9,7 +9,7 @@
 @stop
 
 @section("content")
-	<h1>My reservations</h1>
+	<h1>Mijn reservaties</h1>
 	@forelse($reservations as $reservation)
 	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 		<div class="thumbnail loginbox loginboxinner loginboxshadow myreservation">

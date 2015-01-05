@@ -30,12 +30,12 @@
 		<h2 class="indexacctitle">Accessoires</h2>
 		<div class="row">
 		@forelse($material->accessories as $accessorie)
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
-					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}">
+			<div class="col-sm-6 col-md-4 col-xs-12">
+				<div class="thumbnail loginbox loginboxinner loginboxshadow">
+					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="item">
+						<h3>{{{$accessorie->name}}}</h3>
 						<img src="/images/{{$accessorie->image}}" alt="">
 						<div class="caption">
-							<h3>{{{$accessorie->name}}}</h3>
 							<p>{{{$accessorie->details}}}</p>
 						</div>
 					</a>
@@ -46,17 +46,17 @@
 		@endforelse
 		</div>
 
-		<h2>Andere suggesties</h2>
+		<h2 class="indexacctitle">Andere suggesties</h2>
 		<div class="row">
 			@foreach($material->categories as $categorie)
 				@forelse($categorie->materials as $catMaterial)
 					@if($material->id != $catMaterial->id)
-					<div class="col-sm-6 col-md-3">
-						<div class="thumbnail">
-							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}">
+					<div class="col-sm-6 col-md-4 col-xs-12">
+						<div class="thumbnail loginbox loginboxinner loginboxshadow">
+							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="item">
+								<h3> {{{$catMaterial->name}}}</h3>
 								<img src="/images/{{$catMaterial->image}}" alt="">
 								<div class="caption">
-									<h3> {{{$catMaterial->name}}}</h3>
 									<p>{{{$catMaterial->details}}}</p>
 								</div>
 							</a>

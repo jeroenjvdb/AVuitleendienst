@@ -14,6 +14,10 @@ html, body{
   padding-bottom: 2vh;
 }
 
+body{
+  overflow-y: scroll;
+}
+
 .highlight{
   color: $primary-green;
 }
@@ -39,10 +43,14 @@ html, body{
   color:$primary-green;
 }
 
-.dropdown{
+.indexmain{
   padding-top: 20px;
 }
 
+.indexinput{
+  width: 100%;
+  text-align: center;
+}
 
 h1{
   color: $primary-green;
@@ -89,6 +97,10 @@ h1{
 
 .nav-bars-x{
   display:none;
+}
+
+.indexacctitle{
+  margin-bottom: -2em;
 }
 
 /*LOGIN PAGINA*/

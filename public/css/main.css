@@ -3755,53 +3755,64 @@ html, body {
 }
 
 /* line 17, ../scss/main.scss */
+body {
+  overflow-y: scroll;
+}
+
+/* line 21, ../scss/main.scss */
 .highlight {
   color: #c1d82f;
 }
 
-/* line 21, ../scss/main.scss */
+/* line 25, ../scss/main.scss */
 .title {
   color: #c1d82f;
 }
 
-/* line 25, ../scss/main.scss */
+/* line 29, ../scss/main.scss */
 .success {
   color: #27318b;
 }
 
-/* line 29, ../scss/main.scss */
+/* line 33, ../scss/main.scss */
 .item {
   color: #27318b;
 }
 
-/* line 33, ../scss/main.scss */
+/* line 37, ../scss/main.scss */
 .item:hover {
   text-decoration: none;
   color: #27318b;
 }
 
-/* line 38, ../scss/main.scss */
+/* line 42, ../scss/main.scss */
 .item:hover {
   color: #c1d82f;
 }
 
-/* line 42, ../scss/main.scss */
-.dropdown {
+/* line 46, ../scss/main.scss */
+.indexmain {
   padding-top: 20px;
 }
 
-/* line 47, ../scss/main.scss */
+/* line 50, ../scss/main.scss */
+.indexinput {
+  width: 100%;
+  text-align: center;
+}
+
+/* line 55, ../scss/main.scss */
 h1 {
   color: #c1d82f;
 }
 
-/* line 51, ../scss/main.scss */
+/* line 59, ../scss/main.scss */
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #c1d82f;
   color: #27318b;
 }
 
-/* line 56, ../scss/main.scss */
+/* line 64, ../scss/main.scss */
 .navbar {
   background-color: #27318b;
   height: 115px;
@@ -3809,14 +3820,14 @@ h1 {
   border-radius: 0px !important;
 }
 
-/* line 63, ../scss/main.scss */
+/* line 71, ../scss/main.scss */
 .nav {
   margin-left: 10px;
   margin-top: 40px;
   width: 100%;
 }
 
-/* line 69, ../scss/main.scss */
+/* line 77, ../scss/main.scss */
 .nav-bars, .nav-bars-x {
   display: none;
   float: right;
@@ -3824,7 +3835,7 @@ h1 {
   margin-top: 47px;
 }
 
-/* line 76, ../scss/main.scss */
+/* line 84, ../scss/main.scss */
 .nav-bars-menu {
   display: none;
   background-color: #27318B;
@@ -3835,32 +3846,37 @@ h1 {
   margin-right: -70px;
 }
 
-/* line 86, ../scss/main.scss */
+/* line 94, ../scss/main.scss */
 .logosmall {
   display: none;
 }
 
-/* line 90, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 .nav-bars-x {
   display: none;
 }
 
+/* line 102, ../scss/main.scss */
+.indexacctitle {
+  margin-bottom: -2em;
+}
+
 /*LOGIN PAGINA*/
-/* line 96, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 .loginbox {
   background-color: #fff!important;
   border-radius: 0!important;
   border: none!important;
 }
 
-/* line 102, ../scss/main.scss */
+/* line 114, ../scss/main.scss */
 .loginbox.loginboxinner {
   width: 300px;
   margin: 0 auto;
   margin-top: 100px;
 }
 
-/* line 107, ../scss/main.scss */
+/* line 119, ../scss/main.scss */
 .loginbox.loginboxinner legend {
   font-size: 26px;
   text-align: center;
@@ -3868,44 +3884,44 @@ h1 {
   padding-top: 2px;
 }
 
-/* line 113, ../scss/main.scss */
+/* line 125, ../scss/main.scss */
 .loginbox.loginboxinner label {
   font-weight: 300;
   font-size: 16px;
 }
 
-/* line 118, ../scss/main.scss */
+/* line 130, ../scss/main.scss */
 .loginbox.loginboxinner input {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 124, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .loginbox.welcome-text {
   font-size: 21px;
 }
 
-/* line 128, ../scss/main.scss */
+/* line 140, ../scss/main.scss */
 .loginbox .btn {
   background-color: #C1D82F;
   border: #C1D82F;
   color: #27318B;
 }
 
-/* line 134, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .loginbox .btnreg {
   box-shadow: none;
   border-color: #ddd;
   border-radius: 0;
 }
 
-/* line 140, ../scss/main.scss */
+/* line 152, ../scss/main.scss */
 .loginbox form {
   padding: 17px;
 }
 
-/* line 144, ../scss/main.scss */
+/* line 156, ../scss/main.scss */
 .loginbox .centerbuttons {
   width: 154px;
   margin: 0 auto;
@@ -3913,14 +3929,14 @@ h1 {
   padding-top: 10px;
 }
 
-/* line 151, ../scss/main.scss */
+/* line 163, ../scss/main.scss */
 .loginbox .btn:hover {
   background-color: #27318B;
   color: #ffffff;
 }
 
 /*BOX SHADOWWWWWWWW*/
-/* line 160, ../scss/main.scss */
+/* line 172, ../scss/main.scss */
 .loginboxshadow {
   position: relative;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -3928,7 +3944,7 @@ h1 {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-/* line 167, ../scss/main.scss */
+/* line 179, ../scss/main.scss */
 .loginboxshadow:before, .loginboxshadow:after {
   content: "";
   position: absolute;
@@ -3944,7 +3960,7 @@ h1 {
   border-radius: 100px/10px;
 }
 
-/* line 182, ../scss/main.scss */
+/* line 194, ../scss/main.scss */
 .loginboxshadow:after {
   right: 10px;
   left: auto;
@@ -3955,24 +3971,24 @@ h1 {
   transform: skew(8deg) rotate(3deg);
 }
 
-/* line 192, ../scss/main.scss */
+/* line 204, ../scss/main.scss */
 .detailimg {
   max-height: 100%;
   max-width: 100%;
 }
 
 /*Beheer*/
-/* line 199, ../scss/main.scss */
+/* line 211, ../scss/main.scss */
 .editbutton {
   float: left;
 }
 
-/* line 203, ../scss/main.scss */
+/* line 215, ../scss/main.scss */
 .floatleft {
   float: left;
 }
 
-/* line 207, ../scss/main.scss */
+/* line 219, ../scss/main.scss */
 .materiaalbeheer-edit input[type=submit] {
   background: url(../img/edit.png);
   border: 0;
@@ -3981,44 +3997,44 @@ h1 {
   width: 128px;
 }
 
-/* line 215, ../scss/main.scss */
+/* line 227, ../scss/main.scss */
 .category {
   clear: both;
   padding-top: 10px;
 }
 
-/* line 220, ../scss/main.scss */
+/* line 232, ../scss/main.scss */
 .material-item {
   clear: both;
   /* padding-left:20px; */
 }
 
-/* line 225, ../scss/main.scss */
+/* line 237, ../scss/main.scss */
 .acc-keuze {
   float: left;
 }
 
-/* line 229, ../scss/main.scss */
+/* line 241, ../scss/main.scss */
 .itemrestitle {
   padding-left: 8px;
 }
 
 /*end Beheer*/
 /*Reserveren item*/
-/* line 237, ../scss/main.scss */
+/* line 249, ../scss/main.scss */
 .cursorpointer {
   cursor: pointer !important;
 }
 
-/* line 241, ../scss/main.scss */
+/* line 253, ../scss/main.scss */
 .extracc {
   margin-top: -80px;
 }
-/* line 243, ../scss/main.scss */
+/* line 255, ../scss/main.scss */
 .extracc .thumbnail {
   cursor: pointer;
 }
-/* line 246, ../scss/main.scss */
+/* line 258, ../scss/main.scss */
 .extracc .checker {
   float: right;
   margin-right: 4px;
@@ -4026,74 +4042,74 @@ h1 {
   height: 16px;
 }
 
-/* line 254, ../scss/main.scss */
+/* line 266, ../scss/main.scss */
 .myreservation img {
   max-height: 200px;
 }
 
-/* line 258, ../scss/main.scss */
+/* line 270, ../scss/main.scss */
 .infogreen {
   color: #7A8E01;
 }
 
-/* line 262, ../scss/main.scss */
+/* line 274, ../scss/main.scss */
 .infored {
   color: #d44950;
 }
 
-/* line 266, ../scss/main.scss */
+/* line 278, ../scss/main.scss */
 .centering {
   text-align: center;
 }
 
 /*end reserveren item*/
 /*Logboek*/
-/* line 274, ../scss/main.scss */
+/* line 286, ../scss/main.scss */
 table img {
   max-height: 20%;
   max-width: 20%;
 }
 
-/* line 279, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 tr.danger {
   background-color: #f2dede;
 }
 
-/* line 283, ../scss/main.scss */
+/* line 295, ../scss/main.scss */
 tr.warning {
   background-color: #fcf8e3;
 }
 
-/* line 287, ../scss/main.scss */
+/* line 299, ../scss/main.scss */
 tr td:first-child {
   width: 20%;
 }
 
-/* line 291, ../scss/main.scss */
+/* line 303, ../scss/main.scss */
 .logsearchbtn {
   margin-top: .8em;
   margin-bottom: .8em;
 }
 
 /*End Logboek*/
-/* line 298, ../scss/main.scss */
+/* line 310, ../scss/main.scss */
 .notification {
   text-align: center;
   color: #337ab7;
 }
 
 @media (max-width: 1270px) {
-  /* line 304, ../scss/main.scss */
+  /* line 316, ../scss/main.scss */
   .nav-pills {
     display: none;
   }
 
-  /* line 307, ../scss/main.scss */
+  /* line 319, ../scss/main.scss */
   .nav-bars {
     display: block;
   }
 
-  /* line 310, ../scss/main.scss */
+  /* line 322, ../scss/main.scss */
   .nav-pills {
     position: absolute;
     top: 80px;
@@ -4103,42 +4119,42 @@ tr td:first-child {
     z-index: 9999;
   }
 
-  /* line 318, ../scss/main.scss */
+  /* line 330, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 323, ../scss/main.scss */
+  /* line 335, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
-/* line 328, ../scss/main.scss */
+/* line 340, ../scss/main.scss */
 .item {
   text-align: center;
 }
 
 @media (max-width: 530px) {
-  /* line 333, ../scss/main.scss */
+  /* line 345, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 336, ../scss/main.scss */
+  /* line 348, ../scss/main.scss */
   .logo {
     display: none;
   }
 }
 @media (max-width: 500px) {
-  /* line 342, ../scss/main.scss */
+  /* line 354, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 }
 @media (max-width: 340px) {
-  /* line 348, ../scss/main.scss */
+  /* line 360, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }

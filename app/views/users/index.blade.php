@@ -11,22 +11,27 @@
 @section("content")
 	<h2>Welkom, {{Auth::user()->firstname}}</h2>
 	
-
-	<div class="dropdown">
-	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-	    Categorieën
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	  	@forelse($categories as $categorie)
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="{{{$categorie->id}}}" class="category">{{{$categorie->name}}}</a></li>
-			@empty
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geen categorieën</a></li>
-		@endforelse
-	  </ul>
+	<div class="col-md-12 indexmain">
+		<div class="dropdown col-lg-3 col-md-3 col-sm-4 col-xs-6">
+		  <button class="btn btn-default dropdown-toggle indexinput" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+		    Categorieën
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		  	@forelse($categories as $categorie)
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="{{{$categorie->id}}}" class="category">{{{$categorie->name}}}</a></li>
+				@empty
+				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Geen categorieën</a></li>
+			@endforelse
+		  </ul>
+		</div>
+		
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+			<input type="search" class="filter indexinput form-control" placeholder="Filter">
+		</div>
 	</div>
-
-	<input type="search" class="filter" placeholder="Filter">
+	
+	
 
 	<div>
 		@forelse($categories as $categorie)
