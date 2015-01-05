@@ -21,22 +21,22 @@
 	<div class="form-group">
 		{{Form::label('begin','Begin datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
 		<div class="col-sm-8">
-			{{Form::text('begin',$begin,array('required' => 'required','readonly', "class" => "form-control cursorpointer"))}}
+			{{Form::text('begin',$begin,array('required' => 'required','readonly', "class" => "form-control cursorpointer border"))}}
 		</div>
 		
 	</div>
 	<div class="form-group">
-		{{Form::label('einde','Eind datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
+		{{Form::label('einde','Eind datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label border"])}}
 		<div class="col-sm-8">
-			{{Form::text("endDate",'',array('placeholder' => 'kies een datum','id'=>'date', "class" => "form-control cursorpointer"))}}
-		{{Form::text("endHour",'',array('placeholder' => 'kies een uur','id'=>'time', "class" => "form-control cursorpointer"))}}
+			{{Form::text("endDate",'',array('placeholder' => 'kies een datum','id'=>'date', "class" => "form-control cursorpointer border"))}}
+		{{Form::text("endHour",'',array('placeholder' => 'kies een uur','id'=>'time', "class" => "form-control cursorpointer border"))}}
 		</div>
 		
 	</div>
 	<div class="form-group">
 		{{Form::label('Reden','Reden van reservatie: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
 		<div class="col-sm-8">
-			{{Form::textarea('reason','',array('required' => "required", "class" => "form-control", "rows" => "2"))}}
+			{{Form::textarea('reason','',array('required' => "required", "class" => "form-control border", "rows" => "2"))}}
 		</div>
 		
 	</div>
@@ -69,7 +69,7 @@
 		@endforelse
 
 	</div>
-	<div class="loginbox">
+	<div class="loginbox confirm">
 		{{Form::submit('Bevestigen', ["class" => "btn btnreg btn-success"])}}
 	</div>
 	

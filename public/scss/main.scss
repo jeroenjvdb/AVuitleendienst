@@ -53,9 +53,10 @@ h1{
   color: $primary-green;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills li:hover {
     background-color: #c1d82f;
     color: #27318b;
+    border-radius: 0;
 }
 
 .navbar{
@@ -98,6 +99,19 @@ h1{
 
 .indexacctitle{
   margin-bottom: -2em;
+}
+
+.confirm{
+  input{
+    font-size: 20px;
+    margin-top: 1em;
+    width: 24%;
+    height: 200%;
+  }
+}
+
+.border{
+  border-radius: 0 !important;
 }
 
 /*LOGIN PAGINA*/
@@ -351,9 +365,21 @@ th{
   text-align: center;
 }
 
+@media(max-width: 767px){
+  .confirm{
+    text-align: center;
+  }
+}
+
 @media(max-width: 720px){
   h1{
     font-size: 24px !important;
+  }
+
+  .confirm{
+    input{
+      width: 200px;
+    }
   }
 }
 
@@ -373,6 +399,10 @@ th{
 @media(max-width: 500px){
   .loginbox.loginboxinner{
     margin-top:50px;
+  }
+
+  .extracc{
+    margin-top: 0;
   }
 }
 

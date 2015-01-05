@@ -42,9 +42,9 @@
 			<div class="col-md-12 table-responsive">
 				<table class="table">
 					<tr>
-						<th>Name</th>
-						<th>status</th>
-						<th>barcode</th>
+						<th>Naam</th>
+						<th>Status</th>
+						<th>Barcode</th>
 						<th></th>
 						<th></th>
 					</tr>
