@@ -18,7 +18,7 @@
 		</div>
 		<div>
 			{{Form::label('naam','Naam:')}}
-			{{Form::text('name',$categorie->name,array('required' => 'required'))}}			
+			{{Form::text('name',$categorie->name,array('required' => 'required','class' => 'form-control'))}}			
 		</div>
 		<br>
 		{{Form::submit('Wijzigen',array('class' => 'btn btnreg btn-success btn-default'))}}
