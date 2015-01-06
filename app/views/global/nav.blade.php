@@ -5,10 +5,10 @@
 	}
 ?>
 <ul class="nav nav-pills loginboxshadow" multilinks-noscroll="true">
-	<li class="active" role="presentation" multilinks-noscroll="true">
+	<li class="{{setActive('materials')}}" role="presentation" multilinks-noscroll="true">
 		<a href="/materials" multilinks-noscroll="true">Reserveren</a>
 	</li>
-	<li role="presentation" multilinks-noscroll="true">
+	<li class="{{setActive('reservations')}}"role="presentation" multilinks-noscroll="true">
 		<a href="/reservations" multilinks-noscroll="true">Mijn Reservaties</a>
 	</li>
 	<li role="presentation">
@@ -19,15 +19,15 @@
 	</li>
 
 	@if(Auth::user()->type == "monitor")
-	<li role="presentation">
+	<li class="{{setActive('logbook')}}" role="presentation">
 		<a href="/logbook">Logboek</a>
 	</li>
 	
 	@elseif(Auth::user()->type == "teacher" || Auth::user()->type == "admin")
-	<li role="presentation">
+	<li class="{{setActive('logbook')}}" role="presentation">
 		<a href="/logbook">Logboek</a>
 	</li>
-	<li role="presentation">
+	<li class="{{setActive('beheer')}}" role="presentation">
 		<a href="/beheer">Beheer</a>
 	</li>
 	
