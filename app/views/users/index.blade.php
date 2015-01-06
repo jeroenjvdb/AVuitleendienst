@@ -17,7 +17,7 @@
 		    Categorieën
 		    <span class="caret"></span>
 		  </button>
-		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		  <ul class="dropdown-menu border" role="menu" aria-labelledby="dropdownMenu1">
 		  	@forelse($categories as $categorie)
 				<li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="{{{$categorie->id}}}" class="category">{{{$categorie->name}}}</a></li>
 				@empty
