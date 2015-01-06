@@ -9,32 +9,32 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer</a>><a href="/beheer/gebruikers">Gebruikers</a>>Wijzigen gebruiker</span>
+	<span><a href="/beheer">Beheer</a> > <a href="/beheer/gebruikers">Gebruikers</a> > Wijzigen gebruiker</span>
 	<h2>'{{$gebruiker->firstname . ' ' . $gebruiker->lastname}}' wijzigen</h2>
 	<div>
 		{{Form::open(['route' => ['users.update', $gebruiker->id], "method" => "PUT"])}}
-		<div>
+		<div><br>
 			{{Form::label('email','E-mail:')}}
-			{{Form::text('email', $gebruiker->email, array('required' => 'required', 'placeholder' => 'voorbeeld@mail.be'))}}
+			{{Form::text('email', $gebruiker->email, array('required' => 'required', 'placeholder' => 'voorbeeld@mail.be','class' => 'form-control'))}}
 			{{$errors->first("email", "<span>:message</span>")}}			
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('firstname','Voornaam:')}}
-			{{Form::text('firstname', $gebruiker->firstname, array('required' => 'required', 'placeholder' => 'Jan'))}}
+			{{Form::text('firstname', $gebruiker->firstname, array('required' => 'required', 'placeholder' => 'Jan','class' => 'form-control'))}}
 			{{$errors->first("firstname", "<span>:message</span>")}}		
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('lastname','Achternaam:')}}
-			{{Form::text('lastname', $gebruiker->lastname, array('required' => 'required', 'placeholder' => 'Janssens'))}}
+			{{Form::text('lastname', $gebruiker->lastname, array('required' => 'required', 'placeholder' => 'Janssens','class' => 'form-control'))}}
 			{{$errors->first("lastname", "<span>:message</span>")}}		
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('type','Type account:')}}
-			{{Form::select('type', ["teacher" => "Leerkracht", "monitor" => "Monitor", "student" => "Student"], $gebruiker->type)}}
+			{{Form::select('type', ["teacher" => "Leerkracht", "monitor" => "Monitor", "student" => "Student"], $gebruiker->type,array('class' => 'form-control'))}}
 			{{$errors->first("type", "<span>:message</span>")}}		
 		</div>
-
-		{{Form::submit('Wijzigen')}}
+		<br>
+		{{Form::submit('Wijzigen',array('class' => 'btn btnreg btn-success btn-default'))}}
 		{{Form::close()}}
 	</div>
 @stop

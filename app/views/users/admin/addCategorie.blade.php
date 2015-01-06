@@ -21,7 +21,7 @@
 		</div>
 		<div>
 			{{Form::label('name','Naam:')}}
-			{{Form::text('name','',array('required' => 'required'))}}
+			{{Form::text('name','',array('required' => 'required','class' => 'form-control'))}}
 		</div>
 		<br>
 		<div class="loginbox">

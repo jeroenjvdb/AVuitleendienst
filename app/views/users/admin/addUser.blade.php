@@ -14,24 +14,32 @@
 	<div>
 		{{Form::open(['route' => 'users.store'])}}
 		<div>
-			{{Form::text('email', null, array('required' => 'required', 'placeholder' => 'Email '))}}
+			{{Form::label('naam','Email:')}}<br>
+			{{Form::text('email', null, array('required' => 'required','class' => 'form-control'))}}
 			{{$errors->first("email", "<span>:message</span>")}}			
 		</div>
 		<div>
-			{{Form::password('password', array('required' => 'required', 'placeholder' => 'Wachtwoord '))}}
+		<br>
+			{{Form::label('naam','Wachtwoord:')}}<br>
+			{{Form::password('password', array('required' => 'required','class' => 'form-control'))}}
 			{{$errors->first("password", "<span>:message</span>")}}			
 		</div>
 		<div>
-			{{Form::text('firstname', null, array('required' => 'required', 'placeholder' => 'Voornaam '))}}
+		<br>
+			{{Form::label('naam','Voornaam:')}}<br>
+			{{Form::text('firstname', null, array('required' => 'required','class' => 'form-control'))}}
 			{{$errors->first("firstname", "<span>:message</span>")}}		
 		</div>
 		<div>
-			{{Form::text('lastname', null, array('required' => 'required', 'placeholder' => 'Achternaam '))}}
+		<br>
+			{{Form::label('naam','Achternaam:')}}<br>
+			{{Form::text('lastname', null, array('required' => 'required','class' => 'form-control'))}}
 			{{$errors->first("lastname", "<span>:message</span>")}}		
 		</div>
 		<div>
 		<br>
-			{{Form::select('type', ["teacher" => "Leerkracht", "monitor" => "Monitor", "student" => "Student"])}}
+			{{Form::label('naam','Type:')}}<br>
+			{{Form::select('type', ["teacher" => "Leerkracht", "monitor" => "Monitor", "student" => "Student"],'',array('class' => 'form-control'))}}
 			{{$errors->first("type", "<span>:message</span>")}}		
 		</div>
 		<br>

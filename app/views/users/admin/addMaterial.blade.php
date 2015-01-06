@@ -22,24 +22,24 @@
 		</div>
 		<div>
 			{{Form::label('naam','Naam:')}}<br>
-			{{Form::text('name','',array('required' => 'required'))}}			
+			{{Form::text('name','',array('required' => 'required','class' => 'form-control'))}}			
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('image','Afbeelding:')}}<br>
 			{{Form::file('image')}}	
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('barcode','Barcode:')}}<br>
-			{{Form::text('barcode','',array('required' => 'required'))}}			
+			{{Form::text('barcode','',array('required' => 'required','class' => 'form-control'))}}			
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('categorei','Categorie:')}}<br>
-			{{Form::select('categorie', $categories)}}
+			{{Form::select('categorie', $categories,'',array('class' => 'form-control'))}}
 		</div>
-		<div>
+		<div><br>
 			{{Form::label('details','Details:')}}
 			<br/>
-			{{Form::textarea('details','',array('required' => 'required','rows' => '3'))}}			
+			{{Form::textarea('details','',array('required' => 'required','rows' => '3','class' => 'form-control'))}}			
 		</div>
 		<h2>Selecteer de bijhorende accessiores</h2>
 		@forelse($accesoriesCategorie as $accesorieCategorie)
@@ -53,7 +53,7 @@
 				<h4 class="notification">Geen materiaal</h4>
 			@endforelse
 		@empty
-		<h4 class="notification">geen categorien</h4>
+		<h4 class="notification">Geen categorieën</h4>
 		@endforelse
 		<br>
 		{{Form::submit('Toevoegen',array('class' => 'btn btnreg btn-success btn-default'))}}

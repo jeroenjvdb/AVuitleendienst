@@ -44,8 +44,10 @@
 						@else
 							<td>Admin</td>
 						@endif
-						<td>{{link_to('users/' . $gebruiker->id . '/edit','')}}<img src="../../assets/images/edit.png"></td>
-						<td><img src="../../assets/images/delete.png"></td>
+
+						<td><a href="{{URL::to('users/' . $gebruiker->id . '/edit')}}"><img src="../../assets/images/edit.png"></a></td>
+
+						<td><a href="{{URL::to('users/' . $gebruiker->id . '/delete')}}"><img src="../../assets/images/delete.png"></a></td>
 					</tr>
 				@endforeach
 			</table>

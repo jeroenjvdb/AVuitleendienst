@@ -3999,16 +3999,29 @@ h1 {
 
 /*Beheer*/
 /* line 231, ../scss/main.scss */
+.inline {
+  display: inline;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+/* line 239, ../scss/main.scss */
+.editspace {
+  margin-right: 10px;
+}
+
+/* line 243, ../scss/main.scss */
 .editbutton {
   float: left;
 }
 
-/* line 235, ../scss/main.scss */
+/* line 247, ../scss/main.scss */
 .floatleft {
   float: left;
 }
 
-/* line 239, ../scss/main.scss */
+/* line 251, ../scss/main.scss */
 .materiaalbeheer-edit input[type=submit] {
   background: url(../img/edit.png);
   border: 0;
@@ -4017,44 +4030,45 @@ h1 {
   width: 128px;
 }
 
-/* line 247, ../scss/main.scss */
+/* line 259, ../scss/main.scss */
 .category {
   clear: both;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-/* line 252, ../scss/main.scss */
+/* line 265, ../scss/main.scss */
 .material-item {
   clear: both;
   /* padding-left:20px; */
 }
 
-/* line 257, ../scss/main.scss */
+/* line 270, ../scss/main.scss */
 .acc-keuze {
   float: left;
 }
 
-/* line 261, ../scss/main.scss */
+/* line 274, ../scss/main.scss */
 .itemrestitle {
   padding-left: 8px;
 }
 
 /*end Beheer*/
 /*Reserveren item*/
-/* line 269, ../scss/main.scss */
+/* line 282, ../scss/main.scss */
 .cursorpointer {
   cursor: pointer !important;
 }
 
-/* line 273, ../scss/main.scss */
+/* line 286, ../scss/main.scss */
 .extracc {
   margin-top: -80px;
 }
-/* line 275, ../scss/main.scss */
+/* line 288, ../scss/main.scss */
 .extracc .thumbnail {
   cursor: pointer;
 }
-/* line 278, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 .extracc .checker {
   float: right;
   margin-right: 4px;
@@ -4062,79 +4076,79 @@ h1 {
   height: 16px;
 }
 
-/* line 286, ../scss/main.scss */
+/* line 299, ../scss/main.scss */
 .myreservation img {
   max-height: 200px;
 }
 
-/* line 290, ../scss/main.scss */
+/* line 303, ../scss/main.scss */
 .infogreen {
   color: #7A8E01;
 }
 
-/* line 294, ../scss/main.scss */
+/* line 307, ../scss/main.scss */
 .infored {
   color: #d44950;
 }
 
-/* line 298, ../scss/main.scss */
+/* line 311, ../scss/main.scss */
 .centering {
   text-align: center;
 }
 
 /*end reserveren item*/
 /*Logboek*/
-/* line 306, ../scss/main.scss */
+/* line 319, ../scss/main.scss */
 table img {
   max-height: 20%;
   max-width: 20%;
 }
 
-/* line 311, ../scss/main.scss */
+/* line 324, ../scss/main.scss */
 tr.danger {
   background-color: #f2dede;
 }
 
-/* line 315, ../scss/main.scss */
+/* line 328, ../scss/main.scss */
 tr.warning {
   background-color: #fcf8e3;
 }
 
-/* line 319, ../scss/main.scss */
+/* line 332, ../scss/main.scss */
 tr td:first-child {
   width: 20%;
 }
 
-/* line 323, ../scss/main.scss */
+/* line 336, ../scss/main.scss */
 .logsearchbtn {
   margin-top: .8em;
   margin-bottom: .8em;
 }
 
-/* line 328, ../scss/main.scss */
+/* line 341, ../scss/main.scss */
 th {
   background-color: #7eb1dc;
 }
 
 /*End Logboek*/
-/* line 334, ../scss/main.scss */
+/* line 347, ../scss/main.scss */
 .notification {
   text-align: center;
   color: #337ab7;
 }
 
 @media (max-width: 1270px) {
-  /* line 340, ../scss/main.scss */
+  /* line 353, ../scss/main.scss */
   .nav-pills {
     display: none;
   }
 
-  /* line 343, ../scss/main.scss */
+  /* line 356, ../scss/main.scss */
   .nav-bars {
     display: block;
   }
 
-  /* line 346, ../scss/main.scss */
+  /* line 359, ../scss/main.scss */
   .nav-pills {
     position: absolute;
     top: 80px;
@@ -4144,69 +4158,69 @@ th {
     z-index: 9999;
   }
 
-  /* line 354, ../scss/main.scss */
+  /* line 367, ../scss/main.scss */
   .nav-pills > li {
     float: none !important;
     background-color: white;
     border-radius: 4px;
   }
 
-  /* line 359, ../scss/main.scss */
+  /* line 372, ../scss/main.scss */
   .nav-pills > li > a {
     text-align: right;
   }
 }
-/* line 364, ../scss/main.scss */
+/* line 377, ../scss/main.scss */
 .item {
   text-align: center;
 }
 
 @media (max-width: 767px) {
-  /* line 369, ../scss/main.scss */
+  /* line 382, ../scss/main.scss */
   .confirm {
     text-align: center;
   }
 }
 @media (max-width: 720px) {
-  /* line 375, ../scss/main.scss */
+  /* line 388, ../scss/main.scss */
   h1 {
     font-size: 24px !important;
   }
 
-  /* line 380, ../scss/main.scss */
+  /* line 393, ../scss/main.scss */
   .confirm input {
     width: 200px;
   }
 }
 @media (max-width: 530px) {
-  /* line 387, ../scss/main.scss */
+  /* line 400, ../scss/main.scss */
   .logosmall {
     display: block;
   }
 
-  /* line 390, ../scss/main.scss */
+  /* line 403, ../scss/main.scss */
   .logo {
     display: none;
   }
 
-  /* line 394, ../scss/main.scss */
+  /* line 407, ../scss/main.scss */
   table {
     font-size: 12px !important;
   }
 }
 @media (max-width: 500px) {
-  /* line 400, ../scss/main.scss */
+  /* line 413, ../scss/main.scss */
   .loginbox.loginboxinner {
     margin-top: 50px;
   }
 
-  /* line 404, ../scss/main.scss */
+  /* line 417, ../scss/main.scss */
   .extracc {
     margin-top: 0;
   }
 }
 @media (max-width: 340px) {
-  /* line 410, ../scss/main.scss */
+  /* line 423, ../scss/main.scss */
   .loginbox.loginboxinner {
     width: 250px;
   }

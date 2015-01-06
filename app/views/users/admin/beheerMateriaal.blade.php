@@ -28,13 +28,14 @@
 		@forelse($categories as $categorie)
 
 			<div class="category">
-				<h3>{{{$categorie->name}}} </h3>
-				<div>
-					{{ Form::open(['route' => ['categories.edit', $categorie->id], 'method' => 'GET']) }}
-					<input class="editbutton" type="image" src="../../assets/images/edit.png" alt="EDIT">
+				
+				<div class="inline">
+					<br>{{{$categorie->name}}}
+					{{ Form::open(['route' => ['categories.edit', $categorie->id], 'method' => 'GET', 'class' => 'inline']) }}
+					<input class="editbutton" height="32" width="32" type="image" src="../../assets/images/edit.png" alt="EDIT">
 					{{ Form::close() }}
-					{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete']) }}
-					<input class="editbutton" type="image" src="../../assets/images/delete.png" alt="DELETE">
+					{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete','class'=>'inline']) }}
+					<input class="editbutton editspace" height="32" width="32"  type="image" src="../../assets/images/delete.png" alt="DELETE">
 					{{ Form::close() }}	
 				</div>	
 			</div>

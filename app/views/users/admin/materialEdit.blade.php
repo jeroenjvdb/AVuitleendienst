@@ -19,7 +19,7 @@
 		</div>
 		<div>
 			{{Form::label('naam','Naam:')}}<br>
-			{{Form::text('name',$material->name,array('required' => 'required'))}}			
+			{{Form::text('name',$material->name,array('required' => 'required','class' => 'form-control'))}}			
 		</div>
 		<div>
 		<br>
@@ -30,24 +30,24 @@
 		<div>
 		<br>
 			{{Form::label('status','Status:')}}<br>
-			{{Form::select('status',array('ok' => 'ok' , 'missing' => 'vermist' , 'broken' => 'defect'))}}
+			{{Form::select('status',array('ok' => 'ok' , 'missing' => 'vermist' , 'broken' => 'defect'),'',array('class' => 'form-control'))}}
 
 		</div>
 		<div>
 		<br>
 			{{Form::label('barcode','Barcode:')}}<br>
-			{{Form::text('barcode',$material->barcode,array('required' => 'required'))}}			
+			{{Form::text('barcode',$material->barcode,array('required' => 'required','class' => 'form-control'))}}			
 		</div>
 		<div>
 		<br>
 			{{Form::label('categorei','Categorie:')}}<br>
-			{{Form::select('categorie', $categories,$material->categories[0]->id)}}
+			{{Form::select('categorie', $categories,$material->categories[0]->id,array('class' => 'form-control'))}}
 		</div>
 		<div>
 		<br>
 			{{Form::label('details','Details:')}}
 			<br/>
-			{{Form::textarea('details',$material->details,array('required' => 'required','rows' => '3'))}}			
+			{{Form::textarea('details',$material->details,array('required' => 'required','rows' => '3','class' => 'form-control'))}}			
 		</div>
 
 		<h2>Selecteer de bijhorende accessiores</h2>
