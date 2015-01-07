@@ -9,7 +9,11 @@
 				Beste {{$reservation->lastname.' '.$reservation->firstname}}
 				<br/>
 				<br/>
-				{{$reservation->name}} is nog niet terugebrach gelieven dit zo snel magelijk te doen.
+				{{$reservation->name}} is nog niet terugebracht. Gelieve dit zo snel magelijk te doen.
+				<br/>
+				Met vriendelijke groeten,
+				<br/>
+				KdG Uitleendienst
 			</p>
 		</div>
 	</body>

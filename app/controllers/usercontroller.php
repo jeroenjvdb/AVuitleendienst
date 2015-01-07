@@ -37,7 +37,15 @@ class usercontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('users.admin.addUser');
+		
+		if(Auth::check())
+		{
+			return View::make('users.admin.addUser');
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -48,21 +56,29 @@ class usercontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		if (!$this->user->isValid($input = Input::all())) 
+		
+		if(Auth::check())
 		{
-			//The form was not valid, so redirect back with the error messages of the model
-			return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+			if (!$this->user->isValid($input = Input::all())) 
+			{
+				//The form was not valid, so redirect back with the error messages of the model
+				return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+			}
+
+			$this->user->create([
+				"email"		=> Input::get("email"),
+				"password" 	=> Hash::make(Input::get("password")),
+				"firstname"	=> Input::get("firstname"),
+				"lastname"	=> Input::get("lastname"),
+				"type"		=> Input::get("type")
+			]);
+
+			return Redirect::to("/beheer/gebruikers");
 		}
-
-		$this->user->create([
-			"email"		=> Input::get("email"),
-			"password" 	=> Hash::make(Input::get("password")),
-			"firstname"	=> Input::get("firstname"),
-			"lastname"	=> Input::get("lastname"),
-			"type"		=> Input::get("type")
-		]);
-
-		return Redirect::to("/beheer/gebruikers");
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -86,9 +102,17 @@ class usercontroller extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//Get specifieke gebruiker
-		$gebruiker = $this->user->find($id);
-		return View::make("users.admin.editGebruiker", ["gebruiker" => $gebruiker]);
+		
+		if(Auth::check())
+		{
+			//Get specifieke gebruiker
+			$gebruiker = $this->user->find($id);
+			return View::make("users.admin.editGebruiker", ["gebruiker" => $gebruiker]);
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 
@@ -101,31 +125,46 @@ class usercontroller extends \BaseController {
 	public function update($id)
 	{
 
-		$gebruiker = $this->user->find($id);
-
-		if ($gebruiker->email != Input::get("email")) 
+		
+		if(Auth::check())
 		{
-			$input = Input::all(); 
+			$gebruiker = $this->user->find($id);
+
+			if ($gebruiker->email != Input::get("email")) 
+			{
+				$input = Input::all();
+				if (!$this->user->isValid($input)) 
+				{
+					//The form was not valid, so redirect back with the error messages of the model
+					return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+				}
+	 
+			}
+			else
+			{
+				$input = Input::except("email");
+				if (!$this->user->isValidEdit($input)) 
+				{
+					//The form was not valid, so redirect back with the error messages of the model
+					return Redirect::back()->withInput()->withErrors($this->user->errormessages);
+				}
+			}
+
+			
+
+			//$gebruiker = $this->user->find($id);
+			$gebruiker->email = Input::get("email");
+			$gebruiker->firstname = Input::get("firstname");
+			$gebruiker->lastname = Input::get("lastname");
+			$gebruiker->type = Input::get("type");
+			$gebruiker->save();
+
+			return Redirect::to("/beheer/gebruikers");
 		}
 		else
 		{
-			$input = Input::except("email");
+			return Redirect::to('/');
 		}
-
-		if (!$this->user->isValid($input)) 
-		{
-			//The form was not valid, so redirect back with the error messages of the model
-			return Redirect::back()->withInput()->withErrors($this->user->errormessages);
-		}
-
-		//$gebruiker = $this->user->find($id);
-		$gebruiker->email = Input::get("email");
-		$gebruiker->firstname = Input::get("firstname");
-		$gebruiker->lastname = Input::get("lastname");
-		$gebruiker->type = Input::get("type");
-		$gebruiker->save();
-
-		return Redirect::to("/beheer/gebruikers");
 	}
 
 
@@ -137,7 +176,25 @@ class usercontroller extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if (Auth::check()) {
+			$hasMessages = Message::where("fk_usersid", "=", $id)->first();
+			$hasReservations = ReservationUser::where("fk_usersid", "=", $id)->first();
+			
+			if($hasMessages || $hasReservations)
+			{
+				return View::make('errors.message',['message' => 'Deze gebruiker kan niet verwijderd worden. Hij beschikt nog over reservaties/berichten, gelieve deze eerst te verwijderen.','url' => '/beheer/gebruikers']);
+			}
+			else
+			{
+				$userDelete = $this->user->find($id);
+				$userDelete->delete();
+				return Redirect::to("/beheer/gebruikers");
+			}
+		}
+		else
+		{
+			return Redirect::to('/');
+		}
 	}
 
 

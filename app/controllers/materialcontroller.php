@@ -271,5 +271,207 @@ class materialcontroller extends \BaseController {
 		
 	}
 
+	public function checkIn()
+	{
+		if (Auth::check()) {
+			return View::make("materials.checkin");
+		}
+		else {
+			return Redirect::to("/");
+		}
+	}
+
+	public function checkInMaterial()
+	{
+		if(Auth::check())
+		{
+			$errorMessagetype = "1";
+			$barcodeExists = $this->material->where("barcode", "=", Input::get('barcode'))->first();
+			if( $barcodeExists )
+			{
+				$errorMessagetype = "2";
+				//Get all reservationsid's with that materialid(from barcode)
+				$reservationids = $this->reservation->getReservationsids($barcodeExists->id);
+				//If there is one reservation, it may continue
+				if (!empty($reservationids)) {
+					//Compare these reservationids with reservations and check if the dates are correct
+					foreach ($reservationids as $key) {
+						$checkedReservation = $this->reservation->find($key->fk_reservationsid);
+						$currentDate = date("Y-m-d H:i:s");
+						if($currentDate > $checkedReservation->begin && $currentDate < $checkedReservation->end) {
+
+							//fill in date checkedout
+							$resmat = ReservationMaterial::where("fk_reservationsid", "=", $checkedReservation->id)->where("fk_materialsid", "=", $barcodeExists->id)->first();
+							$resmat->datecheckedin = $currentDate;
+							$resmat->save();
+							//fill in usercheckedout
+							$resuse = ReservationUser::where("fk_reservationsid", "=", $checkedReservation->id)->get();
+							foreach ($resuse as $keyresuse) {
+								$keyresuse->usercheckedin = Auth::user()->id;
+								$keyresuse->save();
+							}							
+							//return succes-page WITH date
+							return View::make('materials.succes',['enddate' => '', 'matid' => $barcodeExists->id]);
+
+							///////////////////////////////////////////////////////
+							//////// FIX NEEDED FOR CHECKIN AFTER DEADLINE ////////
+							///////////////////////////////////////////////////////
+							
+						}
+					}
+				}
+			}
+			//If something went wrong, give the right feedback to the error page.
+			$errorMessage = "Er liep iets mis.";
+			switch ($errorMessagetype) {
+				case '1':
+					$errorMessage = "U gaf een barcode op die niet bestaat in de database.";
+					break;
+
+				case '2':
+					$errorMessage = "Er zijn geen lopende reservaties met die barcode.";
+					break;
+
+				default:
+					$errorMessage = "Er liep iets mis tijdens het inchecken van uw materiaal.";
+					break;
+			
+			}
+			return View::make('errors.message',['message' => $errorMessage,'url' => '/inchecken']);
+		}
+		else{
+			return Redirect::to('/');
+		}
+	}
+
+	public function checkOut()
+	{
+		if (Auth::check()) {
+			return View::make("materials.checkout");
+		}
+		else {
+			return Redirect::to("/");
+		}
+	}
+
+	public function checkOutMaterial()
+	{
+		if(Auth::check())
+		{
+			$errorMessagetype = "1";
+			$barcodeExists = $this->material->where("barcode", "=", Input::get('barcode'))->first();
+			if( $barcodeExists )
+			{
+				$errorMessagetype = "2";
+				//Get all reservationsid's with that materialid(from barcode)
+				$reservationids = $this->reservation->getReservationsids($barcodeExists->id);
+				//If there is one reservation, it may continue
+				if (!empty($reservationids)) {
+					$errorMessagetype = "3";
+					//Compare these reservationids with reservationsusers and check if this user is allowed to checkout
+					$dateIsGood = false;
+					$userHasPermission = false;
+					foreach ($reservationids as $key) {
+						//getallreservationusers
+						$reservationusers = $this->reservation->getAllReservationUsers();
+						
+						foreach ($reservationusers as $key2) {
+							if ($key->fk_reservationsid == $key2->fk_reservationsid) {
+								if($key2->fk_usersid == Auth::user()->id) {
+
+									//This user is one of the users who can check the item out
+									$userHasPermission = true;
+									//Remember this reservation id to use later for datechecking (the right one)
+									$theReservationId = $key2->fk_reservationsid;
+
+									//Immediatly get the reservation and check dates
+									//get the current datetime
+									$currentDate = date("Y-m-d H:i:s");
+									//find the matching reservation
+									$matchingReservation = $this->reservation->find($theReservationId);
+									//Check if the current date, is between begin and end date of the reservation
+									if ($currentDate >= $matchingReservation->begin && $currentDate <= $matchingReservation->end) {
+										//Date is between values so it can be checkedout, this variable is used later, so the message on the error page can be correct
+										$dateIsGood = true;
+										//Variables used later for changing usercheckedout & datecheckedout
+										$ultimateResMatId = $key->id;
+										$ultimateResUseId = $key2->id;
+										$enddate = $matchingReservation->end;
+									}
+
+								}
+							}
+						}						
+					}
+					if ($userHasPermission) {
+						$errorMessagetype = "4";
+						//Checked if date was good earlier
+						if ($dateIsGood) {
+							//fill in date checkedout
+							$resmat = ReservationMaterial::find($ultimateResMatId);
+							$resmat->datecheckedout = $currentDate;
+							$resmat->save();
+							//fill in usercheckedout
+							$resuse = ReservationUser::find($ultimateResUseId);
+							$resuse->usercheckedout = Auth::user()->id;
+							$resuse->save();
+							//return succes-page WITH date
+							return View::make('materials.succes',['enddate' => $enddate, 'matid' => $barcodeExists->id]);
+						}
+					}
+				}
+			}
+			//If something went wrong, give the right feedback to the error page.
+			$errorMessage = "Er liep iets mis.";
+			switch ($errorMessagetype) {
+				case '1':
+					$errorMessage = "U gaf een barcode op die niet bestaat in de database.";
+					break;
+
+				case '2':
+					$errorMessage = "Er zijn geen reservaties met die barcode.";
+					break;
+
+				case '3':
+					$errorMessage = "U heeft geen toegang om dit item uit te checken.";
+					break;
+
+				case '4':
+					$errorMessage = "U probeert een item uit te checken buiten uw reservatietijd, gelieve uw item pas uit te checken na het begin tijdstip van de reservatie.";
+					break;
+
+				default:
+					$errorMessage = "Er liep iets mis tijdens het uitchecken van uw materiaal.";
+					break;
+			
+			}
+			return View::make('errors.message',['message' => $errorMessage,'url' => '/uitchecken']);
+		}
+		else{
+			return Redirect::to('/');
+		}
+	}
+
+	public function storeMessage()
+	{
+		if (Auth::check()) {
+
+			//Check if a message/title was typed
+			if(Input::get('message') && Input::get('title')) {
+				//Insert message into DB
+				$newMessage = new Message;
+				$newMessage->title = Input::get('title');
+				$newMessage->message = Input::get('message');
+				$newMessage->status = "unsolved";
+				$newMessage->fk_usersid = Auth::user()->id;
+				$newMessage->fk_materialsid = Input::get('materialid');
+				$newMessage->save();
+			}
+			return Redirect::to("/materials");
+		}
+		else {
+			return Redirect::to("/");
+		}
+	}
 
 }

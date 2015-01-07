@@ -12,10 +12,10 @@
 		<a href="/reservations" multilinks-noscroll="true">Mijn Reservaties</a>
 	</li>
 	<li role="presentation">
-		<a href="#">Materiaal Uitchecken</a>
+		<a href="/uitchecken">Materiaal Uitchecken</a>
 	</li>
 	<li role="presentation">
-		<a href="#">Materiaal Inchecken</a>
+		<a href="/inchecken">Materiaal Inchecken</a>
 	</li>
 
 	@if(Auth::user()->type == "monitor")
