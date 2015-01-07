@@ -230,7 +230,7 @@ class materialcontroller extends \BaseController {
 	    $cal->setDayLabels(array('Zon', 'Man', 'Din', 'Woe', 'Don', 'Vrij', 'Zat')); //Label names for week days
 	    $cal->setMonthLabels(array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December')); //Month names
 	    $cal->setDateWrap(array('<div>','</div>')); //Set cell inner content wrapper
-	    $cal->setTableClass('table'); //Set the table's class name
+	    $cal->setTableClass('table calendar'); //Set the table's class name
 	    $cal->setHeadClass('table-header'); //Set top header's class name
 	    $cal->setNextClass('btn'); // Set next btn class name
 	    $cal->setPrevClass('btn'); // Set Prev btn class name

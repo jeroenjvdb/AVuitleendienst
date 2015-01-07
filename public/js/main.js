@@ -52,4 +52,42 @@ $(document).ready(function(){
             }
         });
     }
+
+    setupCalendar();
+
+    function setupCalendar(){
+        var resparent = $(".reserved").parent().parent().parent();
+        resparent.css({
+            "background-color" : "#f2dede"
+        });
+
+        $(".calendar th:nth-child(2)").attr("colspan" , "1");
+        $(".calendar th:nth-child(3)").attr("colspan" , "5");
+        $(".calendar th:nth-child(4)").attr("colspan" , "1");
+        
+        $(".calendar .btn").hover(function(){
+            $(this).parent().addClass("secondblue");
+        }, function(){
+            $(this).parent().removeClass("secondblue");
+        });
+
+        var colgroups;
+
+        for(var i = 0; i < 8; i++){
+            colgroups += "<colgroup></colgroup>";
+        }
+
+        $(".calendar").prepend(colgroups);
+
+        $(".calendar").delegate('td','mouseover mouseleave', function(e) {
+            if (e.type == 'mouseover') {
+              $(this).parent().addClass("lightblue");
+              $("colgroup").eq($(this).index()).addClass("lightblue");
+            }
+            else {
+              $(this).parent().removeClass("lightblue");
+              $("colgroup").eq($(this).index()).removeClass("lightblue");
+            }
+        });
+    }
 });
