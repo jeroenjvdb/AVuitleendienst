@@ -174,4 +174,16 @@ class Reservation extends Eloquent {
                 ->where('reservations.end','>=', $time2)
                 ->get(); 
     }
+
+    public function getReservationsids($fk_materialsid)
+    {
+        return DB::table('reservationmaterials')
+                ->where('fk_materialsid','=', $fk_materialsid)
+                ->get(); 
+    }
+
+    public function getAllReservationUsers()
+    {
+        return DB::table('reservationusers')->get(); 
+    }
 }

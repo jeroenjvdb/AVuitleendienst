@@ -96,5 +96,5 @@ class Material extends Eloquent {
         }
         $result = $qeury->get();
         return $result;
-    }
+    }    
 }

@@ -10,7 +10,10 @@
 				<br/>
 				<br/>
 				{{$reservation->name}} is nog niet beschikbaar.
-				
+				<br/>
+				Met vriendelijke groeten,
+				<br/>
+				KdG Uitleendienst
 			</p>
 		</div>
 	</body>
