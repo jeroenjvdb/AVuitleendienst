@@ -9,20 +9,22 @@
 @stop
 
 @section("content")
-	<h2>Item succesvol uitgecheckt. </h2>
+	
 	@if($enddate)
+		<h2>Item succesvol uitgecheckt. </h2>
 		<p>Uw item werd succesvol uitgecheckt. Ten laatste terug inchecken voor {{$enddate}}</p>
 	@else
+		<h2>Item succesvol ingecheckt. </h2>
 		<p>Uw item werd succesvol ingecheckt.</p>
 	@endif
 	{{Form::open(['url' => '/opmerking', "class" => "form-horizontal"])}}
 	<h3>Eventuele opmerking: (toestand van het toestel,...)</h3>
 	<div>
-		{{Form::label('title','Titel opmerking')}}
+		{{Form::label('title','Titel: ')}}
 		{{Form::text('title','',array("class" => "form-control"))}}
 	</div>
 	<div>
-		{{Form::label('message','Eventuele opmerking: ')}}
+		{{Form::label('message','Opmerking: ')}}
 		{{Form::textarea('message','',array("class" => "form-control"))}}
 	</div><br>
 	{{Form::hidden("materialid", $matid)}}
