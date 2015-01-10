@@ -178,7 +178,7 @@ class usercontroller extends \BaseController {
 	{
 		if (Auth::check()) {
 			$hasMessages = Message::where("fk_usersid", "=", $id)->first();
-			$hasReservations = ReservationUser::where("fk_usersid", "=", $id)->first();
+			$hasReservations = Reservationuser::where("fk_usersid", "=", $id)->first();
 			
 			if($hasMessages || $hasReservations)
 			{

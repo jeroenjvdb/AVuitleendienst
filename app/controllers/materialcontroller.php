@@ -301,11 +301,11 @@ class materialcontroller extends \BaseController {
 						if($currentDate > $checkedReservation->begin && $currentDate < $checkedReservation->end) {
 
 							//fill in date checkedout
-							$resmat = ReservationMaterial::where("fk_reservationsid", "=", $checkedReservation->id)->where("fk_materialsid", "=", $barcodeExists->id)->first();
+							$resmat = Reservationmaterial::where("fk_reservationsid", "=", $checkedReservation->id)->where("fk_materialsid", "=", $barcodeExists->id)->first();
 							$resmat->datecheckedin = $currentDate;
 							$resmat->save();
 							//fill in usercheckedout
-							$resuse = ReservationUser::where("fk_reservationsid", "=", $checkedReservation->id)->get();
+							$resuse = Reservationuser::where("fk_reservationsid", "=", $checkedReservation->id)->get();
 							foreach ($resuse as $keyresuse) {
 								$keyresuse->usercheckedin = Auth::user()->id;
 								$keyresuse->save();
@@ -408,11 +408,11 @@ class materialcontroller extends \BaseController {
 						//Checked if date was good earlier
 						if ($dateIsGood) {
 							//fill in date checkedout
-							$resmat = ReservationMaterial::find($ultimateResMatId);
+							$resmat = Reservationmaterial::find($ultimateResMatId);
 							$resmat->datecheckedout = $currentDate;
 							$resmat->save();
 							//fill in usercheckedout
-							$resuse = ReservationUser::find($ultimateResUseId);
+							$resuse = Reservationuser::find($ultimateResUseId);
 							$resuse->usercheckedout = Auth::user()->id;
 							$resuse->save();
 							//return succes-page WITH date
