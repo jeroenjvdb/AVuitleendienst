@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration {
 
 		DB::table('users')->insert(array(
 	        array('email'=>'admin@kdg.be',
-	        	  'password'=>'$2y$10$F94TqsT0iNEi0vA005jbM.TteEQeK69C0qRyxR2vHFXsmPdOG4hY.',
+	        	  'password'=>Hash::make('root'),
 	        	  'firstname'=>'admin',
 	        	  'lastname' => 'admin',
 	        	  'type' => 'admin'
@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration {
 	        	  'type' => 'teacher'
 	    	),
 			array('email'=>'student1@kdg.be',
-	        	  'password'=>'$2y$10$RJEYygwORfCmw4VgDIk4POM.AeZrZo9igvgYnYtr5ES1FQUyyTXBa',
+	        	  'password'=>Hash::make('root'),
 	        	  'firstname'=>'student1',
 	        	  'lastname' => 'student1',
 	        	  'type' => 'student'

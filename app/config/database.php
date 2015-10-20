@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'us-cdbr-iron-east-01.cleardb.net',
-			'database'  => 'heroku_0953a9b89dc8eba',
-			'username'  => 'b1019f5ad36153',
-			'password'  => '13f8ee28',
+			'host'      => 'localhost',
+			'database'  => 'avuitleendienst',
+			'username'  => 'root',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
