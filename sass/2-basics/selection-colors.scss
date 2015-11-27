@@ -1,0 +1,21 @@
+::selection {
+	color: #fff;
+  background: #057FEA;
+}
+
+::-moz-selection {
+	color: #fff;
+  background: #057FEA;
+}
+
+img::selection {
+  background: transparent;
+}
+
+img::-moz-selection {
+  background: transparent;
+}
+
+body {
+  -webkit-tap-highlight-color: #057FEA;
+}

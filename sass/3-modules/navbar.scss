@@ -1,0 +1,36 @@
+.navbar-default {
+	background-color: $color;
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	
+	.navbar-nav {
+		background-color: $color;		
+		
+		li>a {
+			color: $color-light;
+			
+			&:hover,
+			&:focus {
+				color: $color-light;
+			}
+		}
+		
+		.dropdown.open {			
+			a {
+				background-color: $color;
+				color: $color-light;
+
+				&:focus,
+				&:active {
+					color: $color-light;
+				}
+			}
+			
+			.dropdown-menu {
+				background-color: $color;
+				border: none;
+			}
+		}
+	}
+}

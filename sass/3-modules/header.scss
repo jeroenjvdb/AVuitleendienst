@@ -1,0 +1,71 @@
+#header {
+	position: relative;
+	width: 100%;
+	height: 500px;
+	
+	background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/header-img.jpg");
+	background-size: cover;
+	background-position: center;
+	
+	.welcome {
+		width: 100%;
+		padding-top: 150px;
+		
+		text-align: center;
+		color: $color-light;
+		font-size: 3em;
+	}
+	
+	.overlay-bar {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: auto;
+		bottom: 0;
+		margin: 0 auto;
+		padding: 20px 0;
+		
+		background: rgba(0,0,0,0.5),;
+
+
+		color: $color-light;
+	}
+	
+//		.searchfield {
+//			width: 470px;
+//			border: none;
+//			
+//			background-color: transparent;
+//			border-bottom: 2px dotted $color-light;
+//		}
+	
+	.search-container {
+		width: 600px;
+		margin: 0 auto;
+	}
+	
+	input {
+		padding: 10px;
+		color: $color;
+	}
+	
+	.searchbar {
+		width: calc(80% - 1px);
+		border: 1px solid #c4c4c4;
+		border-right: none;
+		border-top-left-radius: 2px;
+		border-bottom-left-radius: 2px;
+	}
+	
+	.btn-search {
+		display: inline-block;
+		width: calc(20% - 1px);
+		margin-left: -4px;
+		
+		color: $color-light;
+		background-color: $accent;
+		border: 1px solid $accent;
+		border-top-right-radius: 2px;
+		border-bottom-right-radius: 2px;
+	}
+}
