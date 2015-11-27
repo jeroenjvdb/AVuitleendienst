@@ -26,7 +26,7 @@ class materialcontroller extends \BaseController {
 		}
 		else
 		{
-			return Redirect::to('/');
+			return Redirect::to('/')->with('error','Je bent niet ingelogd');
 		}
 	}
 
