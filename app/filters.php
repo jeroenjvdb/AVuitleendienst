@@ -43,11 +43,24 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('/')->with('error','Gelieve eerst in te loggen');
 		}
 	}
 });
-
+Route::filter('admin', function()
+{
+	if (Auth::user())
+	{
+		if (!Auth::user()->isAdmin())
+		{
+			return Redirect::to('/materials')->with('error','Je hebt niet de rechten deze pagina te bezoeken');
+		}
+	}
+	else
+	{
+		return Redirect::to('/')->with('error','Gelieve eerst in te loggen');
+	}
+});
 
 Route::filter('auth.basic', function()
 {
