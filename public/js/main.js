@@ -90,4 +90,19 @@ $(document).ready(function(){
             }
         });
     }
+
+    $('.calendar.table tbody tr td').on('click', function(e){
+        console.log(e);
+        var datetime = e.currentTarget.dataset.datetime;
+        var d = new Date(datetime);
+        console.log(d);
+        var url = window.location.href;
+        var urlArr = url.split('/');
+        var id = e.currentTarget.children[0].dataset.id;
+        console.log(id);
+        var route = '/reservations/create/' + d.getFullYear() + '-' + (parseInt(d.getMonth()) + 1) + '-' + d.getDate() + '/' + id;
+        // route = route.replace(':date',  )
+        console.log(route);
+        window.location = route;
+    })
 });

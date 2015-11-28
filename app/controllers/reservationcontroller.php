@@ -1,3 +1,4 @@
+
 <?php
 
 class reservationcontroller extends \BaseController {
@@ -71,18 +72,29 @@ class reservationcontroller extends \BaseController {
 			{
 				if(Input::get('accessories'))
 				{
+					$allValid = true;
 					foreach(Input::get('accessories') as $accessorieId)
 					{	//checken of er geen reservatie overlapt bij de accessories
-						if(!$this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$accessorieId))
+
+						if($this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$accessorieId))
 						{
-							$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+							$allValid = false;
+							// $this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
 						}
-						else
-						{
-							$material = Material::find($accessorieId);
-							return Redirect::back()->withInput()->with('message','De gekozen eind datum overlapt met een andere reservatie voor '.$material->name.' .');
-						}
+						// else
+						// {
+						// 	$material = Material::find($accessorieId);
+						// 	return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .');
+						// }
 					}
+
+					if(!$allValid) {return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor test .');}
+					else{
+					foreach(Input::get('accessories') as $accessorieId)
+					{
+						$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+					}
+				}
 				}
 				$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
 				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol uw reservatie geplaatst');
@@ -91,7 +103,7 @@ class reservationcontroller extends \BaseController {
 			else
 			{
 				$material = Material::find($materialId);
-				return Redirect::back()->withInput()->with('message','De gekozen eind datum overlapt met een andere reservatie voor '.$material->name.' .');
+				return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .');
 			}
 				
 		}

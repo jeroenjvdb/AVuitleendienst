@@ -198,4 +198,10 @@ class usercontroller extends \BaseController {
 	}
 
 
+	public function test()
+	{
+		
+	}
+
+
 }
