@@ -5,4 +5,5 @@
 
 @section("content")
 <h1>Materiaaloverzicht</h1>
+
 @stop
