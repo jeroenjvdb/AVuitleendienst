@@ -91,4 +91,9 @@ class sessioncontroller extends \BaseController {
 	}
 
 
+
+	public function test()
+	{
+		
+	}
 }
