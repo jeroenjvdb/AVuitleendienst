@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a83c7c5e733c2274a3dc2fcb7960505",
-    "content-hash": "3ed56ea5237c7a48443323e7e854c4ee",
+    "hash": "565a62146e87c27e7db23a4aa7cd6ae8",
+    "content-hash": "286ae8c60142927d5837290249e0298c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -324,16 +324,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "1124ff3c6298f0dcf9edf9156623904d7a5c3428"
+                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/1124ff3c6298f0dcf9edf9156623904d7a5c3428",
-                "reference": "1124ff3c6298f0dcf9edf9156623904d7a5c3428",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/40cb418c49f32c5140ef798ab8c273ae9aae9e07",
+                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07",
                 "shasum": ""
             },
             "require": {
@@ -382,7 +382,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-08-16 15:31:59"
+            "time": "2015-11-27 18:22:21"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -473,6 +473,64 @@
                 "tokenizer"
             ],
             "time": "2015-01-10 01:09:28"
+        },
+        {
+            "name": "knight-swarm/laravel-saml",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KnightSwarm/laravel-saml.git",
+                "reference": "f9d8af43a6a8bcb68cad9b8fab5494a2b6396b08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KnightSwarm/laravel-saml/zipball/f9d8af43a6a8bcb68cad9b8fab5494a2b6396b08",
+                "reference": "f9d8af43a6a8bcb68cad9b8fab5494a2b6396b08",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "KnightSwarm\\LaravelSaml": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KnightSwarm Handelsbolag",
+                    "email": "code@knightswarm.com"
+                },
+                {
+                    "name": "Tom Mount",
+                    "email": "tmountjr@ebay.com"
+                },
+                {
+                    "name": "Phil Preston",
+                    "email": "phpreston@ebay.com"
+                },
+                {
+                    "name": "Jeremy French",
+                    "email": "jeremy@jeremyfrench.co.uk"
+                }
+            ],
+            "description": "saml auth provider for laravel 4.*",
+            "keywords": [
+                "SSO",
+                "laravel",
+                "laravel-saml",
+                "saml"
+            ],
+            "time": "2015-10-30 22:57:29"
         },
         {
             "name": "laravel/framework",
@@ -1988,7 +2046,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "makzumi/calendar": 20
+        "makzumi/calendar": 20,
+        "knight-swarm/laravel-saml": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

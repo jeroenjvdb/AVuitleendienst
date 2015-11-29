@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'Makzumi\Calendar\CalendarServiceProvider',
+		'KnightSwarm\LaravelSaml\LaravelSamlServiceProvider',
 
 	),
 
@@ -191,6 +192,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Image'				=> 'Intervention\Image\Facades\Image',
+		'Saml'      => 'KnightSwarm\LaravelSaml\Facades\Saml',
 
 	),
 
