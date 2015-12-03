@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration {
 	        	  'type' => 'admin'
 	    	),
 			array('email'=>'leerkracht@kdg.be',
-	        	  'password'=>'$2y$10$u0sGKct7zR5StvNyggucIu.6UNuU8LtibPxP4f2sOAoparNEwSSrm',
+	        	  'password'=>Hash::make('root'),
 	        	  'firstname'=>'leerkracht',
 	        	  'lastname' => 'leerkracht',
 	        	  'type' => 'teacher'
@@ -44,13 +44,13 @@ class CreateUsersTable extends Migration {
 	        	  'type' => 'student'
 	    	),
 			array('email'=>'student2@kdg.be',
-	        	  'password'=>'$2y$10$3QZLxWlssTTVLDWeUTcYH.Arm0.WpTpl6uP74ldtINasc5vauNJRq',
+	        	  'password'=>Hash::make('root'),
 	        	  'firstname'=>'student2',
 	        	  'lastname' => 'student2',
 	        	  'type' => 'student'
 	    	),
 			array('email'=>'monitor@kdg.be',
-	        	  'password'=>'$2y$10$W2hDFYo.Q1iQDuK8UfKbPuFgyuVREwENyo0wSGPp2VbhCp/oQk3J.',
+	        	  'password'=>Hash::make('root'),
 	        	  'firstname'=>'monitor',
 	        	  'lastname' => 'monitor',
 	        	  'type' => 'monitor'
