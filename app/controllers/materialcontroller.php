@@ -244,8 +244,8 @@ class materialcontroller extends \BaseController {
 	public function getLogbook()
 	{
 		Session::forget('input');
-		$categories = Categorie::getAllCategories();
 		$categories['all'] ='alle';
+		$categories['categorieën'] = Categorie::getAllCategories();
 		$logbook = Material::paginate(8);	
 		return View::make('materials.logbook',['logbook' =>$logbook,'paginate' => true,'categories' =>$categories]);
 	}
@@ -265,8 +265,8 @@ class materialcontroller extends \BaseController {
 		}
 		else
 		{
-			$categories = Categorie::getAllCategories();
 			$categories['all'] ='alle';
+			$categories['categorieën'] = Categorie::getAllCategories();
 			$result = $this->material->searchMaterial(Input::get('search'),Input::get('status'),Input::get('availability'),Input::get('categorie'));
 			Session::put('input',Input::all());
 			return View::make('materials.logbook',['logbook' => $result,'paginate' => false,'categories' =>$categories]);	
