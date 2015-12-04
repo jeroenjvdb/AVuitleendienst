@@ -378,16 +378,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.3",
+            "version": "2.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07"
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/40cb418c49f32c5140ef798ab8c273ae9aae9e07",
-                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
                 "shasum": ""
             },
             "require": {
@@ -436,7 +436,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-11-27 18:22:21"
+            "time": "2015-11-30 17:03:21"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1636,16 +1636,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.7.7",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "7e2f9c31645680026c2372edf66f863fc7757af5"
+                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/7e2f9c31645680026c2372edf66f863fc7757af5",
-                "reference": "7e2f9c31645680026c2372edf66f863fc7757af5",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a5eb815363c0388e83247e7e9853e5dbc14999cc",
+                "reference": "a5eb815363c0388e83247e7e9853e5dbc14999cc",
                 "shasum": ""
             },
             "require": {
@@ -1653,10 +1653,10 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/config": "~2.0,>=2.0.5",
-                "symfony/dependency-injection": "~2.6",
-                "symfony/expression-language": "~2.6",
-                "symfony/stopwatch": "~2.3"
+                "symfony/config": "~2.0,>=2.0.5|~3.0.0",
+                "symfony/dependency-injection": "~2.6|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/stopwatch": "~2.3|~3.0.0"
             },
             "suggest": {
                 "symfony/dependency-injection": "",
@@ -1665,7 +1665,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -1692,20 +1692,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-30 20:10:21"
+            "time": "2015-10-30 20:15:42"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.7.7",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "8e173509d7fdbbba3cf34d6d072f2073c0210c1d"
+                "reference": "3e661a0d521ac67496515fa6e6704bd61bcfff60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/8e173509d7fdbbba3cf34d6d072f2073c0210c1d",
-                "reference": "8e173509d7fdbbba3cf34d6d072f2073c0210c1d",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/3e661a0d521ac67496515fa6e6704bd61bcfff60",
+                "reference": "3e661a0d521ac67496515fa6e6704bd61bcfff60",
                 "shasum": ""
             },
             "require": {
@@ -1714,7 +1714,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -1741,7 +1741,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-18 13:41:01"
+            "time": "2015-11-23 10:19:46"
         },
         {
             "name": "symfony/finder",
