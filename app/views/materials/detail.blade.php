@@ -138,7 +138,7 @@
 	}, 1000*60);
 
 	scheduler.config.first_hour = 8;
-	scheduler.config.last_hour = 21.5;
+	scheduler.config.last_hour = 22;
 	scheduler.attachEvent("onEmptyClick", function (date, e){
 		var myDate = new Date(date);
 		if(myDate > new Date())
