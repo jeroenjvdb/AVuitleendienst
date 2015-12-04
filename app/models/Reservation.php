@@ -15,7 +15,7 @@ class Reservation extends Eloquent {
 
     public function users()
     {
-        return $this->belongsToMany('User','reservationusers','fk_usersid','fk_reservationsid');
+        return $this->belongsToMany('User','reservationusers','fk_reservationsid','fk_usersid');
     }
 
 	public function isValid()

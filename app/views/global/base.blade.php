@@ -16,7 +16,7 @@
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.time.css') }}
-	
+	@yield('styles')
 	
 </head>
 <body>
@@ -48,4 +48,5 @@
 		@yield("content")
 	</div>	
 </body>
+@yield('scripts')
 </html>

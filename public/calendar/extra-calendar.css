@@ -1,0 +1,39 @@
+.highlighted_timespan {
+	transition: background-color 400ms;
+	-moz-transition: background-color 400ms;
+	-webkit-transition: background-color 400ms;
+	-o-transition: background-color 400ms;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+	cursor: pointer;
+}
+.highlighted_timespan:hover {
+	background-color: #90ee90;
+}
+.dhx_cal_event_cont_selected{
+	background-color: #9cc1db;
+	color: white;
+}
+.dhx_scale_hour_main {
+	float: left;
+	text-align: right;
+	font-size: 16px;
+	font-weight: bold;
+}
+.dhx_scale_hour_minute_cont {
+	float: left;
+	position: relative;
+	text-align: right;
+}
+.dhx_scale_hour_minute_top, .dhx_scale_hour_minute_bottom {
+	font-size: 10px;
+	padding-right: 5px;
+}
+.dhx_scale_hour_sep {
+	position: absolute;
+	height: 1px;
+	background-color: #8C929A;
+	right: 0;
+	top: 20px;
+	width: 20px;
+}

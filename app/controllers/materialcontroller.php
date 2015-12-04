@@ -105,8 +105,8 @@ class materialcontroller extends \BaseController {
 		{
 			/*return $this->reservation->getMaterialStatus($id);*/
 			$material = $this->material->getMaterialById($id);
-			$cal = $this->configCal(date("Y-m-d H:i:s"),$id);
-			return View::make('materials.detail',['material' => $material,'cal' => $cal]);
+			$resJson = $material->reservations->load('users');
+			return View::make('materials.detail',['material' => $material,'resJson' => $resJson]);
 		}
 		else
 		{
