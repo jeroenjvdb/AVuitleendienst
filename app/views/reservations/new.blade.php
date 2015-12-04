@@ -21,7 +21,8 @@
 	<div class="form-group">
 		{{Form::label('begin','Begin datum: ', ["class" => "col-sm-4 col-md-3 col-xs-12 control-label"])}}
 		<div class="col-sm-8">
-			{{Form::text('begin',$begin,array('required' => 'required','readonly', "class" => "form-control cursorpointer border"))}}
+			{{Form::text('beginDate',$begin,array('required' => 'required','readonly', "class" => "form-control cursorpointer border"))}}
+			{{Form::text('beginHour',$beginHour,array('required' => 'required','readonly', "class" => "form-control cursorpointer border"))}}
 		</div>
 		
 	</div>
