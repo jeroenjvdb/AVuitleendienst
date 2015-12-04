@@ -43,5 +43,12 @@
         </div>
     </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    @if(Auth::check())
+      {{Auth::user()->email}}
+    @endif
+  </div>
+</div>
 
 @stop

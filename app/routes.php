@@ -16,7 +16,6 @@ Route::resource('sessions','sessioncontroller');
 Route::get('/', function()
 {
 	return View::make('index');
-
 });
 Route::resource('sessions','sessioncontroller');
 Route::group(array('before' => 'auth'),function(){
