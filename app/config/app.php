@@ -121,10 +121,11 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+
 		'Intervention\Image\ImageServiceProvider',
 		'Makzumi\Calendar\CalendarServiceProvider',
 		'KnightSwarm\LaravelSaml\LaravelSamlServiceProvider',
-
+		'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
@@ -191,9 +192,10 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-		'Image'				=> 'Intervention\Image\Facades\Image',
-		'Saml'      => 'KnightSwarm\LaravelSaml\Facades\Saml',
 
+		'Image'							=> 'Intervention\Image\Facades\Image',
+		'Saml'      				=> 'KnightSwarm\LaravelSaml\Facades\Saml',
+		'Debugbar' 					=> 'Barryvdh\Debugbar\Facade',
 	),
 
 );

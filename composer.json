@@ -9,7 +9,8 @@
 		"intervention/image": "~2.0",
 		"makzumi/calendar": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
-		"knight-swarm/laravel-saml": "dev-master"
+		"knight-swarm/laravel-saml": "dev-master",
+		"barryvdh/laravel-debugbar": "~1.8"
 	},
 	"autoload": {
 		"classmap": [
