@@ -10,7 +10,7 @@ return (Route::current()->uri() == $route) ? $class : '';
 	<title>
 		@yield('title')
 	</title>
-	{{HTML::style("css/main.css")}}
+	{{HTML::style("css/main - kopie.css")}}
   {{HTML::script("js/main.js")}}
 </head>
 <body>

@@ -29,17 +29,25 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function create()
 	{
-		$begin = str_replace ( "%20", " " , Request::segment(3) );
-		$materialId = Request::segment(4);
+		$beginDate = str_replace ( "%20", " " , Request::segment(3) );
+		$beginHour = str_replace ( "%20", " " , Request::segment(4) );
+		$begin = $beginDate . ' ' . $beginHour;
+		var_dump(date("Y-m-d H:i:s"));
+		var_dump($begin);
+		$now = strtotime('now');
+		$beginStamp = strtotime($begin);
+		
+
+		$materialId = Request::segment(5);
 		//checken of de geselecteerde datum nog niet voorbij is
-		if($begin >= date("Y-m-d H:i:s"))
+		if($beginStamp >= $now)
 		{
 			//checken of het item op deze datum nog niet gereserveerd is
 			if(!in_array($begin, $this->reservation->getAllReservedDatesArray($materialId)))
 			{
 				$users = User::where('type','!=','admin')->where('id','!=',Auth::id())->paginate(12);
 				$material = Material::find($materialId);
-				return View::make('reservations.new',['begin' => $begin , 'material' =>$material, 'users' => $users]);
+				return View::make('reservations.new',['begin' => $beginDate, 'beginHour' => $beginHour , 'material' =>$material, 'users' => $users]);
 			}
 			else
 			{
@@ -63,6 +71,9 @@ class reservationcontroller extends \BaseController {
 	public function store()
 	{
 		$this->reservation->fill(Input::all());
+		var_dump(Input::get('beginHour'));
+		$this->reservation->begin = Input::get('beginDate') . " ". Input::get('beginHour');
+		var_dump($this->reservation->begin);
 		$this->reservation->end = Input::get('endDate_submit')." ".str_replace("s", "00", Input::get('endHour_submit'));
 		$materialId = Input::get('materialId');
 		if( $this->reservation->isValid())
@@ -90,13 +101,13 @@ class reservationcontroller extends \BaseController {
 
 					if(!$allValid) {return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor test .');}
 					else{
-					foreach(Input::get('accessories') as $accessorieId)
-					{
-						$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+						foreach(Input::get('accessories') as $accessorieId)
+						{
+							$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+						}
 					}
 				}
-				}
-				$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
+				$this->makeReservation(Input::get('users'),Input::all(),$this->reservation->begin,Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
 				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol uw reservatie geplaatst');
 
 			}
@@ -114,11 +125,12 @@ class reservationcontroller extends \BaseController {
 		
 	}
 
-	public function makeReservation($users,$Input,$endDate,$endHour,$materialId)
+	public function makeReservation($users,$Input,$begin, $endDate,$endHour,$materialId)
 	{
 		$this->reservation = new Reservation;
 		$this->reservation->fill($Input);
 		$this->reservation->end = $endDate." ".str_replace("s", "00", $endHour);
+		$this->reservation->begin = $begin;
 		$this->reservation->save();
 		$resId = $this->reservation->id;
 		$this->reservation->saveReservationMaterial($resId,$materialId);

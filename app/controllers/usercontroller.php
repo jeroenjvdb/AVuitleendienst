@@ -176,25 +176,23 @@ class usercontroller extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		if (Auth::check()) {
-			$hasMessages = Message::where("fk_usersid", "=", $id)->first();
-			$hasReservations = Reservationuser::where("fk_usersid", "=", $id)->first();
-			
-			if($hasMessages || $hasReservations)
-			{
-				return View::make('errors.message',['message' => 'Deze gebruiker kan niet verwijderd worden. Hij beschikt nog over reservaties/berichten, gelieve deze eerst te verwijderen.','url' => '/beheer/gebruikers']);
-			}
-			else
-			{
-				$userDelete = $this->user->find($id);
-				$userDelete->delete();
-				return Redirect::to("/beheer/gebruikers");
-			}
+		$user = User::findOrFail($id);
+
+		$hasMessages = $user
+		//Message::where("fk_usersid", "=", $id)->first();
+		$hasReservations = Reservationuser::where("fk_usersid", "=", $id)->first();
+		
+		if($hasMessages || $hasReservations)
+		{
+			return View::make('errors.message',['message' => 'Deze gebruiker kan niet verwijderd worden. Hij beschikt nog over reservaties/berichten, gelieve deze eerst te verwijderen.','url' => '/beheer/gebruikers']);
 		}
 		else
 		{
-			return Redirect::to('/');
+			$userDelete = $this->user->find($id);
+			$userDelete->delete();
+			return Redirect::to("/beheer/gebruikers");
 		}
+		
 	}
 
 

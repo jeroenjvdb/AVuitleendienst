@@ -4,8 +4,13 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD:composers.lock
+    "hash": "42e862ea06363f3e8a38c956db61f246",
+    "content-hash": "3ed56ea5237c7a48443323e7e854c4ee",
+=======
     "hash": "5c3839f67817f6b4ea6b421b5672eb03",
     "content-hash": "ca4d8d4366721121264e3ed3c85e6065",
+>>>>>>> 762aa9a0c1c303f75de3ebd372bc1d83225cd2f0:composer.lock
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -110,25 +115,23 @@
         },
         {
             "name": "d11wtq/boris",
-            "version": "v1.0.8",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/borisrepl/boris.git",
-                "reference": "125dd4e5752639af7678a22ea597115646d89c6e"
+                "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/borisrepl/boris/zipball/125dd4e5752639af7678a22ea597115646d89c6e",
-                "reference": "125dd4e5752639af7678a22ea597115646d89c6e",
+                "url": "https://api.github.com/repos/borisrepl/boris/zipball/31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
+                "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
-            },
-            "suggest": {
                 "ext-pcntl": "*",
                 "ext-posix": "*",
-                "ext-readline": "*"
+                "ext-readline": "*",
+                "php": ">=5.3.0"
             },
             "bin": [
                 "bin/boris"
@@ -140,7 +143,11 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2014-01-17 12:21:18"
+            "license": [
+                "MIT"
+            ],
+            "description": "A tiny, but robust REPL (Read-Evaluate-Print-Loop) for PHP.",
+            "time": "2015-03-01 08:05:19"
         },
         {
             "name": "filp/whoops",
@@ -378,6 +385,10 @@
         },
         {
             "name": "intervention/image",
+<<<<<<< HEAD:composer.lock
+            "version": "2.3.4",
+=======
+<<<<<<< HEAD:composers.lock
             "version": "2.3.4",
             "source": {
                 "type": "git",
@@ -388,6 +399,24 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Intervention/image/zipball/a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
                 "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
+=======
+            "version": "2.3.3",
+>>>>>>> d5af2bc3a9dd97cdd8ddd5fb3f7721d524b03b0e:composers.lock
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3"
+            },
+            "dist": {
+                "type": "zip",
+<<<<<<< HEAD:composer.lock
+                "url": "https://api.github.com/repos/Intervention/image/zipball/a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
+                "reference": "a67ee32df0c6820cc6e861ad4144ee0ef9c74aa3",
+=======
+                "url": "https://api.github.com/repos/Intervention/image/zipball/40cb418c49f32c5140ef798ab8c273ae9aae9e07",
+                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07",
+>>>>>>> 762aa9a0c1c303f75de3ebd372bc1d83225cd2f0:composer.lock
+>>>>>>> d5af2bc3a9dd97cdd8ddd5fb3f7721d524b03b0e:composers.lock
                 "shasum": ""
             },
             "require": {
@@ -436,7 +465,15 @@
                 "thumbnail",
                 "watermark"
             ],
+<<<<<<< HEAD:composer.lock
             "time": "2015-11-30 17:03:21"
+=======
+<<<<<<< HEAD:composers.lock
+            "time": "2015-11-30 17:03:21"
+=======
+            "time": "2015-11-27 18:22:21"
+>>>>>>> 762aa9a0c1c303f75de3ebd372bc1d83225cd2f0:composer.lock
+>>>>>>> d5af2bc3a9dd97cdd8ddd5fb3f7721d524b03b0e:composers.lock
         },
         {
             "name": "ircmaxell/password-compat",
