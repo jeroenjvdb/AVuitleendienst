@@ -265,7 +265,7 @@
 <script>
 	reservations += '{id:"<?php echo $reservation->id?>", start_date:"<?php echo $reservation->begin ?>", \
 	end_date:"<?php echo $reservation->end ?>", \
-	text:"<?php echo $reservation->users->first()->firstname.' '.$reservation->users->first()->lastname ?>"},';
+	text:"<?php echo $reservation->users->first()->firstname.' '.$reservation->users->first()->lastname.' - '.$reservation->reason ?>"},';
 </script>
 @endforeach
 <script>
