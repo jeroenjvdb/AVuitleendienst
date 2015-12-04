@@ -220,7 +220,7 @@ class materialcontroller extends \BaseController {
 	    $cal->setDate($date); //Set starting date
 	    $cal->setBasePath('/materials/'.$id.'/cal'); // Base path for navigation URLs
 	    $cal->showNav(true); // Show or hide navigation
-	    $cal->setView("week"); //'day' or 'week' or null
+	    $cal->setView('week'); //'day' or 'week' or null
 	    $cal->setStartEndHours(8,22); // Set the hour range for day and week view
 	    $cal->setTimeClass('ctime'); //Class Name for times column on day and week views
 	    $cal->setEventsWrap(array("<div class='reserved'><p>", '</p></div>')); // Set the event's content wrapper
