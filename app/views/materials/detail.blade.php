@@ -89,7 +89,8 @@
 		        <div class="dhx_cal_today_button"></div>
 		        <div class="dhx_cal_date"></div>
 		        <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
-		        <div class="dhx_cal_tab" name="week_tab" style="right:76px;"></div>
+		        <div class="dhx_cal_tab" name="week_tab" style="right:204px;"></div>
+		        <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
 		    </div>
 		    <div class="dhx_cal_header"></div>
 		    <div class="dhx_cal_data"></div>       
@@ -107,11 +108,12 @@
 	<script src="/calendar/dhtmlxscheduler.js" type="text/javascript"></script>
 	<script src="/calendar/ext/dhtmlxscheduler_limit.js" type="text/javascript"></script>
 	<script src="/calendar/ext/dhtmlxscheduler_all_timed.js" type="text/javascript"></script>
+	<script src="/calendar/ext/dhtmlxscheduler_active_links.js"></script>
 	<script src="/calendar/locale/locale_nl.js"  type="text/javascript"></script>
 	<script src="/calendar/locale/recurring/locale_recurring_nl.js"  type="text/javascript"></script>
 	<script>
 	scheduler.config.xml_date = "%Y-%m-%d %h:%i";
-
+	scheduler.config.active_link_view = "week";
 	//highlight past time each time view changes
 	var block_id = null;
 	scheduler.attachEvent("onBeforeViewChange", function(old_mode,old_date,mode,date){
@@ -140,79 +142,82 @@
 	scheduler.config.first_hour = 8;
 	scheduler.config.last_hour = 22;
 	scheduler.attachEvent("onEmptyClick", function (date, e){
-		var myDate = new Date(date);
-		if(myDate > new Date())
+		if(scheduler.getState().mode =="week" || scheduler.getState().mode == "day")
 		{
-			var stringDate = myDate.getFullYear();
-			var stringHour = "";
-			var month = myDate.getMonth();
-			var day = String(myDate.getDate());
-			var hours = String(myDate.getHours());
-			var seconds = String(myDate.getSeconds());
+			var myDate = new Date(date);
+			if(myDate > new Date())
+			{
+				var stringDate = myDate.getFullYear();
+				var stringHour = "";
+				var month = myDate.getMonth();
+				var day = String(myDate.getDate());
+				var hours = String(myDate.getHours());
+				var seconds = String(myDate.getSeconds());
 
-			month += 1;
-			month = String(month);
-			console.log(day.length);
+				month += 1;
+				month = String(month);
+				console.log(day.length);
 
-			//Round minutes to 0 or 30
-			if(myDate.getMinutes() < 30)
-			{
-				myDate.setMinutes(0);
-			}
-			else
-			{
-				myDate.setMinutes(30);
+				//Round minutes to 0 or 30
+				if(myDate.getMinutes() < 30)
+				{
+					myDate.setMinutes(0);
+				}
+				else
+				{
+					myDate.setMinutes(30);
 
-			}
-			var minutes = String(myDate.getMinutes());
+				}
+				var minutes = String(myDate.getMinutes());
 
-			//Make sure date numbers are always with leading 0 if needed			
-			if(month.length == 1)
-			{
-				stringDate += '-0'+month;
-			}
-			else
-			{
-				stringDate += '-'+month;
-			}
+				//Make sure date numbers are always with leading 0 if needed			
+				if(month.length == 1)
+				{
+					stringDate += '-0'+month;
+				}
+				else
+				{
+					stringDate += '-'+month;
+				}
 
-			if(day.length == 1)
-			{
-				stringDate += '-0'+day;
-			}
-			else
-			{
-				stringDate += '-'+day;
-			}
+				if(day.length == 1)
+				{
+					stringDate += '-0'+day;
+				}
+				else
+				{
+					stringDate += '-'+day;
+				}
 
 
-			if(hours.length == 1)
-			{
-				stringHour += '0'+hours;
-			}
-			else
-			{
-				stringHour += hours;
-			}
+				if(hours.length == 1)
+				{
+					stringHour += '0'+hours;
+				}
+				else
+				{
+					stringHour += hours;
+				}
 
-			if(minutes.length == 1)
-			{
-				stringHour += ':0'+minutes;
-			}
-			else
-			{
-				stringHour += ':'+minutes;
-			}
+				if(minutes.length == 1)
+				{
+					stringHour += ':0'+minutes;
+				}
+				else
+				{
+					stringHour += ':'+minutes;
+				}
 
-			if(seconds.length == 1)
-			{
-				stringHour += ':0'+seconds;
+				if(seconds.length == 1)
+				{
+					stringHour += ':0'+seconds;
+				}
+				else
+				{
+					stringHour += ':'+seconds;
+				}
+				window.location.href = '/reservations/create/'+stringDate+'/'+stringHour+'/' + <?php echo $material->id?>;
 			}
-			else
-			{
-				stringHour += ':'+seconds;
-			}
-			window.location.href = '/reservations/create/'+stringDate+'/'+stringHour+'/' + <?php echo $material->id?>;
 		}
 	});
 	scheduler.config.readonly = true;
