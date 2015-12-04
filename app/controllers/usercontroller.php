@@ -178,9 +178,9 @@ class usercontroller extends \BaseController {
 	{
 		$user = User::findOrFail($id);
 
-		$hasMessages = $user
+		$hasMessages = $user->messages()->first();
 		//Message::where("fk_usersid", "=", $id)->first();
-		$hasReservations = Reservationuser::where("fk_usersid", "=", $id)->first();
+		$hasReservations = $user->reservations()->first();
 		
 		if($hasMessages || $hasReservations)
 		{
