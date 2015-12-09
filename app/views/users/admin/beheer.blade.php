@@ -13,13 +13,17 @@
 		<h1>Beheer</h1>
 	</div>
 
-<div class="loginbox">    
-	<a href="/beheer/materiaal">
-	    <button class="btn btnreg btn-success btn-default">Materiaalbeheer</button>
-	</a>
-	<a href="/beheer/gebruikers">
-	    <button class="btn btnreg btn-success btn-default">Studentenbeheer</button>
-	</a>
+<div class="beheer">   
+	<div> 
+		<a href="/beheer/materiaal">
+		    <button class="btn btnDefault">Materiaalbeheer</button>
+		</a>
+	</div>
+	<div>
+		<a href="/beheer/gebruikers">
+		    <button class="btn btnDefault">Studentenbeheer</button>
+		</a>
+	</div>
 </div>
 <div>
 	@if(!$messages->isEmpty())

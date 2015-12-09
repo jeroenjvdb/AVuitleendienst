@@ -208,3 +208,22 @@ div.details div.info * {
 #scheduler_here {
 	margin-bottom: 40px;
 }
+
+div.beheer {
+	width: 100%;
+}
+
+div.beheer div {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+div.beheer div button {
+	width: 200px;
+}
+
+.highlight {
+	color: #469a3f !important;
+}

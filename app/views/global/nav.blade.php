@@ -34,7 +34,7 @@
 	@endif
 	
 	<li role="presentation">
-		<a href="/logout">Afmelden</a>
+		<a class="highlight" href="/logout">Afmelden</a>
 	</li>
 </ul>
 
