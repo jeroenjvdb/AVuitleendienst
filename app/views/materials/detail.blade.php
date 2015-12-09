@@ -10,14 +10,16 @@
 
 @section("content")
 
-	<h1>{{{$material->name}}}
-		@if($material->status == "missing")
-			<small class="infoorange">{{$material->status}}
-		@elseif($material->status == "broken")
-			<small class="infored">{{$material->status}}
-		@endif
-		</small>
-	</h1>
+	<div class="title">
+		<h1>Details Apparatuur
+			@if($material->status == "missing")
+				<small class="infoorange">{{$material->status}}
+			@elseif($material->status == "broken")
+				<small class="infored">{{$material->status}}
+			@endif
+			</small>
+		</h1>
+	</div>
 	<div>
 		@if(Session::has('message') )
 			{{Session::get('message')}}
@@ -25,57 +27,14 @@
 	</div>
 
 	<div class="row">
-		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+		<div class="row details">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 image">
 				<img src="/images/{{$material->image}}" alt="{{$material->name}}" class="detailimg">
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 info">
+				<h3>{{{$material->name}}}</h3>
 				<p>{{{$material->details}}}</p>
 			</div>
-		</div>
-		
-		<h2 class="indexacctitle">Accessoires</h2>
-		<div class="row">
-		@forelse($material->accessories as $accessorie)
-			@if($accessorie->status == 'ok')
-			<div class="col-sm-6 col-md-4 col-xs-12">
-				<div class="thumbnail loginbox loginboxinner loginboxshadow">
-					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="item">
-						<h3>{{{$accessorie->name}}}</h3>
-						<img src="/images/{{$accessorie->image}}" alt="">
-						<div class="caption">
-							<p>{{{$accessorie->details}}}</p>
-						</div>
-					</a>
-				</div>
-			</div>
-			@endif
-		@empty
-			<h4 class="notification">Geen accessoires voor dit item.</h4>
-		@endforelse
-		</div>
-
-		<h2 class="indexacctitle">Andere suggesties</h2>
-		<div class="row">
-			@foreach($material->categories as $categorie)
-				@forelse($categorie->materials as $catMaterial)
-					@if(($material->id != $catMaterial->id) && ($catMaterial->status =='ok'))
-					<div class="col-sm-6 col-md-4 col-xs-12">
-						<div class="thumbnail loginbox loginboxinner loginboxshadow">
-							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="item">
-								<h3> {{{$catMaterial->name}}}</h3>
-								<img src="/images/{{$catMaterial->image}}" alt="">
-								<div class="caption">
-									<p>{{{$catMaterial->details}}}</p>
-								</div>
-							</a>
-						</div>
-					</div>
-					@endif
-				@empty
-				<h4 class="notification">Geen gerelateerde items gevonden.</h4>
-				@endforelse
-			@endforeach
 		</div>
 
 		{{-- <div class="detailcalendar">
@@ -94,6 +53,50 @@
 		    </div>
 		    <div class="dhx_cal_header"></div>
 		    <div class="dhx_cal_data"></div>       
+		</div>
+		
+		<h2 class="subTitle">Accessoires</h2>
+		<div class="span4Container">
+		@forelse($material->accessories as $accessorie)
+			@if($accessorie->status == 'ok')
+			<div class="col-sm-6 col-md-4 col-xs-12 span4">
+				<div class="thumbnail tnExtra">
+					<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="item">
+						<h3>{{{$accessorie->name}}}</h3>
+						<img src="/images/{{$accessorie->image}}" alt="">
+						<div class="caption">
+							<p>{{{$accessorie->details}}}</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			@endif
+		@empty
+			<h4 class="notification">Geen accessoires voor dit item.</h4>
+		@endforelse
+		</div>
+
+		<h2 class="subTitle">Andere suggesties</h2>
+		<div class="span4Container">
+			@foreach($material->categories as $categorie)
+				@forelse($categorie->materials as $catMaterial)
+					@if(($material->id != $catMaterial->id) && ($catMaterial->status =='ok'))
+					<div class="col-sm-6 col-md-4 col-xs-12 span4">
+						<div class="thumbnail tnExtra">
+							<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="item">
+								<h3> {{{$catMaterial->name}}}</h3>
+								<img src="/images/{{$catMaterial->image}}" alt="">
+								<div class="caption">
+									<p>{{{$catMaterial->details}}}</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					@endif
+				@empty
+				<h4 class="notification">Geen gerelateerde items gevonden.</h4>
+				@endforelse
+			@endforeach
 		</div>
 		
 	</div>

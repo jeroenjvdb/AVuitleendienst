@@ -9,15 +9,54 @@
 @stop
 
 @section("content")
-	<h1>Mijn reservaties</h1>
+	<div class="title">
+		<h1>Mijn reservaties</h1>
+	</div>
 	@forelse($reservations as $reservation)
-	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-		<div class="thumbnail loginbox loginboxinner loginboxshadow myreservation">
-			<h2 class="centering">{{link_to('materials/'.$reservation->fk_materialsid,$reservation->name)}}</h2>
-			<img src="/images/{{$reservation->image}}" alt="">
-			<p>{{$reservation->reason}}</p>
-			<p class="infogreen">Begin: {{$reservation->begin}}</p>
-			<p class="infored">Einde: {{$reservation->end}}</p>
+	<div class="span4Container">
+		<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 span4">
+			<div class="thumbnail tnDate">
+				<a href="#" class="item">
+					<h3>{{$reservation->name}}</h3>
+					<img src="/images/{{$reservation->image}}" alt="">
+				</a>
+				<p>{{$reservation->reason}}</p>
+				<p class="infogreen">Begin: {{$reservation->begin}}</p>
+				<p class="infored">Einde: {{$reservation->end}}</p>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 span4">
+			<div class="thumbnail tnDate">
+				<a href="#" class="item">
+					<h3>{{$reservation->name}}</h3>
+					<img src="/images/{{$reservation->image}}" alt="">
+				</a>
+				<p>{{$reservation->reason}}</p>
+				<p class="infogreen">Begin: {{$reservation->begin}}</p>
+				<p class="infored">Einde: {{$reservation->end}}</p>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 span4">
+			<div class="thumbnail tnDate">
+				<a href="#" class="item">
+					<h3>{{$reservation->name}}</h3>
+					<img src="/images/{{$reservation->image}}" alt="">
+				</a>
+				<p>{{$reservation->reason}}</p>
+				<p class="infogreen">Begin: {{$reservation->begin}}</p>
+				<p class="infored">Einde: {{$reservation->end}}</p>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 span4">
+			<div class="thumbnail tnDate">
+				<a href="#" class="item">
+					<h3>{{$reservation->name}}</h3>
+					<img src="/images/{{$reservation->image}}" alt="">
+				</a>
+				<p>{{$reservation->reason}}</p>
+				<p class="infogreen">Begin: {{$reservation->begin}}</p>
+				<p class="infored">Einde: {{$reservation->end}}</p>
+			</div>
 		</div>
 	</div>
 		

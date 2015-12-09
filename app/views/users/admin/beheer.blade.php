@@ -9,7 +9,9 @@
 @stop
 
 @section("content")
-	<h1>Beheer</h1>
+	<div class="title">
+		<h1>Beheer</h1>
+	</div>
 
 <div class="loginbox">    
 	<a href="/beheer/materiaal">

@@ -10,7 +10,9 @@
 
 @section("content")
 
-<h1 class="logtitle">Logboek</h1>
+	<div class="title">
+		<h1>Logboek</h1>
+	</div>
 	<div>
 		{{Form::open(['url' => 'logbook/search', "class" => "form"])}}
 			<div class="form-group">
@@ -32,7 +34,7 @@
 					{{Form::select('availability',array('all' => 'alle' ,'beschikbaar' => 'beschikbaar' ,'uitgeleend' => 'uitgeleend', ),Session::has('input') ? Session::get('availability')['search'] :'all', ["class" => "form-control"])}}
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12 logsearchbtn">
-					{{Form::submit('Zoek', ["class" => "btn btnstyle btn-submit btn-info"])}}
+					{{Form::submit('Zoek', ["class" => "btn btnDefault"])}}
 				</div>
 			</div>
 		{{Form::close()}}
