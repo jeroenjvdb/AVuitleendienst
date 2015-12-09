@@ -23,11 +23,6 @@
 <body>
 	<div class="navbar">
 		<div class="container">
-			@if(Auth::check())
-				<!--<a class="navbar-brand logo" href="/materials">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>-->
-			@else
-				<a class="navbar-brand logo" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
-			@endif
 			<a class="navbar-brand logosmall" href="/">{{ HTML::image('assets/images/kdglogo.png', 'alt-text') }}</a>
 			@yield("nav")
 		</div>

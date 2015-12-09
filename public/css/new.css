@@ -60,14 +60,20 @@ ul.nav a {
 	color: white;
 	font-weight: 900;
 }
-ul.nav li.active a {
+ul.nav li, ul.nav li a
+{
+	border-radius: 0;
+}
+ul.nav li.active a{
 	background: #f2f2f2 !important;
 	color: #469a3f;
+	border-radius: 0;
 }
 
-ul.nav li:hover a {
+ul.nav li:hover a{
 	background: #0c090a;
 	color: #469a3f !important;
+	border-radius: 0;
 }
 .logosmall {
 	display: block;

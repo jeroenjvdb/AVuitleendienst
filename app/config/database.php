@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'avuitleendienst',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => $_ENV['database_pass'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
