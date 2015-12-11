@@ -76,14 +76,15 @@
 			    },
 			    defaultView: 'timelineWeek',
 			    eventOverlap:false,
-			    slotDuration: {hours:4},
-			    slotLabelInterval: {hours:4},
+			    slotDuration: {hours:6},
+			    slotLabelInterval: {hours:6},
 			    minTime: "08:00",
 			    maxTime: "20:00",
 			    resourceLabelText: "<?php echo ucfirst($categorie->name)?>",
 			    resourceAreaWidth: "10%",
 			    eventResourceField: "material",
 			    slotLabelFormat: ['dddd - D/M','HH:mm'],
+			    slotWidth: 100,
 			    resources: <?php echo $categorie->materials->toJson() ?>,
 			    events: reservations,
 			    viewRender: function(currentView){
@@ -108,6 +109,19 @@
 						alert('nee');
 					}
 			    }
+			});
+
+			$('.fc-cell-text').each(function(){
+				console.log($(this));
+				if($(this).html() == "12:00")
+				{
+
+					$(this).html('Voormiddag');
+				}
+				else if($(this).html() == "18:00")
+				{
+					$(this).html('Namiddag');
+				}
 			});
 		</script>
 	@endforeach
