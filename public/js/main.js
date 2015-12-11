@@ -1,11 +1,19 @@
 $(document).ready(function(){
     $('.dropdown-toggle').dropdown();
 
-    $(".category").click(function(){
-    	var cat = $(this).attr("id");
-    	$(".categoryfull").hide();
-    	$("."+cat).show();
+    //Hide all categories on loading page
+    $(".category").hide();
+    
+    //Show selected category
+    var showCat = $('#categorySelect').val();
+    $('#category' + showCat).show();    
+
+    //Categroy change hide/show needed categorie(s)
+    $('#categorySelect').on('change',function(){
+        $('.category').hide();
+        $('#category' + $(this).val()).show();  
     });
+
     $(".nav-bars").click(function() {
         $(".nav-pills").css("display","block"); 
         $(".nav-bars-x").css("display","block"); 
