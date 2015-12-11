@@ -7,7 +7,6 @@ class Categorie extends Eloquent {
 	public static $rules=[
         'name' => 'unique:categories,name'
     ];
-
 	public function materials()
     {
         return $this->belongsToMany('Material','materialcategories','fk_categoriesid','fk_materialsid');

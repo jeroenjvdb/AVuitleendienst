@@ -29,16 +29,11 @@
 	<div class="col-md-12">
 	@forelse($categories as $categorie)
 		<div class="category" id="category{{$categorie->id}}">
-			<h3 class="subTitle">{{{ucfirst($categorie->name)}}}</h3>
+			<h3 class="subTitle text-center">{{{ucfirst($categorie->name)}}}</h3>
 			<div class="categoryfull span4Container">
-				<div class="col-md-4 col-sm-6 col-xs-12 span4">
-					<p>Hier komt de kalender bitch.</p>
+				<div class="col-md-12">
+					<div id="calendar{{$categorie->id}}"></div>
 				</div>
-				@forelse($categorie->materials as $material)
-					<!-- Some javascript magic later -->
-				@empty
-					<p>Whaat geen materiaal?!</p>
-				@endforelse
 			</div>
 		</div>
 	@empty
@@ -47,4 +42,76 @@
 		</div>
 	@endforelse	
 	</div>	
+@stop
+
+@section('scripts')
+	<script> 
+		var reservations = [];
+	</script>
+	@foreach($categories as $categorie)
+		@foreach($categorie->materials as $material)
+			@foreach($material->reservations as $reservation)
+				<script>
+				reservations.push(<?php echo $reservation->toJson() ?>);
+				</script>
+			@endforeach
+		@endforeach
+
+		<script>
+			// $('.fc-today').prevAll('td').css('backgroundColor','yellow');
+			// var now = moment().format('DD-MM-YYYY HH:mm');
+			// var past = {
+			// 	start : "0000-00-00 00:00",
+			// 	end : now,
+			// 	rendering: "background" 
+			// };
+			// reservations.push(past);
+			$('#calendar<?php echo $categorie->id ?>').fullCalendar({
+			    schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+			     views: {
+			        timelineFourDays: {
+			            type: 'timeline',
+			            duration: { days: 4 }
+			        }
+			    },
+			    defaultView: 'timelineWeek',
+			    eventOverlap:false,
+			    slotDuration: {hours:4},
+			    slotLabelInterval: {hours:4},
+			    minTime: "08:00",
+			    maxTime: "20:00",
+			    resourceLabelText: "<?php echo ucfirst($categorie->name)?>",
+			    resourceAreaWidth: "10%",
+			    eventResourceField: "material",
+			    slotLabelFormat: ['dddd - D/M','HH:mm'],
+			    resources: <?php echo $categorie->materials->toJson() ?>,
+			    events: reservations,
+			    viewRender: function(currentView){
+						var minDate = moment();
+						// Past
+						if (minDate >= currentView.start && minDate <= currentView.end) {
+							$(".fc-prev-button").prop('disabled', true); 
+							$(".fc-prev-button").addClass('fc-state-disabled'); 
+						}
+						else {
+							$(".fc-prev-button").removeClass('fc-state-disabled'); 
+							$(".fc-prev-button").prop('disabled', false); 
+						}
+			   },
+			    dayClick: function(date, jsEvent, view, resourceObj) {
+			        var minDate = moment().add(4, 'hours');
+			
+					if (minDate  < date) {
+						alert('Clicked on: ' + date.format());
+					}
+					else {
+						alert('nee');
+					}
+			    }
+			});
+		</script>
+	@endforeach
+	<script>
+		console.log(reservations);
+	</script>
 @stop

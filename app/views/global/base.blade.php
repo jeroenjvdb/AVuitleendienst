@@ -4,19 +4,13 @@
 	<meta charset="UTF-8">
 	<title> @yield("page-title") - KdG Uitleendienst </title>
 	
-	{{HTML::script("js/jquery-2.1.1.min.js")}}
-	{{HTML::script("js/bootstrap.min.js")}}
-	{{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
-	{{HTML::script("js/main.js")}}
-	{{HTML::script("/pickadate/lib/compressed/picker.js")}}
-	{{HTML::script("/pickadate/lib/compressed/picker.date.js")}}
-	{{HTML::script("/pickadate/lib/compressed/picker.time.js")}}
-	{{ HTML::style('css/main-old.css') }}
 	{{ HTML::style("css/bootstrap.min.css")}}
 	{{ HTML::style('css/new.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.time.css') }}
+	{{HTML::style("bower_components/fullcalendar/dist/fullcalendar.min.css")}}
+	{{HTML::style("bower_components/fullcalendar-scheduler/dist/scheduler.min.css")}}
 	@yield('styles')
 	
 </head>
@@ -46,5 +40,16 @@
 		@yield("content")
 	</div>	
 </body>
+{{HTML::script("js/jquery-2.1.1.min.js")}}
+{{HTML::script("js/bootstrap.min.js")}}
+{{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
+{{HTML::script("js/main.js")}}
+{{HTML::script("/pickadate/lib/compressed/picker.js")}}
+{{HTML::script("/pickadate/lib/compressed/picker.date.js")}}
+{{HTML::script("/pickadate/lib/compressed/picker.time.js")}}
+{{HTML::script("bower_components/moment/moment.js")}}
+{{HTML::script("bower_components/fullcalendar/dist/fullcalendar.min.js")}}
+{{HTML::script("bower_components/fullcalendar/dist/lang/nl.js")}}
+{{HTML::script("bower_components/fullcalendar-scheduler/dist/scheduler.min.js")}}
 @yield('scripts')
 </html>

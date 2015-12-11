@@ -11,7 +11,18 @@ class Material extends Eloquent {
     public static $materialEditRules=[
         'image' => 'image|max:1000|mimes:jpg,jpeg,bmp,png,gif',
     ];
-
+    protected $appends = ['title'];
+     /**
+     * The attributes that should be visible in json.
+     *
+     * @var array
+     */
+    protected $visible = ['id', 'title'];
+    
+    public function getTitleAttribute()
+    {
+        return $this->attributes['name'];
+    }
 	public function messages()
     {
         return $this->hasMany('Message');
