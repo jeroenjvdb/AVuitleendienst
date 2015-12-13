@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<title> @yield("page-title") - KdG Uitleendienst </title>
 	
-	{{ HTML::style("css/bootstrap.min.css")}}
+	{{ HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css") }}
+	{{ HTML::style("css/bootstrap.min.css") }}
+	{{ HTML::style("css/footable.core.css") }}
 	{{ HTML::style('css/new.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
@@ -41,6 +43,7 @@
 	</div>	
 </body>
 {{HTML::script("js/jquery-2.1.1.min.js")}}
+{{ HTML::script("js/footable.all.min.js") }}
 {{HTML::script("js/bootstrap.min.js")}}
 {{HTML::script("https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js")}}
 {{HTML::script("js/main.js")}}
