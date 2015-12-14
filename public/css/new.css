@@ -1,0 +1,235 @@
+body {
+	color: black;
+}
+
+input {
+	border-radius: 0 !important;
+	margin-bottom: 20px;
+}
+
+table {
+	margin-top: 40px;
+}
+
+th {
+	background-color: transparent;
+	min-width: 100px;
+}
+
+select {
+	border-radius: 0 !important;
+	margin-bottom: 20px;
+}
+
+label {
+	margin-bottom: 20px;
+}
+
+h1, h2 {
+	font-weight: 700;
+}
+
+div.navbar {
+	background: #0c090a;
+	border-bottom: 5px solid #f2f2f2;
+	height: 80px;
+}
+
+div.navbar div.container {
+	height: 100%;
+	position: relative;
+}
+
+div.navbar img {
+	width: 200px;
+}
+
+.nav-pills > li + li {
+	margin-left: 0px !important;
+}
+
+ul.nav {
+	display: inline-block;
+	width: auto;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+ul.nav a {
+	color: white;
+	font-weight: 900;
+}
+ul.nav li, ul.nav li a
+{
+	border-radius: 0;
+}
+ul.nav li.active a{
+	background: #f2f2f2 !important;
+	color: #469a3f;
+	border-radius: 0;
+}
+
+ul.nav li:hover a{
+	background: #0c090a;
+	color: #469a3f !important;
+	border-radius: 0;
+}
+.logosmall {
+	display: block;
+	padding: 15px 0 !important;
+	margin-left: 0px !important;
+}
+
+div.title {
+	width: 100%;
+	text-align: center;
+	border-bottom: 2px solid #f2f2f2;
+	margin-bottom: 40px;
+}
+
+div.title h1 {
+	color: black;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+h2.subTitle {
+	margin-top: 20px;
+	margin-bottom: 40px;
+	text-transform: capitalize;
+}
+
+div.indexmain {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 60px;
+}
+
+div.indexmain > div {
+	padding: 0 !important;
+	width: 50%;
+	float: left;
+	display: inline-block;
+}
+
+div.indexmain > div input, div.indexmain > div button {
+	width: 200px;
+	display: inline-block;
+}
+
+.dropdown-menu {
+	left: calc(50% - 100px);
+}
+
+div.span4Container {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+div.span4 {
+	width: calc(25% - 20px);
+	padding: 0;
+	margin-right: 15px;
+	display: inline-block;
+	float: left;
+}
+
+div.span4:nth-child(4n+0) {
+	margin-right: 0;
+}
+
+.thumbnail {
+	border-radius: 0;
+	border: 2px solid #f2f2f2;
+	height: 200px;
+	text-align: center;
+}
+
+.tnExtra {
+	height: 260px;
+}
+
+.tnDate {
+	height: 305px;
+}
+
+.thumbnail a > img {
+	height: 135px;
+}
+
+.thumbnail h3 {
+	color: black;
+	text-transform: capitalize;
+}
+
+.thumbnail:hover h3 {
+	color: #469a3f;
+}
+
+.infogreen {
+    color: #3DC53A;
+}
+
+.btnDefault {
+	background: #3DC53A;
+	color: white;
+	border-radius: 0;
+	font-weight: 700;
+	min-width: 100px;
+}
+
+form.check * {
+	display: inline-block;
+	text-align: center;
+}
+
+form.check input {
+	width: 100px;
+	margin-left: 40px;
+}
+
+form.check > div {
+	margin: auto;
+	display: block;
+}
+
+div.details {
+	width: 100%;
+}
+
+div.details div.image {
+	text-align: center;
+}
+
+div.details div.image img {
+	width: 200px;
+}
+
+div.details div.info * {
+	text-transform: capitalize;
+}
+
+#scheduler_here {
+	margin-bottom: 40px;
+}
+
+div.beheer {
+	width: 100%;
+}
+
+div.beheer div {
+	width: 50%;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+div.beheer div button {
+	width: 200px;
+}
+
+.highlight {
+	color: #469a3f !important;
+}

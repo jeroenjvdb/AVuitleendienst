@@ -13,6 +13,7 @@
 	{{HTML::script("/pickadate/lib/compressed/picker.time.js")}}
 	{{ HTML::style('css/main-old.css') }}
 	{{ HTML::style("css/bootstrap.min.css")}}
+	{{ HTML::style('css/new.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.time.css') }}
@@ -21,13 +22,10 @@
 </head>
 <body>
 	<div class="navbar">
-		@if(Auth::check())
-			<a class="navbar-brand logo" href="/materials">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
-		@else
-			<a class="navbar-brand logo" href="/">{{ HTML::image('assets/images/logo.png', 'alt-text') }}</a>
-		@endif
-		<a class="navbar-brand logosmall" href="/">{{ HTML::image('assets/images/logosmall.png', 'alt-text') }}</a>
-		@yield("nav")
+		<div class="container">
+			<a class="navbar-brand logosmall" href="/">{{ HTML::image('assets/images/kdglogo.png', 'alt-text') }}</a>
+			@yield("nav")
+		</div>
 	</div>	
 	<div class="container">
 	    <div class="row">

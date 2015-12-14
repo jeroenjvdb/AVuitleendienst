@@ -9,16 +9,17 @@
 @stop
 
 @section("content")
-	<h2>Materiaal Inchecken</h2>
-	<div>
-	{{Form::open(['url' => 'incheckenMateriaal'])}}
-		<div>
-		{{Form::label('barcode','Barcode van het toestel: ')}}
-		{{Form::text('barcode','',array('required' => "required", "class" => "form-control"))}}
-		</div><br>
-		{{Form::submit('Inchecken', ["class" => "btn btnreg btn-success btn-default"])}}
-	{{Form::close()}}
+	<div class="title">
+		<h1>Materiaal Inchecken</h1>
 	</div>
+	{{Form::open(['url' => 'incheckenMateriaal', "class" => "check"])}}
+		<div>
+			{{Form::label('barcode','Barcode van het toestel: ')}}
+			{{Form::text('barcode','',array('required' => "required", "class" => "form-control"))}}
+			
+			{{Form::submit('Inchecken', ["class" => "btn btnDefault"])}}
+		</div>
+	{{Form::close()}}
 @stop
 
 

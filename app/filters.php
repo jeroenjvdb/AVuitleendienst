@@ -62,6 +62,15 @@ Route::filter('admin', function()
 	}
 });
 
+Route::filter('baseLaptop', function()
+{
+	if(!(Cookie::get('baseLaptop') && Cookie::get('baseLaptop') == True))
+	{
+		if(Auth::check()){ Auth::logout(); }
+		return Redirect::to('/')->with('error', 'Dit is geen laptop van de uitleendienst');
+	}
+});
+
 Route::filter('auth.basic', function()
 {
 	return Auth::basic();
@@ -101,3 +110,5 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+

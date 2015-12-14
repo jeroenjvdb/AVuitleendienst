@@ -9,13 +9,16 @@
 @stop
 
 @section("content")
-	<h2>Materiaal Uitchecken</h2>
-	{{Form::open(['url' => 'uitcheckenMateriaal'])}}
+	<div class="title">
+		<h1>Materiaal Uitchecken</h1>
+	</div>
+	{{Form::open(['url' => 'uitcheckenMateriaal', "class" => "check"])}}
 		<div>
-		{{Form::label('barcode','Barcode van het toestel: ')}}
-		{{Form::text('barcode','',array('required' => "required", "class" => "form-control"))}}
-		</div><br>
-		{{Form::submit('Uitchecken', ["class" => "btn btnreg btn-success btn-default"])}}
+			{{Form::label('barcode','Barcode van het toestel: ')}}
+			{{Form::text('barcode','',array('required' => "required", "class" => "form-control"))}}
+			
+			{{Form::submit('Uitchecken', ["class" => "btn btnDefault"])}}
+		</div>
 	{{Form::close()}}
 @stop
 

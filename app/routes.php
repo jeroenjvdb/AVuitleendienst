@@ -13,6 +13,13 @@
 
 Route::resource('sessions','sessioncontroller');
 
+Route::group(array('before' => 'baseLaptop'), function()
+{
+	Route::get('/card/login', ['as' => 'cardLogin', 'uses' => 'CardController@getLogin']);
+	Route::post('/card/login', ['uses' => 'CardController@login']);
+});
+Route::get('card/baselaptop', ['as' => 'setBaseLaptop', 'uses' => 'CardController@createBaseLaptop']);
+
 Route::get('/', function()
 {
 	return View::make('index');
@@ -29,11 +36,11 @@ Route::group(array('before' => 'auth'),function(){
 	Route::get('/materials/{id}/cal', 'materialcontroller@calNext');
 	Route::get('/reservations/create/{date}/{hour}/{materialId}', ['as' => 'reservation.create', 'uses' => 'reservationcontroller@create']);
 	Route::get('/mail/check','messagecontroller@sendMails');	
-	Route::get('/uitchecken', 'materialcontroller@checkOut');
-	Route::get('/inchecken', 'materialcontroller@checkIn');
+	Route::get('/uitchecken', ['as' => 'checkout', 'uses' => 'materialcontroller@checkOut']);
+	Route::get('/inchecken', ['as' => 'checkin', 'uses' => 'materialcontroller@checkIn']);
 
 
-	Route::post('/uitcheckenMateriaal', 'materialcontroller@checkOutMaterial');
+	Route::post('/uitcheckenMateriaal',  'materialcontroller@checkOutMaterial');
 	Route::post('/incheckenMateriaal', 'materialcontroller@checkInMaterial');
 	Route::post('/opmerking', 'materialcontroller@storeMessage');
 	
