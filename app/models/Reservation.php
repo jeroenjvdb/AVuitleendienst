@@ -8,9 +8,32 @@ class Reservation extends Eloquent {
         'end' => 'required|after:begin'
     ];
 
+    protected $appends = ['material','start','title'];
+    protected $visible = ['id','material','start','end','title'];
+
+    public function getMaterialAttribute()
+    {
+        if($this->materials->first() != null)
+        {
+            return $this->materials->first()->id;
+        }  
+    }
+    public function getTitleAttribute()
+    {
+        if($this->users->first() != null)
+        {
+            $title = ucfirst($this->users->first()->firstname).' '.ucfirst($this->users->first()->lastname);
+            $title .= ' - '.$this->reason;
+            return $title;
+        }  
+    }
+    public function getStartAttribute()
+    {
+        return $this->attributes['begin'];
+    }
     public function materials()
     {
-        return $this->belongsToMany('Material','reservationmaterials','fk_materialid','fk_reservationsid');
+        return $this->belongsToMany('Material','reservationmaterials','fk_reservationsid','fk_materialsid');
     }
 
     public function users()
