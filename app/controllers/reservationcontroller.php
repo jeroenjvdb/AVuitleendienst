@@ -70,66 +70,77 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function store()
 	{
-		$this->reservation->fill(Input::all());
-		var_dump(Input::get('beginHour'));
-		$this->reservation->begin = Input::get('beginDate') . " ". Input::get('beginHour');
-		var_dump($this->reservation->begin);
-		$this->reservation->end = Input::get('endDate_submit')." ".str_replace("s", "00", Input::get('endHour_submit'));
-		$materialId = Input::get('materialId');
-		if( $this->reservation->isValid())
+		if(Request::ajax())
 		{
-			//checken of er geen reservatie overlapt bij het hoofdarticle
-			if(!$this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$materialId))
+			$input = Input::all();
+
+			$this->reservation->begin 	= $input['start'];
+			$this->reservation->end 	= $input['stop'];
+			$materialId 				= $input['material_id'];
+			$reservations = array();
+			$this->reservation->fill($input);
+			if( $this->reservation->isValid())
 			{
-				if(Input::get('accessories'))
+				//checken of er geen reservatie overlapt bij het hoofdarticle
+				if(!$this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$materialId))
 				{
-					$allValid = true;
-					foreach(Input::get('accessories') as $accessorieId)
-					{	//checken of er geen reservatie overlapt bij de accessories
+					if($input['chainReservations'] != null)
+					{
+						$allValid = true;
+						foreach($input['chainReservations'] as $accessorieId)
+						{	//checken of er geen reservatie overlapt bij de accessories
 
-						if($this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$accessorieId))
-						{
-							$allValid = false;
-							// $this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+							if($this->reservation->checkReservationCollision($this->reservation->begin,$this->reservation->end,$accessorieId))
+							{
+								$allValid = false;
+								// $this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+							}
+							// else
+							// {
+							// 	$material = Material::find($accessorieId);
+							// 	return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .');
+							// }
 						}
-						// else
-						// {
-						// 	$material = Material::find($accessorieId);
-						// 	return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .');
-						// }
-					}
 
-					if(!$allValid) {return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor test .');}
-					else{
-						foreach(Input::get('accessories') as $accessorieId)
-						{
-							$this->makeReservation(Input::get('users'),Input::all(),Input::get('endDate_submit'),Input::get('endHour_submit'),$accessorieId);	
+						if(!$allValid) {
+							// return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor test .');
+							return Response::json(['errorMessage' => 'De gekozen periode overlapt met een andere reservatie voor één van de gekozen koppel accessoires'],400);
+						}
+						else{
+							foreach($input['chainReservations'] as $accessorieId)
+							{
+								$reservations[] = $this->makeReservation($input['users'],$input,$this->reservation->begin,$this->reservation->end,$accessorieId);	
+							}
 						}
 					}
+					$reservations[] = $this->makeReservation($input['users'],$input,$this->reservation->begin,$this->reservation->end,$materialId);
+					return Response::json(['message' => 'Je reservatie is successvol geplaatst <br> Na het sluiten van deze popup wordt de pagina automatisch herladen.','reservations' => $reservations],200);
+
 				}
-				$this->makeReservation(Input::get('users'),Input::all(),$this->reservation->begin,Input::get('endDate_submit'),Input::get('endHour_submit'),$materialId);
-				return Redirect::to('materials/'.$materialId)->with('message','U hebt succesvol uw reservatie geplaatst');
-
+				else
+				{
+					$material = Material::find($materialId);
+					return Response::json(['errorMessage'=>'De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .'],400);
+				}
+					
 			}
 			else
 			{
-				$material = Material::find($materialId);
-				return Redirect::back()->withInput()->with('message','De gekozen periode overlapt met een andere reservatie voor '.$material->name.' .');
+				// return Redirect::back()->withInput()->withErrors($this->reservation->errors);
+				return Response::json(['errorMessage'=>'Er waren validatie errors','errros' => $this->reservation->errors],400);
 			}
-				
 		}
 		else
 		{
-			return Redirect::back()->withInput()->withErrors($this->reservation->errors);
-		}
-		
+			return Redirect::back();
+		}		
 	}
 
-	public function makeReservation($users,$Input,$begin, $endDate,$endHour,$materialId)
+	public function makeReservation($users,$Input,$begin, $endDate,$materialId)
 	{
 		$this->reservation = new Reservation;
 		$this->reservation->fill($Input);
-		$this->reservation->end = $endDate." ".str_replace("s", "00", $endHour);
+		$this->reservation->end = $endDate;
 		$this->reservation->begin = $begin;
 		$this->reservation->save();
 		$resId = $this->reservation->id;
@@ -142,6 +153,8 @@ class reservationcontroller extends \BaseController {
 				$this->reservation->saveReservationUser($resId,$user,'verantwoordelijk');
 			}
 		}
+		$this->reservation->users = $this->reservation->getUsersAttribute();
+		return $this->reservation;
 	}
 
 

@@ -26,6 +26,8 @@ Route::get('/', function()
 });
 Route::resource('sessions','sessioncontroller');
 Route::group(array('before' => 'auth'),function(){
+	Route::post('/reservation/create', ['as' => 'reservation.create', 'uses' => 'reservationcontroller@store']);
+
 	Route::get('logout','sessioncontroller@destroy');
 	Route::resource('users','usercontroller');
 	Route::resource('materials','materialcontroller');
@@ -34,7 +36,6 @@ Route::group(array('before' => 'auth'),function(){
 	Route::resource('messages','messagecontroller');
 	
 	Route::get('/materials/{id}/cal', 'materialcontroller@calNext');
-	Route::get('/reservations/create/{date}/{hour}/{materialId}', ['as' => 'reservation.create', 'uses' => 'reservationcontroller@create']);
 	Route::get('/mail/check','messagecontroller@sendMails');	
 	Route::get('/uitchecken', ['as' => 'checkout', 'uses' => 'materialcontroller@checkOut']);
 	Route::get('/inchecken', ['as' => 'checkin', 'uses' => 'materialcontroller@checkIn']);

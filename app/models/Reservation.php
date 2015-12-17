@@ -8,8 +8,8 @@ class Reservation extends Eloquent {
         'end' => 'required|after:begin'
     ];
 
-    protected $appends = ['material','start','title'];
-    protected $visible = ['id','material','start','end','title'];
+    protected $appends = ['material','start','title','users'];
+    protected $visible = ['id','material','start','end','title','reason','users'];
 
     public function getMaterialAttribute()
     {
@@ -18,12 +18,15 @@ class Reservation extends Eloquent {
             return $this->materials->first()->id;
         }  
     }
+     public function getUsersAttribute()
+    {
+        return $this->users()->get();
+    }
     public function getTitleAttribute()
     {
         if($this->users->first() != null)
         {
             $title = ucfirst($this->users->first()->firstname).' '.ucfirst($this->users->first()->lastname);
-            $title .= ' - '.$this->reason;
             return $title;
         }  
     }
@@ -129,7 +132,9 @@ class Reservation extends Eloquent {
                 ($begin > $reservedDate->begin && $end < $reservedDate->end) ||
                 ($begin < $reservedDate->begin && $end > $reservedDate->end))
             {
+                
                 $collision = true;
+                
             }
         }
 

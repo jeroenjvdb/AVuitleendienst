@@ -11,8 +11,9 @@
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.date.css') }}
 	{{ HTML::style('pickadate/lib/compressed/themes/classic.time.css') }}
-	{{HTML::style("bower_components/fullcalendar/dist/fullcalendar.min.css")}}
-	{{HTML::style("bower_components/fullcalendar-scheduler/dist/scheduler.min.css")}}
+	{{ HTML::style("bower_components/fullcalendar/dist/fullcalendar.min.css")}}
+	{{ HTML::style("bower_components/fullcalendar-scheduler/dist/scheduler.min.css")}}
+	{{ HTML::style("https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css")}}
 	@yield('styles')
 	
 </head>
@@ -54,5 +55,6 @@
 {{HTML::script("bower_components/fullcalendar/dist/fullcalendar.min.js")}}
 {{HTML::script("bower_components/fullcalendar/dist/lang/nl.js")}}
 {{HTML::script("bower_components/fullcalendar-scheduler/dist/scheduler.min.js")}}
+{{HTML::script("https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js")}}
 @yield('scripts')
 </html>

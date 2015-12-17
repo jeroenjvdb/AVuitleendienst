@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    String.prototype.cFirst = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
     $('.dropdown-toggle').dropdown();
 
     //Hide all categories on loading page

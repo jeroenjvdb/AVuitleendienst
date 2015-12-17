@@ -22,7 +22,9 @@ class materialcontroller extends \BaseController {
 		if(Auth::check())
 		{
 			$categories = $this->categorie->getCategoriesWhitMaterials();
-			return View::make('users.index',['categories' => $categories]);
+			$users = User::where('id','!=',Auth::user()->id)->get();
+			$accessories = Accessorie::getAllAccessories();
+			return View::make('users.index',['categories' => $categories,'users' => $users,'accessories' => $accessories]);
 		}
 		else
 		{

@@ -17,7 +17,7 @@ return array(
 	| choice installed on your machine before you begin development.
 	|
 	*/
-
+	'default' => 'mysql',
 	'connections' => array(
 
 		'mysql' => array(
@@ -25,9 +25,10 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'avuitleendienst',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'number4',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
+			'port' => '8889',
 			'prefix'    => '',
 		),
 
