@@ -8,3 +8,4 @@ composer.phar
 Thumbs.db
 public/images/nofileCamer 3.png
 public/images/micromicro 4.png
+.env
