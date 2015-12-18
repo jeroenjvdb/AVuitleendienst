@@ -11,6 +11,8 @@
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
 @stop
 @section("content")
+<div class="reserveren">
+
 	<div class="title">
 		<!--<h1>Welkom, {{Auth::user()->firstname}}</h1>-->
 		<h1>Reserveren</h1>
@@ -131,7 +133,9 @@
 			<p>Oeps looks there is a problem please contact webmaster and let him do some more magic.</p>
 		</div>
 	@endforelse	
-	</div>	
+	</div>
+
+</div>	
 @stop
 
 @section('scripts')

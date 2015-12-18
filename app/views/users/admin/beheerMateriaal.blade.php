@@ -29,15 +29,12 @@
 
 			<div class="category">
 				
-				<div class="inline">
-					<br>{{{$categorie->name}}}
-					{{ Form::open(['route' => ['categories.edit', $categorie->id], 'method' => 'GET', 'class' => 'inline']) }}
-					<input class="editbutton" height="32" width="32" type="image" src="../../assets/images/edit.png" alt="EDIT">
-					{{ Form::close() }}
-					{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete','class'=>'inline']) }}
-					<input class="editbutton editspace" height="32" width="32"  type="image" src="../../assets/images/delete.png" alt="DELETE">
-					{{ Form::close() }}	
-				</div>	
+				<h3>{{$categorie->name}}</h3>
+				
+				<a href="{{URL::route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-left"><i class="fa fa-gear"></i></a>
+				{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete']) }}
+			    <button type="submit" class="btn btn-sm btn-danger pull-left"><i class="fa fa-remove"></i></button>
+				{{ Form::close() }}
 			</div>
 			@if(!$categorie->materials->isEmpty())
 			<div class="col-md-12 table-responsive">
@@ -46,7 +43,6 @@
 						<th>Naam</th>
 						<th>Status</th>
 						<th>Barcode</th>
-						<th></th>
 						<th></th>
 					</tr>
 					@foreach($categorie->materials as $material)
@@ -61,14 +57,11 @@
 						<td>{{$material->status}}</td>
 						<td>{{$material->barcode}}</td>
 						<td>
-							{{ Form::open(['route' => ['materials.edit', $material->id], 'method' => 'GET']) }}
-						    <div class="floatleft"><input type="image" src="../../assets/images/edit.png" alt="EDIT"></div>
-							{{ Form::close() }}</td>
-						<td>
 							{{ Form::open(['route' => ['materials.destroy', $material->id], 'method' => 'delete']) }}
-						    <div class="floatleft"><input type="image" src="../../assets/images/delete.png" alt="DELETE"></div>
-							{{ Form::close() }}	
-						</td>	
+						    <button type="submit" class="btn btn-sm btn-danger pull-right"><i class="fa fa-remove"></i></button>
+							{{ Form::close() }}
+							<a href="{{URL::route('materials.edit', $material->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-gear"></i></a>
+						</td>
 					</tr>
 					@endforeach
 				</table>

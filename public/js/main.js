@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('.dropdown-toggle').dropdown();
 
     //Hide all categories on loading page
-    $(".category").hide();
+    $(".reserveren .category").hide();
     
     //Show selected category
     var showCat = $('#categorySelect').val();
