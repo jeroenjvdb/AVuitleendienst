@@ -86,8 +86,8 @@
 	</div><!-- /.modal -->
 	<!-- End Reservation Modal -------------------------------------------------------------------------- -->
 
-	<div class="col-md-12">
-		<h3>Jouw Reservatie:</h3>
+	<div class="col-md-6 col-md-offset-3 text-center">
+		<h3>Jouw Reservatie :</h3>
 	</div>
 	<div class="col-md-12">
 		<div  class="col-xs-3 text-center">

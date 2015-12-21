@@ -8,33 +8,40 @@
 	<li class="{{setActive('materials')}}" role="presentation" multilinks-noscroll="true">
 		<a href="/materials" multilinks-noscroll="true">Reserveren</a>
 	</li>
-	<li class="{{setActive('reservations')}}"role="presentation" multilinks-noscroll="true">
-		<a href="/reservations" multilinks-noscroll="true">Mijn Reservaties</a>
-	</li>
-	<li role="presentation">
-		<a href="/uitchecken">Materiaal Uitchecken</a>
-	</li>
-	<li role="presentation">
-		<a href="/inchecken">Materiaal Inchecken</a>
+	<li role="presentation" class="dropdown">
+		<a>Materiaal</a>
+		<ul class="dropdownMenu">
+			<li><a href="/inchecken">Checkin</a></li>
+			<li><a href="/uitchecken">Checkout</a></li>
+		</ul>
 	</li>
 
 	@if(Auth::user()->type == "monitor")
-	<li class="{{setActive('logbook')}}" role="presentation">
-		<a href="/logbook">Logboek</a>
+	<li class="{{setActive('beheer')}} dropdown" role="presentation">
+		<a>Beheer</a>
+		<ul class="dropdownMenu">
+			<li><a href="/logbook">Logboek</a></li>
+		</ul>
 	</li>
 	
 	@elseif(Auth::user()->type == "teacher" || Auth::user()->type == "admin")
-	<li class="{{setActive('logbook')}}" role="presentation">
-		<a href="/logbook">Logboek</a>
-	</li>
-	<li class="{{setActive('beheer')}}" role="presentation">
-		<a href="/beheer">Beheer</a>
+	<li class="{{setActive('beheer')}} dropdown" role="presentation">
+		<a>Beheer</a>
+		<ul class="dropdownMenu">
+			<li><a href="/beheer/materiaal">Materiaal</a></li>
+			<li><a href="/beheer/gebruikers">Studenten</a></li>
+			<li><a href="/logbook">Logboek</a></li>
+		</ul>
 	</li>
 	
 	@endif
 	
-	<li role="presentation">
-		<a class="highlight" href="/logout">Afmelden</a>
+	<li role="presentation" class="dropdown">
+		<a>{{Auth::user()->firstname}}</a>
+		<ul class="dropdownMenu">
+			<li><a href="/reservations">Reservaties</a></li>
+			<li><a href="/logout">Afmelden</a></li>
+		</ul>
 	</li>
 </ul>
 

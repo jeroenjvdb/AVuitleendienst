@@ -18,10 +18,10 @@
 	</div>
 	<div class="loginbox">    
 		<a href="/materials/create">
-		    <button class="btn btnreg btn-success btn-default">Materiaal toevoegen</button>
+		    <button class="btn btnreg btnDefault btn-default">Materiaal toevoegen</button>
 		</a>
 		<a href="/categories/create">
-		    <button class="btn btnreg btn-success btn-default">Categorie toevoegen</button>
+		    <button class="btn btnreg btnDefault btn-default">Categorie toevoegen</button>
 		</a>
 	</div>
 	<div>

@@ -13,26 +13,23 @@
 	<div class="title">
 		<h1>Logboek</h1>
 	</div>
-	<div class="">
+	<div class="detailSearch">
 		{{Form::open(['url' => 'logbook/search', "class" => "form"])}}
 			<div class="form-group">
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					{{Form::label('categorie','Categorie:', ["class" => "control-label"])}}
 					{{Form::select('categorie',$categories,Session::has('input') ? Session::get('input')['categorie'] :'all', ["class" => "form-control"])}}
+					
+					{{Form::label('beschikbaarheid','Beschikbaarheid:', ["class" => "control-label"])}}
+					{{Form::select('availability',array('all' => 'alle' ,'beschikbaar' => 'beschikbaar' ,'uitgeleend' => 'uitgeleend', ),Session::has('input') ? Session::get('availability')['search'] :'all', ["class" => "form-control"])}}
 				</div>
-				
 
 				<div class="col-md-6 col-sm-6 col-xs-12">
 					{{Form::label('status','Status:', ["class" => "control-label"])}}
 					{{Form::select('status',array('all' => 'alle','ok' =>'ok' , 'missing' => 'missing' , 'broken' => 'broken', ),Session::has('input') ? Session::get('input')['status'] :'all', ["class" => "form-control"])}}
-
-
-					{{Form::label('beschikbaarheid','Beschikbaarheid:', ["class" => "control-label"])}}
-					{{Form::select('availability',array('all' => 'alle' ,'beschikbaar' => 'beschikbaar' ,'uitgeleend' => 'uitgeleend', ),Session::has('input') ? Session::get('availability')['search'] :'all', ["class" => "form-control"])}}
 				</div>
-				<div class="col-md-12 col-sm-12 col-xs-12 logsearchbtn">
-					{{Form::submit('Zoek', ["class" => "btn btnDefault"])}}
-				</div>
+
+				{{Form::submit('Zoek', ["class" => "btn btnDefault"])}}
 			</div>
 		{{Form::close()}}
 	</div>
@@ -40,9 +37,8 @@
 	<!-- Afbeelding van het materiaal weergeven? -->
 	{{-- <td><img src="/images/{{$material->image}}" alt="{{$material->name}}"></td> --}}
 	
-
-	<div class="panel panel-default" style="clear:both;">
-		<!-- Search table -->
+	<!-- Search table -->
+	<div class="search">
 		<div class="panel-body">
 			<div class="form-group">
 				<div class="input-group">
@@ -53,6 +49,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="panel panel-default" style="clear:both;">
 	
 		@if(count($logbook) > 0)
 			<table class="footable table m-b-none toggle-arrow" ui-jq="footable" data-filter="#filter" data-page-size="10">

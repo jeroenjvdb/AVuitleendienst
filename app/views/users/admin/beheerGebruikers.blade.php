@@ -14,7 +14,7 @@
 
 	<div class="loginbox">    
 		<a href="/users/create">
-		    <button class="btn btnreg btn-success btn-default">Nieuwe gebruiker aanmaken</button>
+		    <button class="btn btnreg btnDefault btn-default">Nieuwe gebruiker aanmaken</button>
 		</a>
 	</div>
 	<br>
