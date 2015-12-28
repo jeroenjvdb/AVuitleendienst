@@ -31,6 +31,7 @@
 			<li><a href="/beheer/materiaal">Materiaal</a></li>
 			<li><a href="/beheer/gebruikers">Studenten</a></li>
 			<li><a href="/logbook">Logboek</a></li>
+			<li><a href="{{ route('notifications.create') }}">notifications</a></li>
 		</ul>
 	</li>
 	

@@ -13,6 +13,13 @@
 
 Route::resource('sessions','sessioncontroller');
 
+Route::group(array('before' => 'guest'), function()
+{
+	Route::get('/', function()
+	{
+		return View::make('index');
+	});
+});
 Route::group(array('before' => 'baseLaptop'), function()
 {
 	Route::get('/card/login', ['as' => 'cardLogin', 'uses' => 'CardController@getLogin']);
@@ -20,10 +27,6 @@ Route::group(array('before' => 'baseLaptop'), function()
 });
 Route::get('card/baselaptop', ['as' => 'setBaseLaptop', 'uses' => 'CardController@createBaseLaptop']);
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
 Route::resource('sessions','sessioncontroller');
 Route::group(array('before' => 'auth'),function(){
 	Route::post('/reservation/create', ['as' => 'reservation.create', 'uses' => 'reservationcontroller@store']);
@@ -40,6 +43,8 @@ Route::group(array('before' => 'auth'),function(){
 	Route::get('/uitchecken', ['as' => 'checkout', 'uses' => 'materialcontroller@checkOut']);
 	Route::get('/inchecken', ['as' => 'checkin', 'uses' => 'materialcontroller@checkIn']);
 
+	Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'NotificationController@index']);
+
 
 	Route::post('/uitcheckenMateriaal',  'materialcontroller@checkOutMaterial');
 	Route::post('/incheckenMateriaal', 'materialcontroller@checkInMaterial');
@@ -54,5 +59,8 @@ Route::group(array('before' => 'auth'),function(){
 		Route::get('/beheer', 'HomeController@beheer');
 		Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 		Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
+
+		Route::get('/beheer/notifications/create', ['as' => 'notifications.create', 'uses' => 'NotificationController@create']);
+		Route::post('/beheer/notifications/create', ['uses' => 'NotificationController@store']);
 	});
 });

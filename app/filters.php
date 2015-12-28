@@ -33,6 +33,13 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('guest', function(){
+	if(Auth::user())
+	{
+		return Redirect::route('dashboard');
+	} 
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())
@@ -53,7 +60,7 @@ Route::filter('admin', function()
 	{
 		if (!Auth::user()->isAdmin())
 		{
-			return Redirect::to('/materials')->with('error','Je hebt niet de rechten deze pagina te bezoeken');
+			return Redirect::to('/dashboard')->with('error','Je hebt niet de rechten deze pagina te bezoeken');
 		}
 	}
 	else
