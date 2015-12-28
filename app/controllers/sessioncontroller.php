@@ -36,7 +36,7 @@ class sessioncontroller extends \BaseController {
 		$credentials = array("email" => $input["email"],"password" => $input["password"]);
 		if(Auth::attempt($credentials))
 		{
-			return Redirect::route('materials.index');
+			return Redirect::route('dashboard');
 		}
 		return Redirect::to('/')->with('err','Verkeerde gebruikersnaam of paswoord')->withInput();
 	}
