@@ -18,6 +18,7 @@ class CreateReservationsTable extends Migration {
 			$table->dateTime('begin');
 			$table->dateTime('end');
 			$table->text('reason');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

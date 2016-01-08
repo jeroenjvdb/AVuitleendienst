@@ -85,39 +85,38 @@
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	<!-- End Reservation Modal -------------------------------------------------------------------------- -->
-
-	<div class="col-md-6 col-md-offset-3 text-center">
-		<h3>Jouw Reservatie :</h3>
-	</div>
-	<div class="col-md-12">
-		<div  class="col-xs-3 text-center">
-			<h4><strong>Materiaal</strong></h4>
-		</div>
-		<div  class="col-xs-3 text-center">
-			<h4><strong>Start</strong></h4>
-		</div>
-		<div class="col-xs-3 text-center">
-			<h4><strong>Stop</strong></h4>
-		</div>
-		<div class="col-xs-3 text-center">
-			<h4><strong>Actie</strong></h4>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 text-center">
+			<h3>Jouw Reservatie :</h3>
 		</div>
 	</div>
-	<div class="col-md-12">
-		<div id="resource" class="col-xs-3 text-center">
-			<h4>-</h4>
-		</div>
-		<div id="start" class="col-xs-3 text-center">
-			<h4>-</h4>
-		</div>
-		<div id="stop" class="col-xs-3 text-center">
-			<h4>-</h4>
-		</div>
-		<div class="col-xs-3 text-center">
-			<button class="btn btn-danger btn-sm remove hide" onclick="clearReservaton()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-			<button class="btn btn-primary btn-sm confirm hide" onclick="openReservaton()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-		</div>
+	<div class="row">
+			<div  class="col-xs-12 col-md-3 text-center">
+				<h4><strong>Materiaal</strong></h4>
+				<div id="resource" class="col-md-12 text-center">
+					<h4>-</h4>
+				</div>
+			</div>
+			<div  class="col-xs-6 col-md-3 text-center">
+				<h4><strong>Start</strong></h4>
+				<div id="start" class="col-md-12 text-center">
+					<h4>-</h4>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-3 text-center">
+				<h4><strong>Stop</strong></h4>
+				<div id="stop" class="col-md-12 text-center">
+					<h4>-</h4>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-3 text-center">
+				<h4><strong>Actie</strong></h4>
+				<h4 id="actionPlaceholder">-</h4>
+					<button class="btn btn-danger btn-sm remove hide" onclick="clearReservaton()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+					<button class="btn btn-primary btn-sm confirm hide" onclick="openReservaton()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+			</div>
 	</div>
+	
 	<div class="col-md-12">
 	@forelse($categories as $categorie)
 		<div class="category" id="category{{$categorie->id}}">
@@ -171,6 +170,7 @@
 			$('.fullCalendar').fullCalendar('unselect');
 			$('.remove').addClass('hide');
 			$('.confirm').addClass('hide');
+			$('#actionPlaceholder').removeClass('hide');
 		}
 
 		var openReservaton = function(){
@@ -282,7 +282,7 @@
                 },
                 error : function(jqXHR,textStatus,errorThrown ){
                 	var message = "<p>"+jqXHR.responseJSON.errorMessage+"</p>"
-                	if(qXHR.responseJSON.errors)
+                	if(jqXHR.responseJSON.errors)
                 	{
                 		message += "<ul>"
                 		for (var i = 0; i < jqXHR.responseJSON.errors.length;i++) {
@@ -497,6 +497,7 @@
 						$('#stop h4').html(reservationStop.format("dd D/MM - ")+ stopTijdStip);
 						$('.confirm').removeClass('hide');
 						$('.remove').removeClass('hide');
+						$('#actionPlaceholder').addClass('hide');
 						//Show modal
 						BootstrapDialog.show({
 			                type:  BootstrapDialog.TYPE_SUCCESS,

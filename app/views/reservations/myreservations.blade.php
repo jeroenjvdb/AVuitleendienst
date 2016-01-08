@@ -34,18 +34,21 @@
 					<th data-hide="phone">Tot</th>
 					<th data-hide="all">Reden</th>
 					<th data-hide="all">Foto</th>
+					<th data-sort-ignore="true"></th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($reservations as $reservation)
 					<tr>
-						<td>{{$reservation->name}}</td>
+						<td>{{ucfirst($reservation->name)}}</td>
 						<td>{{ date('Y/m/d - H:i', strtotime($reservation->begin)) }}</td>
 						<td>{{ date('Y/m/d - H:i', strtotime($reservation->end)) }}</td>
 						<td>{{$reservation->reason}}</td>
-						<td><img src="/images/{{$reservation->image}}" alt=""></td>
+						<td><img class="img-thumbnail footable-image" src="/images/{{$reservation->image}}" alt=""></td>
+						<td><a class="btn btn-danger" href="{{route('reservations.destroy', $reservation->fk_reservationsid)}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Annuleren</a></td>
 					</tr>
 				@endforeach
+				
 			</tbody>
 
 			<!-- Table footer -->

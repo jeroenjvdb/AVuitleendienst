@@ -45,7 +45,9 @@ Route::group(array('before' => 'auth'),function(){
 
 	Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'NotificationController@index']);
 
-
+	Route::get('/reservations/delete/{id}',['as' => 'reservations.destroy','uses' => 'reservationcontroller@destroy']);
+	Route::get('/myreservations',['as' => 'myreservations','uses' => 'reservationcontroller@index']);
+	
 	Route::post('/uitcheckenMateriaal',  'materialcontroller@checkOutMaterial');
 	Route::post('/incheckenMateriaal', 'materialcontroller@checkInMaterial');
 	Route::post('/opmerking', 'materialcontroller@storeMessage');

@@ -166,7 +166,7 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		return "Show ".$id;
 	}
 
 
@@ -190,7 +190,7 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		return "Update ".$id;
 	}
 
 
@@ -202,7 +202,10 @@ class reservationcontroller extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$reservation = Reservation::findOrFail($id);
+		$reservation->delete();
+
+		return Redirect::back()->with('success','Reservatie successvol geannuleerd');
 	}
 
 

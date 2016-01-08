@@ -1,8 +1,11 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Reservation extends Eloquent {
 
-	protected $fillable =['begin','end','reason'];
+	use SoftDeletingTrait;
+
+    protected $fillable =['begin','end','reason'];
 
 	public static $rules=[
         'end' => 'required|after:begin'
@@ -118,6 +121,7 @@ class Reservation extends Eloquent {
                 ->join('users','reservationusers.fk_usersid','=','users.id')
                 ->select('reservations.begin','reservations.end')
                 ->where('reservationmaterials.fk_materialsid','=',$id)
+                ->whereNull('reservations.deleted_at')
                 ->get();
     }
 
@@ -149,6 +153,7 @@ class Reservation extends Eloquent {
                 ->join('reservationusers','reservationusers.fk_reservationsid','=','reservations.id')
                 ->where('reservationusers.fk_usersid','=',$id)
                 ->where('reservations.end','>=',date('Y-m-d H:i:s'))
+                ->whereNull('reservations.deleted_at')
                 ->get();
     }
 

@@ -7,7 +7,6 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"intervention/image": "~2.0",
-		"makzumi/calendar": "dev-master",
 		"guzzlehttp/guzzle": "~4.0",
 		"knight-swarm/laravel-saml": "dev-master",
 		"barryvdh/laravel-debugbar": "~1.8",

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->string('firstname');
 			$table->string('lastname');
+			$table->string('studentnr')->nullable();
 			$table->enum('type',['admin','teacher','student','monitor']);
 			$table->timestamps();
 			$table->rememberToken();

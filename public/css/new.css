@@ -33,6 +33,7 @@ div.navbar {
 	background: #0c090a;
 	border-bottom: 5px solid #f2f2f2;
 	height: 80px;
+	z-index: 100;
 }
 
 div.nav-bars, div.nav-bars-x {
@@ -337,4 +338,22 @@ div.detailSearch .btn {
 	right: 15px;
 	font-size: 24px;
 	width: 150px;
+}
+.footable-image
+{
+	max-width: 200px;
+	height: auto;
+}
+.alert h3
+{
+	margin-top: 10px;
+	font-weight: bold;
+}
+.alert .fa
+{
+	margin-right: 15px;
+}
+.jumbo .fa
+{
+	margin-top:20px;
 }

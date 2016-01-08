@@ -23,7 +23,7 @@
 		{{ Form::input('date', 'until') }} {{ Form::selectRange('untilHour', 0, 23) }} {{ Form::selectRange('untilMinute', 0, 59) }} </br>
 
 
-		{{ Form::submit() }}
+		{{ Form::submit('Notificatie toevoegen',array('class' => 'btn btnDefault')) }}
 
 	{{ Form::close() }}
 @stop
