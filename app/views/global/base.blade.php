@@ -37,6 +37,13 @@
 	                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	                  <p>{{ Session::get('error')}}</p>
 	          </div>
+	        @elseif(count($errors->all()))
+	          <div class="text-center alert alert-danger alert-dismissible" role="alert">
+	                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					@foreach($errors->all() as $error)
+	                  <p>{{ $error}}</p>
+	                @endforeach
+	          </div>
 	        @endif 
 	      </div>
 	    </div>
