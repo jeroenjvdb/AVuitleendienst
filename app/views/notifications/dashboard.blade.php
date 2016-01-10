@@ -1,7 +1,7 @@
 @extends('global.base')
 
 @section('page-title')
-dashboard
+Dashboard
 @stop
 
 @section("nav")
@@ -17,10 +17,13 @@ dashboard
 					<div class="pull-left">
 						<i class="fa fa-bell fa-2x fa-fw"></i>
 					</div>
-					<div class="-pull-left">
+					<div class="pull-left">
 						<p>
 							{{ $notification->message}}
 						</p>
+						@if(Auth::user() && Auth::user()->type == "admin")
+							<a href="{{ route('notifications.edit', ['id' => $notification->id]) }}" class="btn btnDefault"><i class="fa fa-edit"></i>Bewerken</a>
+						@endif
 					</div>
 				</div>
 			@endforeach
@@ -32,9 +35,9 @@ dashboard
 					<i class="fa fa-bell-slash-o fa-5x fa-fw"></i>
 				</div>
 				<div>
-					<h3>Geen meldingen</h3>
+					<h3>Geen notificaties</h3>
 					<p>
-						Er zijn momenteel geen meldingen. Maar als er mededelingen zijn komen deze hier tevoorschijn.
+						Er zijn momenteel geen notificaties. Maar als er notificaties zijn komen deze hier tevoorschijn.
 					</p>
 				</div>
 			</div>
@@ -47,9 +50,9 @@ dashboard
 				<i class="fa fa-bell-slash-o fa-5x fa-fw"></i>
 			</div>
 			<div>
-				<h3>Geen meldingen</h3>
+				<h3>Geen notificaties</h3>
 				<p>
-					Er zijn momenteel geen meldingen. Maar als er mededelingen zijn komen deze hier tevoorschijn.
+					Er zijn momenteel geen notificaties. Maar als er notificaties zijn komen deze hier tevoorschijn.
 				</p>
 			</div>
 		</div>

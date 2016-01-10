@@ -11,10 +11,10 @@ table {
 	margin-top: 40px;
 }
 
-th {
+/*th {
 	background-color: transparent;
 	min-width: 100px;
-}
+}*/
 
 select {
 	border-radius: 0 !important;

@@ -1,7 +1,7 @@
 @extends('global.base')
 
 @section('page-title')
-	notification toevoegen
+	Notification toevoegen
 @stop
 
 @section("nav")
@@ -9,21 +9,66 @@
 @stop
 
 @section('content')
-<h1>notification toevoegen</h1>
+	<h1>Notificatie toevoegen</h1>
 	{{ Form::open(array('route' => 'notifications.create', 'method' => 'post')) }}
-		{{ Form::label('message', 'bericht') }}</br>
-		{{ Form::textarea('message', '') }}</br>
-		{{ Form::checkbox('important') }}
-		{{ Form::label('important', 'important') }}</br>
+	<div class="form-group">
+		{{ Form::label('message', 'Bericht') }}</br>
+		{{ Form::textarea('message', '',array('class'=>'form-control')) }}</br>
+	</div>
+	<div class="checkbox">
+		<h4>Belangrijke notificaties komen steeds bovenaan</h4>
+		<label for="important">
+			{{ Form::checkbox('important','important',false) }} Belangrijk
+		</label>
+	</div>
+	
+    <div class="form-group">
+    	<h3>Zichtbaarheids periode</h3>
+        <div class="row">
+            <div class="col-md-6">
+            	<h4>Start</h4>
+                <div id="datetimepickerStart"></div>
+            </div>
+            <div class="col-md-6">
+            	<h4>Stop</h4>
+                <div id="datetimepickerStop"></div>
+            </div>
+        </div>
+    </div>
+	{{Form::hidden('dateStart',date('Y-m-d H:i'))}}
+	{{Form::hidden('dateStop',date('Y-m-d H:i'))}}
 
-		<h5>show:</h5>
-		{{ Form::label('from', 'van') }}</br>
-		{{ Form::input('date', 'from') }} {{ Form::selectRange('fromHour', 0, 23) }} {{ Form::selectRange('fromMinute', 0, 59) }} </br>
-		{{ Form::label('until', 'tot') }}</br>
-		{{ Form::input('date', 'until') }} {{ Form::selectRange('untilHour', 0, 23) }} {{ Form::selectRange('untilMinute', 0, 59) }} </br>
-
-
-		{{ Form::submit('Notificatie toevoegen',array('class' => 'btn btnDefault')) }}
+	{{ Form::submit('Notificatie toevoegen',array('class' => 'btn btnDefault')) }}
 
 	{{ Form::close() }}
+@stop
+@section('scripts')
+<script type="text/javascript">
+$('#datetimepickerStart').datetimepicker({
+    inline: true,
+    locale: 'nl',
+    sideBySide: true,
+    defaultDate: moment().format(),
+    minDate: moment().format()
+});
+
+$('#datetimepickerStop').datetimepicker({
+    inline: true,
+    locale: 'nl',
+    sideBySide: true,
+    defaultDate: moment().format(),
+    minDate: moment().format(),
+    useCurrent: false
+});
+
+$('#datetimepickerStart').on("dp.change", function (e) {
+    $('#datetimepickerStop').data("DateTimePicker").minDate(e.date);
+    $('#datetimepickerStop').data("DateTimePicker").date(e.date);
+    $( "input[name='dateStart']").val(e.date.format("YYYY-MM-DD HH:mm"));
+});
+$('#datetimepickerStop').on("dp.change", function (e) {
+    $( "input[name='dateStop']").val(e.date.format("YYYY-MM-DD HH:mm"));
+});
+
+</script>
 @stop

@@ -62,7 +62,11 @@ Route::group(array('before' => 'auth'),function(){
 		Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 		Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
 
+		Route::resource('/beheer/notifications', 'NotificationController');
+
 		Route::get('/beheer/notifications/create', ['as' => 'notifications.create', 'uses' => 'NotificationController@create']);
 		Route::post('/beheer/notifications/create', ['uses' => 'NotificationController@store']);
+		Route::get('/beheer/notifications/{id}/edit', ['as' => 'notifications.edit', 'uses' => 'NotificationController@edit']);
+		Route::post('/beheer/notifications/{id}/edit', ['as' => 'notifications.update', 'uses' => 'NotificationController@update']);
 	});
 });
