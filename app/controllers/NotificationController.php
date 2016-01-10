@@ -20,12 +20,9 @@ class NotificationController extends \BaseController {
 	{
 		return Validator::make($data, [
 				'message' 	=> 'required|max:255',
-				'from'		=> 'required|date',
-				'fromHour' 	=> 'required|between:0,23',
-				'fromMinute'=> 'required|between:0,59',
-				'until'		=> 'required|date',
-				'untilHour' => 'required|between:0,23',
-				'untilMinute'=> 'required|between:0,59',
+				'dateStart'	=> 'required|Date',
+				'dateStop' 	=> 'required|Date|after:dateStart'
+
 			]);
 	}
 
@@ -49,8 +46,12 @@ class NotificationController extends \BaseController {
 	public function store()
 	{
 		// echo '<pre>';
-		// var_dump(Input::all());
-
+		// dd(Input::all());
+		$validator = $this->validator(Input::all());
+		if($validator->fails())
+		{
+			return Redirect::route('notifications.create')->withInput()->withErrors($validator->messages());
+		}
 
 		$message = Input::get('message');
 		$fromDt = Input::get('dateStart');
@@ -124,19 +125,9 @@ class NotificationController extends \BaseController {
 		{
 			return Redirect::route('notifications.edit', ['id' => $id])->withInput(Input::all())->withErrors($validator->messages());
 		}
-		//set startdate visibility
-		$fromDate = Input::get('from');
-		$from = Carbon::parse($fromDate);
-		$from->hour = Input::get('fromHour');
-		$from->minute = Input::get('fromMinute');
-
-		//set enddate visibility
-		$toDate = Input::get('until');
-		$to = Carbon::parse($toDate);
-		$to->hour = Input::get('untilHour');
-		$to->minute = Input::get('untilMinute');
-
 		$message = Input::get('message');
+		$fromDt = Input::get('dateStart');
+		$toDt = Input::get('dateStop');
 
 		$notification = Notification::findorfail($id);
 		$notification->message = $message;
@@ -149,8 +140,8 @@ class NotificationController extends \BaseController {
 			$notification->important = false;
 		}
 
-		$notification->show_from = $from;
-		$notification->show_until = $to;
+		$notification->show_from = $fromDt;
+		$notification->show_until = $toDt;
 
 		$notification->save();
 
