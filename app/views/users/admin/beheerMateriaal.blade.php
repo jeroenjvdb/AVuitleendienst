@@ -29,13 +29,13 @@
 
 			<div class="category">
 				
-				<h3>{{$categorie->name}}</h3>
-				
-				<a href="{{URL::route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-left"><i class="fa fa-gear"></i></a>
-				{{ Form::open(['route' => ['categories.destroy', $categorie->id], 'method' => 'delete']) }}
-			    <button type="submit" class="btn btn-sm btn-danger pull-left"><i class="fa fa-remove"></i></button>
-				{{ Form::close() }}
+				<h3>
+				{{ucfirst($categorie->name)}}
+				<a href="{{route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
+			    <a class="btn btn-sm btn-danger pull-right" href="{{route('categories.destroy',$categorie->id)}}"><i class="fa fa-trash"></i></a>
+				</h3>
 			</div>
+			<hr>
 			@if(!$categorie->materials->isEmpty())
 			<div class="col-md-12 table-responsive">
 				<table class="table">
@@ -53,14 +53,14 @@
 					@else
 						<tr>
 					@endif
-						<td>{{link_to('materials/'.$material->id,$material->name)}}</td>
+						<td>{{link_to('materials/'.$material->id,ucfirst($material->name))}}</td>
 						<td>{{$material->status}}</td>
 						<td>{{$material->barcode}}</td>
 						<td>
 							{{ Form::open(['route' => ['materials.destroy', $material->id], 'method' => 'delete']) }}
-						    <button type="submit" class="btn btn-sm btn-danger pull-right"><i class="fa fa-remove"></i></button>
+						    <button type="submit" class="btn btn-sm btn-danger pull-right"><i class="fa fa-trash"></i></button>
 							{{ Form::close() }}
-							<a href="{{URL::route('materials.edit', $material->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-gear"></i></a>
+							<a href="{{URL::route('materials.edit', $material->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 					@endforeach

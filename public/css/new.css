@@ -308,7 +308,6 @@ div.reserveren h3 {
 }
 
 .btn-danger, .btn-info {
-	margin-left: 12px;
 	margin-bottom: 5px;
 }
 
@@ -357,4 +356,8 @@ div.detailSearch .btn {
 .jumbo .fa
 {
 	margin-top:20px;
+}
+.btn
+{
+	margin-left: 5px;
 }
