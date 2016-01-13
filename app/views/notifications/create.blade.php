@@ -49,7 +49,6 @@ $('#datetimepickerStart').datetimepicker({
     locale: 'nl',
     sideBySide: true,
     defaultDate: moment().format(),
-    minDate: moment().format()
 });
 
 $('#datetimepickerStop').datetimepicker({
