@@ -35,8 +35,8 @@
             </div>
         </div>
     </div>
-	{{Form::hidden('dateStart',date('Y-m-d H:i'))}}
-	{{Form::hidden('dateStop',date('Y-m-d H:i'))}}
+	{{Form::hidden('dateStart',$notification->show_from)}}
+	{{Form::hidden('dateStop',$notification->show_until)}}
 
 	{{ Form::submit('Notificatie aanpassen',array('class' => 'btn btnDefault')) }}
 
@@ -44,20 +44,21 @@
 @stop
 @section('scripts')
 <script type="text/javascript">
+var start = '<?php echo $notification->show_from ?>';
+var stop = '<?php echo $notification->show_until ?>';
 $('#datetimepickerStart').datetimepicker({
     inline: true,
     locale: 'nl',
     sideBySide: true,
-    defaultDate: moment().format(),
-    minDate: moment().format()
+    defaultDate: start
 });
 
 $('#datetimepickerStop').datetimepicker({
     inline: true,
     locale: 'nl',
     sideBySide: true,
-    defaultDate: moment().format(),
-    minDate: moment().format(),
+    defaultDate: stop,
+    minDate: start,
     useCurrent: false
 });
 
