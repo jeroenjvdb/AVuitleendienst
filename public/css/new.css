@@ -282,7 +282,7 @@ div.beheer div button {
 	color: #469a3f !important;
 }
 
-div.reserveren > div > h2 {
+/*div.reserveren > div > h2 {
 	display: inline-block;
 	width: auto;
 }
@@ -294,9 +294,9 @@ div.reserveren > div > div {
 div.reserveren h3 {
 	margin-top: 48px;
 	margin-bottom: 24px;
-}
+}*/
 
-#categorySelect {
+/*#categorySelect {
 	height: 48px;
 	font-size: 24px;
 	color: #FFF;
@@ -305,7 +305,7 @@ div.reserveren h3 {
 	line-height: 24px;
 	margin-left: 48px;
 	border-radius: 4px !important;
-}
+}*/
 
 .btn-danger, .btn-info {
 	margin-bottom: 5px;
