@@ -11,10 +11,10 @@ class CardController extends \BaseController {
 
 	public function login()
 	{
-		$user = User::find(Request::input('barcode'));
+		$user = User::where('studentnr',Request::input('barcode'))->first();
 
 		// var_dump($user);
-		if($user)
+		if($user != null)
 		{
 			Auth::login($user);
 			return Redirect::route('checkin');
