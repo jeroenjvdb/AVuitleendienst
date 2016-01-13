@@ -45,8 +45,8 @@
 					<thead>
 						<h3>
 				{{ucfirst($categorie->name)}}
-				<a href="{{route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
 			    <a class="btn btn-sm btn-danger pull-right" href="{{route('categories.destroy',$categorie->id)}}"><i class="fa fa-trash"></i></a>
+			    <a href="{{route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
 				</h3>
 					</thead>
 					<tr>
