@@ -20,4 +20,5 @@
 			{{Form::submit('login', ["class" => "btn btnDefault"])}}
 		</div>
 	{{Form::close()}}
+	<a href="{{ route('login') }}">login via studentenaccount</a>
 @stop

@@ -24,6 +24,11 @@
 		    <button class="btn btnDefault">Studentenbeheer</button>
 		</a>
 	</div>
+	<div>
+		<a href="{{ route('setBaseLaptop') }}">
+			<button class="btn btnDefault">inloggen via studentenkaart </br>met computer</button>
+		</a>
+	</div>
 </div>
 <div>
 	@if(!$messages->isEmpty())

@@ -26,7 +26,7 @@
 	
 	@elseif(Auth::user()->type == "teacher" || Auth::user()->type == "admin")
 	<li class="{{setActive('beheer')}} dropdown" role="presentation">
-		<a><i class="fa fa-cogs fa-fw"></i> Beheer <i class="fa fa-chevron-down fa-fw"></i></a>
+		<a href="/beheer"><i class="fa fa-cogs fa-fw"></i> Beheer <i class="fa fa-chevron-down fa-fw"></i></a>
 		<ul class="dropdownMenu">
 			<li><a href="/beheer/materiaal"><i class="fa fa-video-camera fa-fw"></i> Materiaal</a></li>
 			<li><a href="/beheer/gebruikers"><i class="fa fa-users fa-fw"></i> Gebruikers</a></li>

@@ -7,6 +7,22 @@ class HomeController extends BaseController {
 		$this->categorie = $categorie;
 	}
 
+	public function getlogin()
+	{
+		return View::make('index');
+	}
+
+	public function login()
+	{
+		if(Cookie::get('baseLaptop') == null)
+		{
+			return Redirect::route('login');
+		} else
+		{
+			return Redirect::route('cardLogin');
+		}
+	}
+
 	public function beheer(){
 		if(Auth::check())
 		{
