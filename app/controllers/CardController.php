@@ -20,7 +20,7 @@ class CardController extends \BaseController {
 			return Redirect::route('checkin');
 		} else
 		{
-			return Redirect::route('/card/login')->withInput()->withError('deze gebruiker bestaat niet, neem contact op met de verantwoordelijke');
+			return Redirect::back()->withInput()->withError('Deze gebruiker bestaat niet, neem contact op met de verantwoordelijke');
 		}
 
 	}

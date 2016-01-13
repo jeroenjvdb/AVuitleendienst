@@ -1,7 +1,7 @@
 @extends("global.base")
 
 @section("page-title")
-	Overzicht
+	Materiaal Beheer
 @stop
 
 @section("nav")
