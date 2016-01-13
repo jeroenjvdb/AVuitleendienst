@@ -11,9 +11,11 @@ class NotificationController extends \BaseController {
 	 */
 	public function index()
 	{
-		$notifications = Notification::where('show_from', '<', Carbon::now())->where('show_until', '>', Carbon::now())->orderby('important', 'desc')->orderby('updated_at', 'desc')->get();
+		$notifications = Notification::where('show_from', '<', Carbon::now()->addMonth())->where('show_until', '>', Carbon::now()->subMonth())->orderby('important', 'desc')->orderby('updated_at', 'desc')->get();
+		// $notifications = Notification::where('show_from', '<', Carbon::now())->where('show_until', '>', Carbon::now())->orderby('important', 'desc')->orderby('updated_at', 'desc')->get();
 		$data['notifications'] = $notifications;
-		return View::make('notifications.dashboard')->with($data);
+		// return View::make('notifications.dashboard')->with($data);
+		return View::make('notifications.index')->with($data);
 	}
 
 	protected function validator($data)
@@ -158,7 +160,10 @@ class NotificationController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$notification = Notification::findOrFail($id);
+		$notification->delete();
+
+		return Redirect::back()->with('success','Notificatie succesvol verwijdererd');
 	}
 
 

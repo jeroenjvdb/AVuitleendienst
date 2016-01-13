@@ -43,7 +43,7 @@ Route::group(array('before' => 'auth'),function(){
 	Route::get('/uitchecken', ['as' => 'checkout', 'uses' => 'materialcontroller@checkOut']);
 	Route::get('/inchecken', ['as' => 'checkin', 'uses' => 'materialcontroller@checkIn']);
 
-	Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'NotificationController@index']);
+	Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
 	Route::get('/reservations/delete/{id}',['as' => 'reservations.destroy','uses' => 'reservationcontroller@destroy']);
 	Route::get('/myreservations',['as' => 'myreservations','uses' => 'reservationcontroller@index']);
@@ -62,11 +62,12 @@ Route::group(array('before' => 'auth'),function(){
 		Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 		Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
 
-		Route::resource('/beheer/notifications', 'NotificationController');
 
+		Route::get('/beheer/notifications', ['as' => 'notifications.index', 'uses' => 'NotificationController@index']);
 		Route::get('/beheer/notifications/create', ['as' => 'notifications.create', 'uses' => 'NotificationController@create']);
 		Route::post('/beheer/notifications/create', ['uses' => 'NotificationController@store']);
 		Route::get('/beheer/notifications/{id}/edit', ['as' => 'notifications.edit', 'uses' => 'NotificationController@edit']);
 		Route::post('/beheer/notifications/{id}/edit', ['as' => 'notifications.update', 'uses' => 'NotificationController@update']);
+		Route::get('/beheer/notifications/delete/{id}', ['as' => 'notifications.destroy', 'uses' => 'NotificationController@destroy']);
 	});
 });

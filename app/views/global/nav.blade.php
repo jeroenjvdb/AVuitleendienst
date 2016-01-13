@@ -31,7 +31,7 @@
 			<li><a href="/beheer/materiaal"><i class="fa fa-video-camera fa-fw"></i> Materiaal</a></li>
 			<li><a href="/beheer/gebruikers"><i class="fa fa-users fa-fw"></i> Gebruikers</a></li>
 			<li><a href="/logbook"><i class="fa fa-sticky-note fa-fw"></i> Logboek</a></li>
-			<li><a href="{{ route('notifications.create') }}"><i class="fa fa-bell-o fa-fw"></i> Notificaties</a></li>
+			<li><a href="{{ route('notifications.index') }}"><i class="fa fa-bell-o fa-fw"></i> Notificaties</a></li>
 		</ul>
 	</li>
 	

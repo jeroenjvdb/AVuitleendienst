@@ -307,8 +307,9 @@ div.reserveren h3 {
 	border-radius: 4px !important;
 }
 
-.btn-danger {
+.btn-danger, .btn-info {
 	margin-left: 12px;
+	margin-bottom: 5px;
 }
 
 #filter {
