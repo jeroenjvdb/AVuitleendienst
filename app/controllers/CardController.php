@@ -29,7 +29,7 @@ class CardController extends \BaseController {
 	{
 		// $cookie = 
 		Cookie::make('baseLaptop', 'test', 20);
-		return Redirect::to('/')->withCookie(Cookie::make('baseLaptop', 'test', 20))->with(['success' => 'met dit machien kan u nu materiaal afhalen en terugbrengen']);
+		return Redirect::to('/')->withCookie(Cookie::forever('baseLaptop', 'test'))->with(['success' => 'met dit machien kan u nu materiaal afhalen en terugbrengen']);
 	}
 
 

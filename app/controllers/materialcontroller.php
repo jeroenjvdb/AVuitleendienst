@@ -342,7 +342,8 @@ class materialcontroller extends \BaseController {
 					break;
 			
 			}
-			return View::make('errors.message',['message' => $errorMessage,'url' => '/inchecken']);
+			return Redirect::back()->withErrors($errorMessage);
+			//View::make('errors.message',['message' => $errorMessage,'url' => '/inchecken']);
 		}
 		else{
 			return Redirect::to('/');
@@ -450,7 +451,8 @@ class materialcontroller extends \BaseController {
 					break;
 			
 			}
-			return View::make('errors.message',['message' => $errorMessage,'url' => '/uitchecken']);
+			return Redirect::back()->withErrors($errorMessage);
+			//View::make('errors.message',['message' => $errorMessage,'url' => '/uitchecken']);
 		}
 		else{
 			return Redirect::to('/');

@@ -5,7 +5,7 @@
 @stop
 
 @section("nav")
-	@include("global.nav")
+	@include("Card.nav")
 @stop
 
 @section("content")
