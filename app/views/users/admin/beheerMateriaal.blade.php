@@ -1,7 +1,7 @@
 @extends("global.base")
 
 @section("page-title")
-	Overzicht
+	Materiaal Beheer
 @stop
 
 @section("nav")
@@ -39,6 +39,7 @@
 	</div>
 	<div>
 		@forelse($categories as $categorie)
+
 			@if(count($categorie->materials) > 0)
 				<div class="col-md-12 table-responsive category" id="category{{$categorie->id}}">
 
@@ -98,7 +99,6 @@
 					<h4 class="notification">Geen materiaal beschikbaar.</h4>
 				@endif
 
-			</div>
 			
 		@empty
 		<h4 class="notification">Geen categorieën beschikbaar</h4>

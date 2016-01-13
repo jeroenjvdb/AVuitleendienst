@@ -32,7 +32,7 @@ Route::group(array('before' => 'auth'),function(){
 
 	Route::get('logout','sessioncontroller@destroy');
 	Route::resource('users','usercontroller');
-	Route::resource('materials','materialcontroller');
+	Route::resource('materials','materialcontroller', ['except' => ['show']]);
 	Route::resource('categories','categoriecontroller');
 	Route::resource('reservations','reservationcontroller');
 	Route::resource('messages','messagecontroller');

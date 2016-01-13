@@ -1,7 +1,7 @@
 @extends('global.base')
 
 @section("page-title")
-	login via studentenkaart
+	Card Login
 @stop
 
 @section("nav")

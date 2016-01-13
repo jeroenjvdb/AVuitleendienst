@@ -8,13 +8,6 @@
 	<li class="{{setActive('materials')}}" role="presentation" multilinks-noscroll="true">
 		<a href="/materials" multilinks-noscroll="true"><i class="fa fa-calendar fa-fw"></i> Reserveren</a>
 	</li>
-	<li role="presentation" class="dropdown">
-		<a><i class="fa fa-video-camera fa-fw"></i> Materiaal <i class="fa fa-chevron-down fa-fw"></i></a>
-		<ul class="dropdownMenu">
-			<li><a href="/inchecken"><i class="fa fa-sign-in fa-fw"></i> Checkin</a></li>
-			<li><a href="/uitchecken"><i class="fa fa-sign-out fa-fw"></i> Checkout</a></li>
-		</ul>
-	</li>
 
 	@if(Auth::user()->type == "monitor")
 	<li class="{{setActive('beheer')}} dropdown" role="presentation">
@@ -43,6 +36,7 @@
 			<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 			<li><a href="{{route('myreservations')}}"><i class="fa fa-calendar-check-o fa-fw"></i> Mijn Reservaties</a></li>
 			<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Afmelden</a></li>
+			<li><a href="{{ route('setBaseLaptop') }}"><i class="fa fa-desktop"></i> basisstation</a></li>
 		</ul>
 	</li>
 </ul>
