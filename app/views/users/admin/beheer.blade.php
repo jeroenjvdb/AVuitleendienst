@@ -26,7 +26,7 @@
 	</div>
 	<div>
 		<a href="{{ route('setBaseLaptop') }}">
-			<button class="btn btnDefault">reservatiebeheer</button>
+			<button class="btn btnDefault">inloggen via studentenkaart </br>met computer</button>
 		</a>
 	</div>
 </div>
