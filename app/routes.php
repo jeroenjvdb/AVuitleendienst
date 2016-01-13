@@ -15,17 +15,16 @@ Route::resource('sessions','sessioncontroller');
 
 Route::group(array('before' => 'guest'), function()
 {
-	Route::get('/', function()
-	{
-		return View::make('index');
-	});
+	Route::get('/', 'HomeController@login');
+	Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@getlogin']);
 });
+
+
 Route::group(array('before' => 'baseLaptop'), function()
 {
 	Route::get('/card/login', ['as' => 'cardLogin', 'uses' => 'CardController@getLogin']);
 	Route::post('/card/login', ['uses' => 'CardController@login']);
 });
-Route::get('card/baselaptop', ['as' => 'setBaseLaptop', 'uses' => 'CardController@createBaseLaptop']);
 
 Route::resource('sessions','sessioncontroller');
 Route::group(array('before' => 'auth'),function(){
@@ -53,6 +52,8 @@ Route::group(array('before' => 'auth'),function(){
 	Route::post('/opmerking', 'materialcontroller@storeMessage');
 	
 	Route::group(array('before' => 'admin'),function(){
+		Route::get('card/baselaptop', ['as' => 'setBaseLaptop', 'uses' => 'CardController@createBaseLaptop']);
+
 		Route::get('/logbook','materialcontroller@getLogbook');
 		Route::get('/logbook/{id}','materialcontroller@getReservations');
 		Route::post('/logbook/search','materialcontroller@filterLogbook');
