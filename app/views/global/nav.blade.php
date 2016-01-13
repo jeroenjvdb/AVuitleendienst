@@ -38,8 +38,9 @@
 	@endif
 	
 	<li role="presentation" class="dropdown">
-		<a><i class="fa fa-user fa-fw"></i>{{ucfirst(Auth::user()->firstname).' '.ucfirst(Auth::user()->lasttname)}} <i class="fa fa-chevron-down fa-fw"></i></a>
+		<a><i class="fa fa-user fa-fw"></i>{{ucfirst(Auth::user()->firstname).' '.ucfirst(Auth::user()->lastname)}} <i class="fa fa-chevron-down fa-fw"></i></a>
 		<ul class="dropdownMenu">
+			<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 			<li><a href="{{route('myreservations')}}"><i class="fa fa-calendar-check-o fa-fw"></i> Mijn Reservaties</a></li>
 			<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Afmelden</a></li>
 		</ul>
