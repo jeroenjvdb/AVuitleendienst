@@ -42,6 +42,10 @@ h1, h2 {
 	font-weight: 700;
 }
 
+h1, h2, h3 {
+	font-family: KdG;
+}
+
 .alert-info {
     background-color: rgba(80,120,190,0.8);
     border-color: #5078be;
@@ -64,6 +68,12 @@ h1, h2 {
     color: white;
     background-color: rgba(172,90,150,0.8);
     border-color: #965384;
+}
+
+.btn-danger {
+    color: #FFF;
+    background-color: rgba(252, 57, 57, 0.8);
+    border-color: #FF3939;
 }
 
 div.navbar {
@@ -127,13 +137,13 @@ ul.nav li a
 }
 ul.nav > li.active > a{
 	background: #f2f2f2 !important;
-	color: #469a3f;
+	color: #417B3B;
 	border-radius: 0;
 }
 
-ul.nav li:hover > a{
+ul.nav li:hover > a {
 	background: #0c090a;
-	color: #469a3f !important;
+	color: #417B3B !important;
 	border-radius: 0;
 }
 
@@ -289,10 +299,21 @@ div.span4:nth-child(4n+0) {
 
 .btnDefault {
 	color: #FFF;
-	background-color: #449D44;
-	border-color: #398439;
+	background-color: rgba(70, 154, 63, 0.8);
+	border-color: #51924B;
 	min-width: 100px;
 	border-radius: 4px !important;
+}
+
+.btn-primary {
+	background-color: rgba(80, 120, 190, 0.8);
+	border-color: #5078BE;
+}
+
+.btnDefault:hover, .btnDefault:focus, .btnDefault.focus, .btnDefault:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: #FFF;
+    background-color: #51924B;
+    border-color: #417B3B;
 }
 
 form.check * {
