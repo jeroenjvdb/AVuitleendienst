@@ -1,3 +1,16 @@
+/* Webfont: KdG-Regular */@font-face {
+    font-family: 'KdG';
+    src: url('fonts/KdG-Regular.eot'); /* IE9 Compat Modes */
+    src: url('fonts/KdG-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/KdG-Regular.woff') format('woff'), /* Modern Browsers */
+         url('fonts/KdG-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('fonts/KdG-Regular.svg#KdG-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
 body {
 	color: black;
 }
@@ -65,7 +78,24 @@ ul.nav a {
 	color: white;
 	font-weight: 900;
 }
-ul.nav li, ul.nav li a
+ul.nav > li > a {
+	text-align: center;
+}
+ul.nav > li li a {
+	margin-left: 8px;
+	margin-bottom: 8px;
+	display: inline-block;
+}
+ul.nav > li li:last-child a {
+	margin-bottom: 0;
+}
+ul.nav > li {
+	min-width: 175px;
+}
+ul.nav > li li {
+	min-width: 145px;
+}
+ul.nav li a
 {
 	border-radius: 0;
 }
@@ -115,6 +145,11 @@ li.dropdown ul li a:hover {
 	margin-left: 0px !important;
 }
 
+.kdgFont {
+	font-family: KdG;
+	font-weight: 100;
+}
+
 div.title {
 	width: 100%;
 	text-align: center;
@@ -126,6 +161,8 @@ div.title h1 {
 	color: black;
 	margin-top: 20px;
 	margin-bottom: 40px;
+	font-family: KdG;
+	font-weight: 100;
 }
 
 h2.subTitle {
@@ -316,6 +353,11 @@ div.reserveren h3 {
 	font-size: 24px;
 }
 
+#filter1 {
+	height: 46px;
+	font-size: 24px;
+}
+
 .panel-body {
 	padding-left: 0;
 	padding-right: 0;
@@ -359,5 +401,53 @@ div.detailSearch .btn {
 }
 .btn
 {
-	margin-left: 5px;
+	margin-right: 5px;
+}
+.buttonBox {
+	display: inline-block;
+	width: 32%;
+	vertical-align: top;
+}
+.selectBox {
+	display: inline-block;
+	width: 67%;
+}
+.selectBox > h2 {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 0;
+	vertical-align: middle;
+	margin-left: 250px;
+}
+.selectBox > div {
+	display: inline-block;
+	float: right;
+}
+.selectBox > div > select {
+	width: 350px;
+}
+.category {
+	padding: 0 !important;
+}
+.altSearch {
+	display: inline-block !important;
+	width: 67% !important;
+}
+.dash p {
+	margin-top: 24px;
+}
+.reserveren h2 {
+	display: inline-block;
+	margin-top: 0;
+}
+.reserveren div.form-group {
+	display: inline-block;
+	width: 350px;
+	margin-left: 48px;
+}
+.reserveren div.form-group select {
+	margin-bottom: 0;
+}
+.reserveren .selectCat {
+	text-align: center;
 }

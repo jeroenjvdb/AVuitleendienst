@@ -10,7 +10,7 @@
 
 @section("content")
 	<div class="title">
-		<h1>Mijn reservaties</h1>
+		<h1>Mijn Reservaties</h1>
 	</div>
 
 	<!-- Search table -->
