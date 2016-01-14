@@ -333,6 +333,7 @@
 			// 	rendering: "background" 
 			// };
 			// reservations.push(past);
+			console.log(reservations);
 			for (var i = 0; i < reservations.length; i++)
 			{
 				var start = moment(reservations[i].start);
@@ -355,6 +356,28 @@
 				else if(end.format("H") == 20)
 				{
 					reservations[i].end = end.add(4,'hours');
+				}
+
+				for (var u = 0; u < reservations[i].users.length; u++)
+				{
+					if(reservations[i].users[u].type == "admin" || reservations[i].users[u].type == "monitor")
+					{
+						reservations[i].backgroundColor = "#ec2f05";
+						reservations[i].borderColor = "#d70230";
+						reservations[i].textColor = "#ffffff";
+					}
+					else if(reservations[i].users[u].type == "teacher")
+					{
+						reservations[i].backgroundColor = "#8460ac";
+						reservations[i].borderColor = "#9f5caa";
+						reservations[i].textColor = "#ffffff";
+					}
+					else if(reservations[i].users[u].type == "student")
+					{
+						reservations[i].backgroundColor = "#00b2e2";
+						reservations[i].borderColor = "#0094ba";
+						reservations[i].textColor = "#ffffff";
+					}
 				}
 			};
 			$('#calendar<?php echo $categorie->id ?>').fullCalendar({

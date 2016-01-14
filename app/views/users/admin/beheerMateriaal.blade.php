@@ -76,7 +76,7 @@
 								@else
 									<tr>
 								@endif
-								<td>{{link_to('materials/'.$material->id,ucfirst($material->name))}}</td>
+								<td>{{ucfirst($material->name)}}</td>
 								<td>{{$material->status}}</td>
 								<td>{{$material->barcode}}</td>
 								<td>

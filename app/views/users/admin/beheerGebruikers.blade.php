@@ -20,7 +20,7 @@
 		<div class="panel-body">
 			<div class="buttonBox">    
 				<a href="/users/create">
-				    <button class="btn btnreg btnDefault btn-default">Nieuwe gebruiker aanmaken</button>
+				    <button class="btn btnreg btnDefault btn-default"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</button>
 				</a>
 			</div>
 			<div class="form-group altSearch">
@@ -61,7 +61,7 @@
 
 						<td>
 							<a href="{{URL::to('users/' . $gebruiker->id . '/delete')}}" class="btn btn-sm btn-danger pull-right"><i class="fa fa-remove"></i></a>
-							<a href="{{URL::to('users/' . $gebruiker->id . '/edit')}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-gear"></i></a>
+							<a href="{{URL::to('users/' . $gebruiker->id . '/edit')}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				@endforeach
