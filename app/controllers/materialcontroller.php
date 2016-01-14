@@ -254,8 +254,9 @@ class materialcontroller extends \BaseController {
 
 	public function getReservations($id)
 	{
-		$reservations = $this->reservation->getLastReservations($id);
-		return View::make('materials.lastReservation',['reservations' => $reservations]);
+		$material = Material::find($id);
+		$reservations = Material::find($id)->reservations()->orderBy('created_at', 'DESC')->get(); //$this->reservation->getLastReservations($id);
+		return View::make('materials.lastReservation',['material' => $material, 'reservations' => $reservations]);
 	}
 
 	public function filterLogbook()
