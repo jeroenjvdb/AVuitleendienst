@@ -9,14 +9,18 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> Materiaal</span>
-	<h2>Beheer Materiaal</h2>
-	<div>
-		@if(Session::has('message'))
-	        <div>{{ Session::get('message')}}</div>
-	    @endif
+	<!-- <span><a href="/beheer">Beheer </a>> Materiaal</span> -->
+	<div class="title">
+		<h1>Beheer Materiaal</h1>
 	</div>
-	<div class="loginbox">    
+	
+	@if(Session::has('message'))
+		<div>
+        	<div>{{ Session::get('message')}}</div>
+        </div>
+    @endif
+	
+	<div class="buttonBox">    
 		<a href="/materials/create">
 		    <button class="btn btnreg btnDefault btn-default"><i class="fa fa-plus"></i> Materiaal toevoegen</button>
 		</a>
@@ -24,8 +28,7 @@
 		    <button class="btn btnreg btnDefault btn-default"><i class="fa fa-plus"></i> Categorie toevoegen</button>
 		</a>
 	</div>
-	<div class="col-md-6 col-md-offset-3 text-center">
-
+	<div class="selectBox">
 		<h2>Weergeef</h2>
 		<div class="form-group">
 			<select class="form-control text-center" id="categorySelect">

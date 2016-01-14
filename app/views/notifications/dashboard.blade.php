@@ -58,14 +58,14 @@ Dashboard
 		</div>
 	</div>
 @endif
-<div class="row">
+<div class="row dash">
 	<div class="col-md-6 jumbo">
 		<div class="row">
 			<div class="col-xs-2">
 				<i class="fa fa-calendar fa-fw fa-4x"></i>
 			</div>
 			<div class="col-xs-10">
-				<h1>Reserveren</h1>
+				<h1 class="kdgFont">Reserveren</h1>
 				<p>
 					Bekijk hier de kalender per categorie en reserveer je materiaal.
 				</p>
@@ -79,7 +79,7 @@ Dashboard
 				<i class="fa fa-calendar-check-o fa-fw fa-4x"></i>
 			</div>
 			<div class="col-xs-10">
-				<h1>Mijn Reservaties</h1>
+				<h1 class="kdgFont">Mijn Reservaties</h1>
 				<p>
 					Bekijk hier de door je reeds gemaakte reservaties. <br>
 					Je kan deze ook nog steeds annuleren indien nodig.

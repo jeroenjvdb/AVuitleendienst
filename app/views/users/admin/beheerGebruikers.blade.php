@@ -9,21 +9,21 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> Gebruikers</span>
-	<h2>Beheer Gebruikers</h2>
-
-	<div class="loginbox">    
-		<a href="/users/create">
-		    <button class="btn btnreg btnDefault btn-default">Nieuwe gebruiker aanmaken</button>
-		</a>
+	<!-- <span><a href="/beheer">Beheer </a>> Gebruikers</span> -->
+	<div class="title">
+		<h1>Beheer Gebruikers</h1>
 	</div>
-	<br>
 
 	@if(count($gebruikers) > 0)
 
 		<!-- Search table -->
 		<div class="panel-body">
-			<div class="form-group">
+			<div class="buttonBox">    
+				<a href="/users/create">
+				    <button class="btn btnreg btnDefault btn-default">Nieuwe gebruiker aanmaken</button>
+				</a>
+			</div>
+			<div class="form-group altSearch">
 				<div class="input-group">
 					<input id="filter" type="text" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Zoek...">
 					<span class="input-group-btn heading-button">

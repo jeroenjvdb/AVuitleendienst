@@ -17,7 +17,7 @@
 		<!--<h1>Welkom, {{Auth::user()->firstname}}</h1>-->
 		<h1>Reserveren</h1>
 	</div>
-	<div class="col-md-6 col-md-offset-3 text-center">
+	<div class="selectCat">
 
 		<h2>Categoriën</h2>
 		<div class="form-group">
