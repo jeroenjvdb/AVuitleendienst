@@ -92,6 +92,7 @@ ul.nav > li li:last-child a {
 }
 ul.nav > li {
 	min-width: 200px;
+	width: auto;
 }
 ul.nav > li li {
 	min-width: 170px;

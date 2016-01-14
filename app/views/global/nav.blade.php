@@ -36,7 +36,7 @@
 			<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 			<li><a href="{{route('myreservations')}}"><i class="fa fa-calendar-check-o fa-fw"></i> Mijn Reservaties</a></li>
 			<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Afmelden</a></li>
-			<li><a href="{{ route('setBaseLaptop') }}"><i class="fa fa-desktop"></i> basisstation</a></li>
+			<li><a href="{{ route('setBaseLaptop') }}"><i class="fa fa-desktop"></i> Nieuw basisstation</a></li>
 		</ul>
 	</li>
 </ul>
