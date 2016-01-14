@@ -556,3 +556,17 @@ div.detailSearch .btn {
 .item img {
 	display: block;
 }
+.fc-highlight {
+    background: #469A3F !important;
+    opacity: .6;
+    filter: alpha(opacity=60);
+}
+.bootstrap-dialog.type-success .modal-header {
+    background-color: #61A45B !important;
+}
+.bootstrap-dialog.type-danger .modal-header {
+    background-color: #FA5D5D !important;
+}
+.bootstrap-dialog.type-info .modal-header {
+    background-color: #00b2e2!important;
+}

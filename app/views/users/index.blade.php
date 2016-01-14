@@ -362,20 +362,20 @@
 				{
 					if(reservations[i].users[u].type == "admin" || reservations[i].users[u].type == "monitor")
 					{
-						reservations[i].backgroundColor = "#ec2f05";
-						reservations[i].borderColor = "#d70230";
+						reservations[i].backgroundColor = "#FA5D5D";
+						reservations[i].borderColor = "#FA5D5D";
 						reservations[i].textColor = "#ffffff";
 					}
 					else if(reservations[i].users[u].type == "teacher")
 					{
-						reservations[i].backgroundColor = "#8460ac";
-						reservations[i].borderColor = "#9f5caa";
+						reservations[i].backgroundColor = "#B371A1";
+						reservations[i].borderColor = "#B371A1";
 						reservations[i].textColor = "#ffffff";
 					}
 					else if(reservations[i].users[u].type == "student")
 					{
-						reservations[i].backgroundColor = "#00b2e2";
-						reservations[i].borderColor = "#0094ba";
+						reservations[i].backgroundColor = "#6989C1";
+						reservations[i].borderColor = "#6989C1";
 						reservations[i].textColor = "#ffffff";
 					}
 				}
