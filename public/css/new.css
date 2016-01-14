@@ -570,3 +570,7 @@ div.detailSearch .btn {
 .bootstrap-dialog.type-info .modal-header {
     background-color: #00b2e2!important;
 }
+h1, h2, h3
+{
+	font-family: KdG;
+}

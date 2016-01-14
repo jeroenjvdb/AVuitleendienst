@@ -333,7 +333,7 @@
 			// 	rendering: "background" 
 			// };
 			// reservations.push(past);
-			console.log(reservations);
+			
 			for (var i = 0; i < reservations.length; i++)
 			{
 				var start = moment(reservations[i].start);
