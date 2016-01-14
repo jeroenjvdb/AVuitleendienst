@@ -76,6 +76,10 @@ h1, h2, h3 {
     border-color: #FF3939;
 }
 
+.glyphicon {
+	top: 3px;
+}
+
 div.navbar {
 	background: #0c090a;
 	border-bottom: 5px solid #f2f2f2;
