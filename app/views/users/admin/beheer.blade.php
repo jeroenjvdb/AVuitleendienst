@@ -21,7 +21,7 @@
 	</div>
 	<div>
 		<a href="/beheer/gebruikers">
-		    <button class="btn btnDefault">Studentenbeheer</button>
+		    <button class="btn btnDefault">Gebruikersbeheer</button>
 		</a>
 	</div>
 	<div>
