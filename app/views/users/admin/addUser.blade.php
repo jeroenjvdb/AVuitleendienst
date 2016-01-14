@@ -9,8 +9,9 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> <a href="/beheer/gebruikers">Gebruikers </a>> Nieuwe gebruiker</span>
-	<h2>Nieuwe gebruiker toevoegen</h2>
+	<div class="title">
+		<h1>Gebruiker Toevoegen</h1>
+	</div>
 	<div>
 		{{Form::open(['route' => 'users.store'])}}
 		<div>

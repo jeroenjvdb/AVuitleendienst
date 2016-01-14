@@ -9,8 +9,9 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Materiaal Toevoegen</span>
-	<h2>Materiaal Toevoegen</h2>
+	<div class="title">
+		<h1>Materiaal Toevoegen</h1>
+	</div>
 	@if(Session::has('message'))
         <div>{{ Session::get('message')}}</div>
     @endif
@@ -41,22 +42,23 @@
 			<br/>
 			{{Form::textarea('details','',array('required' => 'required','rows' => '3','class' => 'form-control'))}}			
 		</div>
+	</div>
+	<div>
 		<h2>Selecteer de bijhorende accessiores</h2>
-		@forelse($accesoriesCategorie as $accesorieCategorie)
-		<h3>{{{$accesorieCategorie->name}}}</h3>
-			@forelse($accesorieCategorie->materials as $material)
-			<div>
+		@foreach($accesoriesCategorie as $accesorieCategorie)
+		<div class="item">
+			<h3>{{$accesorieCategorie->name}}</h3>
+			@foreach($accesorieCategorie->materials as $material)
+				<div>
 					{{Form::checkbox('accessories[]', $material->id);}}			
 					<p>{{$material->name}}</p>
 					<img src="/images/{{$material->image}}" width="100px" alt="">
-				@empty
-				<h4 class="notification">Geen materiaal</h4>
-			@endforelse
-		@empty
-		<h4 class="notification">Geen categorieën</h4>
-		@endforelse
+				</div>
+			@endforeach
+		</div>
+		@endforeach
 		<br>
-		{{Form::submit('Toevoegen',array('class' => 'btn btnreg btn-success btn-default'))}}
+		{{Form::submit('Toevoegen',array('class' => 'btn btnDefault'))}}
 		{{Form::close()}}
 		<br><br>
 	</div>

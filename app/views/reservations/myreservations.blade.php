@@ -32,8 +32,7 @@
 					<th>Item</th>
 					<th data-hide="phone" data-sort-initial="true">Van</th>
 					<th data-hide="phone">Tot</th>
-					<th data-hide="all">Reden</th>
-					<th data-hide="all">Foto</th>
+					<th data-hide="phone">Reden</th>
 					<th data-sort-ignore="true"></th>
 				</tr>
 			</thead>
@@ -44,8 +43,7 @@
 						<td>{{ date('Y/m/d - H:i', strtotime($reservation->begin)) }}</td>
 						<td>{{ date('Y/m/d - H:i', strtotime($reservation->end)) }}</td>
 						<td>{{$reservation->reason}}</td>
-						<td><img class="img-thumbnail footable-image" src="/images/{{$reservation->image}}" alt=""></td>
-						<td><a class="btn btn-danger" href="{{route('reservations.destroy', $reservation->fk_reservationsid)}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Annuleren</a></td>
+						<td><a class="btn btn-danger floatRight" href="{{route('reservations.destroy', $reservation->fk_reservationsid)}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Annuleren</a></td>
 					</tr>
 				@endforeach
 				

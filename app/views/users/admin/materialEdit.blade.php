@@ -9,8 +9,9 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Edit Materiaal</span>
-	<h2>Edit Materiaal</h2>
+	<div class="title">
+		<h1>Materiaal Aanpassen</h1>
+	</div>
 	<div>
 		{{Form::open(['route' => ['materials.update',$material->id],'files' => true,'method' => 'PUT'])}}
 		<div>
@@ -24,7 +25,7 @@
 		<div>
 		<br>
 			{{Form::label('image','Afbeelding:')}}<br>
-			<img src="/images/{{$material->image}}" alt="">
+			<img width="200px" src="/images/{{$material->image}}" alt="">
 			{{Form::file('image')}}	
 		</div>
 		<div>
@@ -49,25 +50,24 @@
 			<br/>
 			{{Form::textarea('details',$material->details,array('required' => 'required','rows' => '3','class' => 'form-control'))}}			
 		</div>
-
+	</div>
+	<div>
 		<h2>Selecteer de bijhorende accessiores</h2>
-
-		@forelse($accesoriesCategorie as $accesorieCategorie)
-		<h3>{{{$accesorieCategorie->name}}}</h3>
-			@forelse($accesorieCategorie->materials as $material)
-			<div>
-				{{Form::checkbox('accessories[]', $material->id,in_array($material->id, $accessoriesOfMaterial));}}
-				<p>{{$material->name}}</p>
-				<img width="100px" src="/images/{{$material->image}}" alt="">
-			@empty
-			<h4 class="notification">Geen materiaal beschikbaar</h4>
-			@endforelse
-		@empty
-		<h4 class="notification">Geen categorieën beschikbaar</h4>
-		@endforelse
+		@foreach($accesoriesCategorie as $accesorieCategorie)
+		<div class="item">
+			<h3>{{$accesorieCategorie->name}}</h3>
+			@foreach($accesorieCategorie->materials as $material)
+				<div>
+					{{Form::checkbox('accessories[]', $material->id);}}			
+					<p>{{$material->name}}</p>
+					<img src="/images/{{$material->image}}" width="100px" alt="">
+				</div>
+			@endforeach
+		</div>
+		@endforeach
 		<br>
-		{{Form::submit('Wijzigen',array('class' => 'btn btnreg btn-success btn-default'))}}
-		<br><br>
+		{{Form::submit('Toevoegen',array('class' => 'btn btnDefault'))}}
 		{{Form::close()}}
+		<br><br>
 	</div>
 @stop

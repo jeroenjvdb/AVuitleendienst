@@ -9,8 +9,10 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Edit Materiaal</span>
-	<h2>Edit Materiaal</h2>
+	<!-- <span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Edit Materiaal</span>-->
+	<div class="title">
+		<h1>Categorie Aanpassen</h1>
+	</div>
 	<div>
 		{{Form::open(['route' => ['categories.update',$categorie->id],'method' => 'PUT'])}}
 		<div>
