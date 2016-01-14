@@ -49,7 +49,7 @@
 					@if($accessorie->status == 'ok')
 					<div class="col-sm-6 col-md-4 col-xs-12 span4">
 						<div class="thumbnail tnExtra">
-							<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="item">
+							<a href="{{$app['url']->to('/')}}/materials/{{$accessorie->id}}" class="itemBig">
 								<h3>{{{$accessorie->name}}}</h3>
 								<img src="/images/{{$accessorie->image}}" alt="">
 								<div class="caption">
@@ -74,7 +74,7 @@
 						@if(($material->id != $catMaterial->id) && ($catMaterial->status =='ok'))
 						<div class="col-sm-6 col-md-4 col-xs-12 span4">
 							<div class="thumbnail tnExtra">
-								<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="item">
+								<a href="{{$app['url']->to('/')}}/materials/{{$catMaterial->id}}" class="itemBig">
 									<h3> {{{$catMaterial->name}}}</h3>
 									<img src="/images/{{$catMaterial->image}}" alt="">
 									<div class="caption">

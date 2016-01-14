@@ -450,6 +450,9 @@ div.detailSearch .btn {
 	font-size: 24px;
 	width: 150px;
 }
+.btn-lg, .btn-group-lg>.btn {
+	line-height: 1.38;
+}
 .footable-image
 {
 	max-width: 200px;
@@ -577,9 +580,11 @@ div.detailSearch .btn {
 	width: auto;
 	display: inline-block;
 }
-
 .item img {
 	display: block;
+}
+.itemBig {
+
 }
 .fc-highlight {
     background: #469A3F !important;
