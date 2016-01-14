@@ -42,6 +42,30 @@ h1, h2 {
 	font-weight: 700;
 }
 
+.alert-info {
+    background-color: rgba(80,120,190,0.8);
+    border-color: #5078be;
+    color: white;
+}
+
+.alert-danger {
+    color: #FFF;
+    background-color: rgba(252, 57, 57, 0.8);
+    border-color: #FF3939;
+}
+
+.alert-success {
+    color: white;
+    background-color: rgba(70,154,63,0.8);
+    border-color: #51924B;
+}
+
+.alert-warning {
+    color: white;
+    background-color: rgba(172,90,150,0.8);
+    border-color: #965384;
+}
+
 div.navbar {
 	background: #0c090a;
 	border-bottom: 5px solid #f2f2f2;
@@ -95,7 +119,7 @@ ul.nav > li {
 	width: auto;
 }
 ul.nav > li li {
-	min-width: 170px;
+	min-width: 180px;
 }
 ul.nav li a
 {
