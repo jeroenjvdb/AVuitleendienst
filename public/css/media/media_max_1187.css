@@ -1,0 +1,32 @@
+@media only screen
+and (max-width: 1187px) {
+	.reserveren .span3 {
+		width: 100%;
+	}
+	.selectBox > div > select {
+	    width: 280px;
+	}
+	.selectBox > h2 {
+		margin-left: 0;
+	}
+	.selectBox {
+	    width: 49%;
+	}
+	.buttonBox {
+		width: 50%;
+	}
+	.reservatie h3 {
+		margin-left: 0px;
+	}
+	.altSearch {
+		width: 49% !important;
+	}
+	.reserveren .spanCustom {
+		width: 100%;
+		margin: 48px 0 0px;
+	}
+	.reserveren div.selectCat > div {
+	    width: 250px;
+	    margin-left: 48px;
+	}
+}
