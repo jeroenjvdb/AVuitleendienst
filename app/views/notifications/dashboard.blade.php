@@ -58,42 +58,7 @@ Dashboard
 		</div>
 	</div>
 @endif
-<!-- Temp Styling alerts For Oscar -->
-	<h3>Tijdelijke alerts om te stylen</h3>
-	<div class="alert alert-info col-md-12" role="alert">
-		<div>
-			<h3>Bootstrap class: alert alert-info</h3>
-			<p>
-				Tijdelijke alert om te stylen.
-			</p>
-		</div>
-	</div>
-	<div class="alert alert-danger col-md-12" role="alert">
-		<div>
-			<h3>Bootstrap class: alert alert-danger</h3>
-			<p>
-				Tijdelijke alert om te stylen.
-			</p>
-		</div>
-	</div>
-	<div class="alert alert-success col-md-12" role="alert">
-		<div>
-			<h3>Bootstrap class: alert alert-success</h3>
-			<p>
-				Tijdelijke alert om te stylen.
-			</p>
-		</div>
-	</div>
-	<div class="alert alert-warning col-md-12" role="alert">
-		<div>
-			<h3>Bootstrap class: alert alert-warning</h3>
-			<p>
-				Tijdelijke alert om te stylen.
-			</p>
-		</div>
-	</div>
 
-<!-- End Temp Styling alerts -->
 <div class="row dash">
 	<div class="col-md-6 jumbo">
 		<div class="row">
