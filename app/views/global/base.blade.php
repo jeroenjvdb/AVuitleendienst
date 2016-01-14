@@ -17,6 +17,7 @@
 	{{ HTML::style("https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css")}}
 	{{ HTML::style('css/media/media_max_1187.css') }}
 	{{ HTML::style('css/media/media_max_978.css') }}
+	{{ HTML::style('css/media/media_max_660.css') }}
 	@yield('styles')
 	
 </head>
