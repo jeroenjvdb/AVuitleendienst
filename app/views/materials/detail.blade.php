@@ -11,7 +11,7 @@
 @section("content")
 
 	<div class="title">
-		<h1>Details Apparatuur
+		<h1>Details {{ucfirst($material->name)}}
 			@if($material->status == "missing")
 				<small class="infoorange">{{$material->status}}
 			@elseif($material->status == "broken")
@@ -31,7 +31,6 @@
 			<img src="/images/{{$material->image}}" alt="{{$material->name}}" class="detailimg">
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 info">
-			<h3>{{{$material->name}}}</h3>
 			<p>{{{$material->details}}}</p>
 		</div>
 	</div>
@@ -175,6 +174,11 @@
 	    slotLabelFormat: ['dddd - D/M','HH:mm'],
 	    resources: resources,
 	    events: reservations,
+	    resourceText: function(resource)
+	    {
+	    	var text = resource.title.charAt(0).toUpperCase() + resource.title.slice(1);
+	    	return text
+	    },
 	    viewRender: function(currentView){
 				$('.fc-cell-text').each(function(){
 					if($(this).html() == "00:00")

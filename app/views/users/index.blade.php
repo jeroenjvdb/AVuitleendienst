@@ -403,6 +403,11 @@
 			    slotLabelFormat: ['dddd - D/M','HH:mm'],
 			    resources: <?php echo $categorie->materials->toJson() ?>,
 			    events: reservations,
+			    resourceText: function(resource)
+			    {
+			    	var text = resource.title.charAt(0).toUpperCase() + resource.title.slice(1);
+			    	return text
+			    },
 			    viewRender: function(currentView){
 						var minDate = moment();
 						// Past
@@ -694,6 +699,6 @@
 					}	
 			    }
 			});
-		</script>
+</script>
 	@endforeach
 @stop
