@@ -83,23 +83,23 @@ ul.nav > li > a {
 }
 ul.nav > li li a {
 	margin-left: 8px;
-	margin-bottom: 8px;
+	margin-bottom: 16px;
 	display: inline-block;
 }
 ul.nav > li li:last-child a {
-	margin-bottom: 0;
+	margin-bottom: 4px;
 }
 ul.nav > li {
-	min-width: 175px;
+	min-width: 200px;
 }
 ul.nav > li li {
-	min-width: 145px;
+	min-width: 170px;
 }
 ul.nav li a
 {
 	border-radius: 0;
 }
-ul.nav li.active a{
+ul.nav > li.active > a{
 	background: #f2f2f2 !important;
 	color: #469a3f;
 	border-radius: 0;
@@ -191,6 +191,24 @@ div.indexmain > div input, div.indexmain > div button {
 
 .dropdown-menu {
 	left: calc(50% - 100px);
+}
+
+div.span3Container {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+div.span3 {
+	width: calc(33.333% - 5px);
+	padding: 0;
+	margin-right: 15px;
+	display: inline-block;
+	float: left;
+}
+
+div.span3:nth-child(3n+0) {
+	margin-right: 0px;
 }
 
 div.span4Container {
@@ -305,14 +323,14 @@ div.beheer {
 }
 
 div.beheer div {
-	width: 50%;
+	width: 33.333%;
 	display: inline-block;
 	float: left;
 	text-align: center;
 }
 
 div.beheer div button {
-	width: 200px;
+	width: 300px;
 }
 
 .highlight {
@@ -440,14 +458,75 @@ div.detailSearch .btn {
 	display: inline-block;
 	margin-top: 0;
 }
-.reserveren div.form-group {
+.reserveren div.selectCat > div {
 	display: inline-block;
-	width: 350px;
-	margin-left: 48px;
+	width: 150px;
+	margin-left: 24px;
+	vertical-align: top;
 }
-.reserveren div.form-group select {
+.reserveren div.selectCat select {
 	margin-bottom: 0;
 }
-.reserveren .selectCat {
-	text-align: center;
+.reserveren .spanCustom {
+	width: calc(66.66667% - 10px);
+	margin-right: 0;
+	display: inline-block;
+}
+.reserveren .metadata {
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+}
+.reservatie .metadata {
+	width: calc(100% - 250px);
+}
+.reserveren .metadata * {
+	font-size: 100%;
+}
+.metadata > div {
+	margin-top: -8px;
+}
+.metadata div button {
+	float: right;
+	margin-top: 12px;
+}
+
+.metadata div button:first-child {
+	margin-right: -15px;
+}
+.reservatie h3 {
+	margin-left: 48px;
+	vertical-align: middle;
+	margin-top: 6px;
+	margin-bottom: 0;
+}
+.reservatie > div {
+	display: inline-block;
+}
+.calendarContainer {
+	padding: 0;
+	margin-top: 48px;
+}
+.calendarContainer h3 {
+	margin-top: 24px;
+	margin-bottom: 48px;
+}
+.floatRight {
+	float: right;
+}
+.item div {
+	display: inline-block;
+	width: 24%;
+}
+.item h3 {
+	margin-top: 48px;
+	margin-bottom: 24px;
+}
+.item p {
+	width: auto;
+	display: inline-block;
+}
+
+.item img {
+	display: block;
 }

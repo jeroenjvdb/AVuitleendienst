@@ -21,12 +21,12 @@
 	</div>
 	<div>
 		<a href="/beheer/gebruikers">
-		    <button class="btn btnDefault">Studentenbeheer</button>
+		    <button class="btn btnDefault">Gebruikersbeheer</button>
 		</a>
 	</div>
 	<div>
 		<a href="{{ route('setBaseLaptop') }}">
-			<button class="btn btnDefault">inloggen via studentenkaart </br>met computer</button>
+			<button class="btn btnDefault">inloggen via studentenkaart met computer</button>
 		</a>
 	</div>
 </div>

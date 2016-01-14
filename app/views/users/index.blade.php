@@ -17,19 +17,6 @@
 		<!--<h1>Welkom, {{Auth::user()->firstname}}</h1>-->
 		<h1>Reserveren</h1>
 	</div>
-	<div class="selectCat">
-
-		<h2>Categoriën</h2>
-		<div class="form-group">
-			<select class="form-control text-center" id="categorySelect">
-			@forelse($categories as $categorie)
-					<option class="text-center" value="{{$categorie->id}}">{{{ucfirst($categorie->name)}}}</option>
-				@empty
-					<option value="0"></option>
-			@endforelse
-			</select>
-		</div>
-	</div>
 	<!-- Reservation Modal -------------------------------------------------------------------------- -->
 	<div class="modal fade" id="reservationModal" tabindex="-1">
 	  <div class="modal-dialog">
@@ -85,44 +72,59 @@
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	<!-- End Reservation Modal -------------------------------------------------------------------------- -->
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3 text-center">
-			<h3>Jouw Reservatie :</h3>
+	<div class="spanContainer span3Container">
+		<div class="span span3">
+			<div class="selectCat">
+
+				<h2>Categoriën</h2>
+				<div class="form-group">
+					<select class="form-control text-center" id="categorySelect">
+					@forelse($categories as $categorie)
+							<option class="text-center" value="{{$categorie->id}}">{{{ucfirst($categorie->name)}}}</option>
+						@empty
+							<option value="0"></option>
+					@endforelse
+					</select>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="row">
-			<div  class="col-xs-12 col-md-3 text-center">
-				<h4><strong>Materiaal</strong></h4>
-				<div id="resource" class="col-md-12 text-center">
-					<h4>-</h4>
+		<div class="span spanCustom">
+			<div class="reservatie">
+				<div>
+					<h3>Jouw Reservatie :</h3>
+				</div>
+
+				<div class="metadata">
+					<div  class="col-xs-3 col-md-3 text-right">
+						<h4><strong>Start</strong></h4>
+						<div id="start" class="">
+							<h4>-</h4>
+						</div>
+					</div>
+					<div class="col-xs-3 col-md-3 text-right">
+						<h4><strong>Stop</strong></h4>
+						<div id="stop" class="">
+							<h4>-</h4>
+						</div>
+					</div>
+					<div  class="col-xs-3 col-md-3 text-right">
+						<h4><strong>Materiaal</strong></h4>
+						<div id="resource" class="">
+							<h4>-</h4>
+						</div>
+					</div>
+					<div class="col-xs-3 col-md-3 text-right">
+							<button class="btn btn-danger btn-sm remove hide" onclick="clearReservaton()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+							<button class="btn btn-primary btn-sm confirm hide" onclick="openReservaton()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+					</div>
 				</div>
 			</div>
-			<div  class="col-xs-6 col-md-3 text-center">
-				<h4><strong>Start</strong></h4>
-				<div id="start" class="col-md-12 text-center">
-					<h4>-</h4>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3 text-center">
-				<h4><strong>Stop</strong></h4>
-				<div id="stop" class="col-md-12 text-center">
-					<h4>-</h4>
-				</div>
-			</div>
-			<div class="col-xs-12 col-md-3 text-center">
-				<h4><strong>Actie</strong></h4>
-				<h4 id="actionPlaceholder">-</h4>
-					<button class="btn btn-danger btn-sm remove hide" onclick="clearReservaton()"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-					<button class="btn btn-primary btn-sm confirm hide" onclick="openReservaton()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-			</div>
-	</div>
-	
-	<div class="col-md-12">
+		</div>
+	<div class="col-md-12 calendarContainer">
 	@forelse($categories as $categorie)
 		<div class="category" id="category{{$categorie->id}}">
-			<h3 class="subTitle text-center">{{{ucfirst($categorie->name)}}}</h3>
 			<div class="categoryfull span4Container">
-				<div class="col-md-12">
+				<div>
 					<div id="calendar{{$categorie->id}}" class="fullCalendar"></div>
 				</div>
 			</div>

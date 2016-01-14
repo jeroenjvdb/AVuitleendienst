@@ -11,9 +11,9 @@ Dashboard
 @section('content')
 @if($notifications != null)
 	@if($notifications->count() != 0)
-		<div class="row">
+		<div>
 			@foreach($notifications as $notification)
-				<div class="alert alert-warning col-md-12" role="alert">
+				<div class="alert alert-warning" role="alert">
 					<div class="pull-left">
 						<i class="fa fa-bell fa-2x fa-fw"></i>
 					</div>
@@ -29,8 +29,8 @@ Dashboard
 			@endforeach
 		</div>
 	@else
-		<div class="row">
-			<div class="alert alert-info col-md-12" role="alert">
+		<div>
+			<div class="alert alert-info" role="alert">
 				<div class="pull-left">
 					<i class="fa fa-bell-slash-o fa-5x fa-fw"></i>
 				</div>
@@ -44,8 +44,8 @@ Dashboard
 		</div>
 	@endif
 @else
-	<div class="row">
-		<div class="alert alert-info col-md-12" role="alert">
+	<div>
+		<div class="alert alert-info" role="alert">
 			<div class="pull-left">
 				<i class="fa fa-bell-slash-o fa-5x fa-fw"></i>
 			</div>

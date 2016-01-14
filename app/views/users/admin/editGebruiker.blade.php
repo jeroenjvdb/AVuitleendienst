@@ -9,8 +9,9 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer</a> > <a href="/beheer/gebruikers">Gebruikers</a> > Wijzigen gebruiker</span>
-	<h2>'{{$gebruiker->firstname . ' ' . $gebruiker->lastname}}' wijzigen</h2>
+	<div class="title">
+		<h1>'{{$gebruiker->firstname . ' ' . $gebruiker->lastname}}' wijzigen</h1>
+	</div>
 	<div>
 		{{Form::open(['route' => ['users.update', $gebruiker->id], "method" => "PUT"])}}
 		<div><br>

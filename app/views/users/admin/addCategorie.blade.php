@@ -9,8 +9,9 @@
 @stop
 
 @section("content")
-	<span><a href="/beheer">Beheer </a>> <a href="/beheer/materiaal">Materiaal </a>> Categorie Toevoegen</span>
-	<h2>Categorie Toevoegen</h2>
+	<div class="title">
+		<h1>Categorie Toevoegen</h1>
+	</div>
 	@if(Session::has('message'))
         <div>{{ Session::get('message')}}</div>
     @endif
