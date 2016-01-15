@@ -249,14 +249,16 @@ class materialcontroller extends \BaseController {
 		Session::forget('input');
 		$categories['all'] ='alle';
 		$categories['categorieën'] = Categorie::getAllCategories();
-		$logbook = Material::paginate(8);	
+		$logbook = Material::all();	
+		// dd($logbook);
 		return View::make('materials.logbook',['logbook' =>$logbook,'paginate' => true,'categories' =>$categories]);
 	}
 
 	public function getReservations($id)
 	{
-		$reservations = $this->reservation->getLastReservations($id);
-		return View::make('materials.lastReservation',['reservations' => $reservations]);
+		$material = Material::find($id);
+		$reservations = Material::find($id)->reservations()->orderBy('created_at', 'DESC')->get(); //$this->reservation->getLastReservations($id);
+		return View::make('materials.lastReservation',['material' => $material, 'reservations' => $reservations]);
 	}
 
 	public function filterLogbook()
@@ -293,6 +295,7 @@ class materialcontroller extends \BaseController {
 		{
 			$errorMessagetype = "1";
 			$barcodeExists = $this->material->where("barcode", "=", Input::get('barcode'))->first();
+			// dd($barcodeExists );
 			if( $barcodeExists )
 			{
 				$errorMessagetype = "2";
@@ -315,7 +318,9 @@ class materialcontroller extends \BaseController {
 							foreach ($resuse as $keyresuse) {
 								$keyresuse->usercheckedin = Auth::user()->id;
 								$keyresuse->save();
-							}							
+							}			
+							$barcodeExists->availability = 'beschikbaar';			
+							$barcodeExists->save();	
 							//return succes-page WITH date
 							return View::make('materials.succes',['enddate' => '', 'matid' => $barcodeExists->id]);
 
@@ -422,6 +427,8 @@ class materialcontroller extends \BaseController {
 							$resuse = Reservationuser::find($ultimateResUseId);
 							$resuse->usercheckedout = Auth::user()->id;
 							$resuse->save();
+							$barcodeExists->availability = 'uitgeleend';
+							$barcodeExists->save();
 							//return succes-page WITH date
 							return View::make('materials.succes',['enddate' => $enddate, 'matid' => $barcodeExists->id]);
 						}

@@ -14,7 +14,7 @@
 
 		<div class="panel panel-default" style="clear:both;">
 			<div class="panel-heading">
-				<h1>Laatste reservaties van {{$reservations[0]->name}}</h1>
+				<h1>Laatste reservaties van {{$material->name}}</h1>
 			</div>
 
 			<!-- Search table -->
@@ -42,8 +42,8 @@
 				<tbody>
 					@foreach($reservations as $reservation)
 						<tr>
-							<td>{{$reservation->firstname}} {{$reservation->lastname}}</td>
-							<td>{{$reservation->email}}</td>
+							<td>{{$reservation->users->first()->firstname}} {{$reservation->users->first()->lastname}}</td>
+							<td>{{$reservation->users->first()->email}}</td>
 							<td>{{{$reservation->reason}}}</td>
 							<td>{{{$reservation->datecheckedin}}}</td>
 							<td>{{{$reservation->datecheckedout}}}</td>
