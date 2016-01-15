@@ -44,20 +44,23 @@
 		@forelse($categories as $categorie)
 
 			@if(count($categorie->materials) > 0)
-				<div class="col-md-12 table-responsive category" id="category{{$categorie->id}}">
+				<div class="col-md-12 table-responsive category category{{$categorie->id}}">
 
 					<!-- Search table -->
 					<div class="panel-body">
 						<div class="form-group">
 							<div class="input-group">
-								<input id="filter{{$categorie->id}}" type="text" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Zoek...">
+								<input id="filter{{$categorie->id}}" type="text" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder inputFilter" placeholder="Zoek..."/>
 								<span class="input-group-btn heading-button">
 									<button type="submit" class="btn btn-lg bg-light rounded"><i class="fa fa-search"></i></button>
 								</span>
 							</div>
 						</div>
 					</div>
-
+					<h3>
+	 				{{ucfirst($categorie->name)}}
+	 			    <a href="{{route('categories.edit', $categorie->id)}}" class="btn btn-sm btn-default pull-right"><i class="fa fa-edit"></i></a>
+	 				</h3>
 					<table class="footable table m-b-none toggle-arrow" ui-jq="footable" data-filter="#filter{{$categorie->id}}" data-page-size="10">
 						<thead>
 							<tr>
@@ -98,8 +101,12 @@
 							</tr>
 						</tfoot>
 					</table>
+				</div>
 				@else
 					<h4 class="notification">Geen materiaal beschikbaar.</h4>
+					<a class="btn btn-lg btn-danger " href="{{route('categories.destroy',$categorie->id)}}">
+						<i class="fa fa-trash"></i> Categorie verwijderen
+					</a>
 				@endif
 
 			

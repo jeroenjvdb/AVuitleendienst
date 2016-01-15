@@ -118,17 +118,16 @@ class categoriecontroller extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->categorie = Categorie::find($id);
-		if($this->categorie->isCategoryEmpty($id))
+		$categorie = Categorie::find($id);
+		if($categorie->materials->count() == 0)
 		{
-			$this->categorie->delete(); 
-			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt de categorie '.$this->categorie->name.' met succes verwijderd');	
+			$categorie->delete(); 
+			return Redirect::back()->with('success', 'U hebt de categorie '.$categorie->name.' met succes verwijderd');	
 		}
 		else
 		{
-			return Redirect::to('/beheer/materiaal')->with('message', 'u moet eerst alle materiaal uit '.$this->categorie->name.' verwijderen voor u deze categorie kan verwijderen');
-		}
-		
+			return Redirect::back()->with('error', 'Kan categorie niet verwijderen. </br>Gelieve eerst al het materiaal uit de categorie te verwijderen.');	
+		}	
 	}
 
 

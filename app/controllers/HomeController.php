@@ -17,7 +17,8 @@ class HomeController extends BaseController {
 		if(Cookie::get('baseLaptop') == null)
 		{
 			return Redirect::route('login');
-		} else
+		}
+		else
 		{
 			return Redirect::route('cardLogin');
 		}

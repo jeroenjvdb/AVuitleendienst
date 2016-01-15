@@ -108,7 +108,8 @@ class materialcontroller extends \BaseController {
 			/*return $this->reservation->getMaterialStatus($id);*/
 			$material = $this->material->getMaterialById($id);
 			$reservations = $material->reservations->load('users');
-			return View::make('materials.detail',['material' => $material,'reservations' => $reservations]);
+			$users = User::where('id','!=',Auth::user()->id)->get();
+			return View::make('materials.detail',['material' => $material,'reservations' => $reservations,'users' => $users]);
 		}
 		else
 		{
@@ -200,7 +201,7 @@ class materialcontroller extends \BaseController {
 		{
 			$name = Material::find($id)->name;
 			$this->material->deleteMaterial($id);
-			return Redirect::to('/beheer/materiaal')->with('message', 'u hebt succesvol '.$name.' verwijderd');
+			return Redirect::back()->with('success', 'U hebt succesvol '.ucfirst($name).' verwijderd');
 		}
 		else
 		{

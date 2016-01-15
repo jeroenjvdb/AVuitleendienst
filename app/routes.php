@@ -63,7 +63,7 @@ Route::group(array('before' => 'auth'),function(){
 		Route::get('/beheer/materiaal', 'HomeController@beheerMateriaal');
 		Route::get('/beheer/gebruikers', 'HomeController@beheerGebruikers');
 
-
+		Route::get('/categories/delete/{id}',['as' => 'categories.destroy','uses'=>'categoriecontroller@destroy']);
 		Route::get('/beheer/notifications', ['as' => 'notifications.index', 'uses' => 'NotificationController@index']);
 		Route::get('/beheer/notifications/create', ['as' => 'notifications.create', 'uses' => 'NotificationController@create']);
 		Route::post('/beheer/notifications/create', ['uses' => 'NotificationController@store']);

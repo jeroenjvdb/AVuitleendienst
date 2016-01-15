@@ -35,7 +35,9 @@
 		<ul class="dropdownMenu">
 			<li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
 			<li><a href="{{route('myreservations')}}"><i class="fa fa-calendar-check-o fa-fw"></i> Mijn Reservaties</a></li>
-			<li><a href="{{ route('setBaseLaptop') }}"><i class="fa fa-desktop"></i> Nieuw basisstation</a></li>
+			@if(Auth::user()->type == "admin")
+				<li><a href="{{ route('setBaseLaptop') }}"><i class="fa fa-desktop"></i> Nieuw basisstation</a></li>
+			@endif
 			<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Afmelden</a></li>
 		</ul>
 	</li>

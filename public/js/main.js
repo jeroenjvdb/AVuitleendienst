@@ -9,12 +9,12 @@ $(document).ready(function(){
     
     //Show selected category
     var showCat = $('#categorySelect').val();
-    $('#category' + showCat).show();    
+    $('.category' + showCat).show();    
 
     //Categroy change hide/show needed categorie(s)
     $('#categorySelect').on('change',function(){
         $('.category').hide();
-        $('#category' + $(this).val()).show();  
+        $('.category' + $(this).val()).show();  
     });
 
     $(".nav-bars").click(function() {

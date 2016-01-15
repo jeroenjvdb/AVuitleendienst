@@ -1,7 +1,10 @@
 <?php
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class Categorie extends Eloquent {
 
+	use SoftDeletingTrait;
+	
 	protected $fillable =['name'];
 
 	public static $rules=[

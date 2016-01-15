@@ -120,23 +120,51 @@
 				</div>
 			</div>
 		</div>
-	<div class="col-md-12 calendarContainer">
-	@forelse($categories as $categorie)
-		<div class="category" id="category{{$categorie->id}}">
-			<div class="categoryfull span4Container">
-				<div>
-					<div id="calendar{{$categorie->id}}" class="fullCalendar"></div>
+		<div class="col-md-12 calendarContainer">
+		@forelse($categories as $categorie)
+			<div class="category category{{$categorie->id}}">
+				<div class="categoryfull span4Container">
+					<div>
+						<div id="calendar{{$categorie->id}}" class="fullCalendar"></div>
+					</div>
 				</div>
 			</div>
+		@empty
+			<div class="nocategory">
+				<p>Oeps looks there is a problem please contact webmaster and let him do some more magic.</p>
+			</div>
+		@endforelse	
 		</div>
-	@empty
-		<div class="nocategory">
-			<p>Oeps looks there is a problem please contact webmaster and let him do some more magic.</p>
-		</div>
-	@endforelse	
 	</div>
-
-</div>	
+</div>
+@foreach($categories as $categorie)
+<div class="row">
+	<div class="category category{{$categorie->id}}">
+	<div class="col-md-12">
+		<h2 class="subTitle">{{ucfirst($categorie->name)}}</h2>
+		<div class="span4Container">
+			@forelse($categorie->materials as $material)
+				@if($material->status == 'ok')
+				<div class="col-sm-6 col-md-4 col-xs-12 span4">
+					<div class="thumbnail tnExtra">
+						<a href="{{$app['url']->to('/')}}/materials/{{$material->id}}" class="itemBig">
+							<h3>{{{$material->name}}}</h3>
+							<img src="/images/{{$material->image}}" alt="">
+							<div class="caption">
+								<p>{{{$material->details}}}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				@endif
+			@empty
+				<h4 class="notification">Geen accessoires voor dit item.</h4>
+			@endforelse
+		</div>
+	</div>
+	</div>
+</div>
+@endforeach
 @stop
 
 @section('scripts')
@@ -283,6 +311,7 @@
 
                 },
                 error : function(jqXHR,textStatus,errorThrown ){
+                	$('#reservationModal').modal('hide');
                 	var message = "<p>"+jqXHR.responseJSON.errorMessage+"</p>"
                 	if(jqXHR.responseJSON.errors)
                 	{
@@ -292,7 +321,8 @@
                 		};
                 		message += "</ul>"
                 	}
-                	//Show success message
+                	
+                	//Show error message
                   	BootstrapDialog.show({
 		                type:  BootstrapDialog.TYPE_DANGER,
 		                title: 'Probleem met reservatie',
@@ -358,26 +388,34 @@
 					reservations[i].end = end.add(4,'hours');
 				}
 
+				var colorSet = false;
 				for (var u = 0; u < reservations[i].users.length; u++)
 				{
-					if(reservations[i].users[u].type == "admin" || reservations[i].users[u].type == "monitor")
+					if(!colorSet)
 					{
-						reservations[i].backgroundColor = "#FA5D5D";
-						reservations[i].borderColor = "#FA5D5D";
-						reservations[i].textColor = "#ffffff";
+						if(reservations[i].users[u].type == "admin" || reservations[i].users[u].type == "monitor")
+						{
+							reservations[i].backgroundColor = "#FA5D5D";
+							reservations[i].borderColor = "#FA5D5D";
+							reservations[i].textColor = "#ffffff";
+							colorSet = true;
+						}
+						else if(reservations[i].users[u].type == "teacher")
+						{
+							reservations[i].backgroundColor = "#B371A1";
+							reservations[i].borderColor = "#B371A1";
+							reservations[i].textColor = "#ffffff";
+							colorSet = true;
+						}
+						else if(reservations[i].users[u].type == "student")
+						{
+							reservations[i].backgroundColor = "#6989C1";
+							reservations[i].borderColor = "#6989C1";
+							reservations[i].textColor = "#ffffff";
+							colorSet = true;
+						}	
 					}
-					else if(reservations[i].users[u].type == "teacher")
-					{
-						reservations[i].backgroundColor = "#B371A1";
-						reservations[i].borderColor = "#B371A1";
-						reservations[i].textColor = "#ffffff";
-					}
-					else if(reservations[i].users[u].type == "student")
-					{
-						reservations[i].backgroundColor = "#6989C1";
-						reservations[i].borderColor = "#6989C1";
-						reservations[i].textColor = "#ffffff";
-					}
+					
 				}
 			};
 			$('#calendar<?php echo $categorie->id ?>').fullCalendar({
@@ -409,15 +447,21 @@
 			    	return text
 			    },
 			    viewRender: function(currentView){
-						var minDate = moment();
-						// Past
-						if (minDate >= currentView.start && minDate <= currentView.end) {
-							$(".fc-prev-button").prop('disabled', true); 
-							$(".fc-prev-button").addClass('fc-state-disabled'); 
-						}
-						else {
-							$(".fc-prev-button").removeClass('fc-state-disabled'); 
-							$(".fc-prev-button").prop('disabled', false); 
+						var userType = "<?php echo Auth::user()->type ?>";
+						
+						if(userType == "student" || userType == "teacher")
+						{
+							var minDate = moment();
+							minDate.add(1, 'h');
+							// Disable passed time
+							if (minDate >= currentView.start && minDate <= currentView.end) {
+								$(".fc-prev-button").prop('disabled', true); 
+								$(".fc-prev-button").addClass('fc-state-disabled'); 
+							}
+							else {
+								$(".fc-prev-button").removeClass('fc-state-disabled'); 
+								$(".fc-prev-button").prop('disabled', false); 
+							}
 						}
 
 						$('.fc-cell-text').each(function(){
