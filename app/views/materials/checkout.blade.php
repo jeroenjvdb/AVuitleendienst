@@ -27,6 +27,23 @@
 			{
 				document.getElementById("focus").focus();
 			}
+			$('#focus').on('input',function(){
+				var barcode = $(this).val();
+				for(var i=0; i < barcode.length; i++)
+				{
+					barcode = barcode.replace("°","");
+					barcode = barcode.replace("&","1");
+					barcode = barcode.replace("é","2");
+					barcode = barcode.replace('"',"3");
+					barcode = barcode.replace("'","4");
+					barcode = barcode.replace("(","5");
+					barcode = barcode.replace("§","6");
+					barcode = barcode.replace("è","7");
+					barcode = barcode.replace("!","8");
+					barcode = barcode.replace("ç","9");
+					barcode = barcode.replace("à","0");
+				}
+			});
 		</script>
 	@stop
 @stop
